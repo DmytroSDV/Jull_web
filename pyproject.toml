@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "jull-web"
+version = "0.1.0"
+description = ""
+authors = ["DmytroSDV <142345037+DmytroSDV@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
