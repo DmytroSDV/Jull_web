@@ -1,0 +1,296 @@
+[
+    {
+        "bank_name": "Приватбанк",
+        "bank_cash_desk": "42.000 / 43.000",
+        "bank_card_online": "42.270 /42.919",
+        "time_set": "2024.04.28 18:00"
+    },
+    {
+        "bank_name": "Укрэксимбанк",
+        "bank_cash_desk": "42.300 / 43.100",
+        "bank_card_online": "42.400 /42.900",
+        "time_set": "2024.04.26 22:42"
+    },
+    {
+        "bank_name": "Укргазбанк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.250 /42.750",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "ПУМБ",
+        "bank_cash_desk": "42.400 / 43.000",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 18:02"
+    },
+    {
+        "bank_name": "Укрсиббанк",
+        "bank_cash_desk": "42.100 / 43.000",
+        "bank_card_online": "41.410 /42.250",
+        "time_set": "2024.04.28 18:02"
+    },
+    {
+        "bank_name": "Сенс Банк",
+        "bank_cash_desk": "42.500 / 43.100",
+        "bank_card_online": "40.600 /0.000",
+        "time_set": "2024.04.28 18:01"
+    },
+    {
+        "bank_name": "Универсал Банк",
+        "bank_cash_desk": "41.400 / 42.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 22:42"
+    },
+    {
+        "bank_name": "Креди Агриколь Банк",
+        "bank_cash_desk": "42.200 / 43.050",
+        "bank_card_online": "42.000 /42.660",
+        "time_set": "2024.04.26 22:40"
+    },
+    {
+        "bank_name": "OTP Bank",
+        "bank_cash_desk": "42.000 / 42.750",
+        "bank_card_online": "41.850 /42.700",
+        "time_set": "2024.04.26 22:42"
+    },
+    {
+        "bank_name": "Кредобанк",
+        "bank_cash_desk": "42.410 / 42.940",
+        "bank_card_online": "42.260 /42.890",
+        "time_set": "2024.04.28 18:02"
+    },
+    {
+        "bank_name": "Таскомбанк",
+        "bank_cash_desk": "42.300 / 43.100",
+        "bank_card_online": "42.248 /42.899",
+        "time_set": "2024.04.27 22:41"
+    },
+    {
+        "bank_name": "Абанк",
+        "bank_cash_desk": "42.200 / 43.000",
+        "bank_card_online": "42.200 /42.918",
+        "time_set": "2024.04.28 17:47"
+    },
+    {
+        "bank_name": "Аккордбанк",
+        "bank_cash_desk": "42.550 / 43.050",
+        "bank_card_online": "42.520 /43.550",
+        "time_set": "2024.04.26 22:41"
+    },
+    {
+        "bank_name": "Банк Кредит Днепр",
+        "bank_cash_desk": "42.350 / 42.950",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 22:41"
+    },
+    {
+        "bank_name": "Восток Банк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.000 /42.820",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Идея Банк",
+        "bank_cash_desk": "42.500 / 42.950",
+        "bank_card_online": "42.500 /42.800",
+        "time_set": "2024.04.28 18:00"
+    },
+    {
+        "bank_name": "МТБ Банк",
+        "bank_cash_desk": "42.300 / 43.100",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.27 22:41"
+    },
+    {
+        "bank_name": "Альянс Банк",
+        "bank_cash_desk": "41.800 / 43.000",
+        "bank_card_online": "41.500 /43.000",
+        "time_set": "2024.04.27 08:00"
+    },
+    {
+        "bank_name": "Коминбанк",
+        "bank_cash_desk": "42.600 / 43.100",
+        "bank_card_online": "42.200 /42.900",
+        "time_set": "2024.04.28 18:03"
+    },
+    {
+        "bank_name": "Банк Львов",
+        "bank_cash_desk": "42.720 / 42.890",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 23:40"
+    },
+    {
+        "bank_name": "Правекс Банк",
+        "bank_cash_desk": "42.650 / 42.950",
+        "bank_card_online": "42.350 /42.750",
+        "time_set": "2024.04.28 18:03"
+    },
+    {
+        "bank_name": "Международный Инвестиционный Банк",
+        "bank_cash_desk": "42.300 / 43.050",
+        "bank_card_online": "42.330 /42.710",
+        "time_set": "2024.04.26 22:42"
+    },
+    {
+        "bank_name": "Радабанк",
+        "bank_cash_desk": "42.300 / 43.050",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.27 08:00"
+    },
+    {
+        "bank_name": "Пиреус Банк",
+        "bank_cash_desk": "42.550 / 42.990",
+        "bank_card_online": "41.930 /42.840",
+        "time_set": "2024.04.27 08:00"
+    },
+    {
+        "bank_name": "Клиринговый Дом",
+        "bank_cash_desk": "42.640 / 43.090",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 23:40"
+    },
+    {
+        "bank_name": "Полтава-Банк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.521 /43.796",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Бізбанк",
+        "bank_cash_desk": "42.600 / 42.880",
+        "bank_card_online": "42.000 /42.700",
+        "time_set": "2024.04.27 08:00"
+    },
+    {
+        "bank_name": "Индустриалбанк",
+        "bank_cash_desk": "42.000 / 43.200",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 18:02"
+    },
+    {
+        "bank_name": "Юнекс Банк",
+        "bank_cash_desk": "41.500 / 43.050",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 22:22"
+    },
+    {
+        "bank_name": "Агропросперис Банк",
+        "bank_cash_desk": "42.450 / 42.950",
+        "bank_card_online": "42.600 /0.000",
+        "time_set": "2024.04.28 18:01"
+    },
+    {
+        "bank_name": "РВС Банк",
+        "bank_cash_desk": "42.400 / 43.050",
+        "bank_card_online": "42.360 /43.040",
+        "time_set": "2024.04.28 18:01"
+    },
+    {
+        "bank_name": "Скай Банк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "41.900 /42.900",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Грант",
+        "bank_cash_desk": "42.300 / 43.000",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 18:00"
+    },
+    {
+        "bank_name": "Кристалбанк",
+        "bank_cash_desk": "42.300 / 43.050",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 18:13"
+    },
+    {
+        "bank_name": "Кредитвест Банк",
+        "bank_cash_desk": "42.300 / 42.600",
+        "bank_card_online": "42.300 /42.600",
+        "time_set": "2024.04.28 18:13"
+    },
+    {
+        "bank_name": "Банк 3/4",
+        "bank_cash_desk": "42.000 / 42.900",
+        "bank_card_online": "42.200 /42.800",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Кредит Европа Банк",
+        "bank_cash_desk": "41.900 / 42.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Метабанк",
+        "bank_cash_desk": "42.100 / 42.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 22:54"
+    },
+    {
+        "bank_name": "Альтбанк",
+        "bank_cash_desk": "42.150 / 43.200",
+        "bank_card_online": "42.150 /43.200",
+        "time_set": "2024.04.26 23:41"
+    },
+    {
+        "bank_name": "Коминвестбанк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.200 /42.900",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Европромбанк",
+        "bank_cash_desk": "42.750 / 42.950",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 22:42"
+    },
+    {
+        "bank_name": "Поликомбанк",
+        "bank_cash_desk": "42.500 / 43.050",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 18:02"
+    },
+    {
+        "bank_name": "ОКСИ Банк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.100 /43.100",
+        "time_set": "2024.04.28 08:00"
+    },
+    {
+        "bank_name": "Украинский банк реконструкции и развития",
+        "bank_cash_desk": "42.450 / 42.950",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.28 18:15"
+    },
+    {
+        "bank_name": "Первый инвестиционный Банк",
+        "bank_cash_desk": "42.650 / 43.000",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.27 08:00"
+    },
+    {
+        "bank_name": "Траст-капитал",
+        "bank_cash_desk": "42.800 / 43.200",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.26 22:34"
+    },
+    {
+        "bank_name": "БТА Банк",
+        "bank_cash_desk": "42.100 / 43.150",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.04.27 22:43"
+    },
+    {
+        "bank_name": "izibank",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.248 /42.899",
+        "time_set": "2024.04.28 00:00"
+    },
+    {
+        "bank_name": "monobank",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "42.280 /42.850",
+        "time_set": "2024.04.28 18:01"
+    }
+]

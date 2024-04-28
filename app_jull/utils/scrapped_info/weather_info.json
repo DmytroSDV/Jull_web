@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 30.5233,
+        "lat": 50.45
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "чисте небо",
+            "icon": "01d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 19.6,
+        "feels_like": 18.56,
+        "temp_min": 17.93,
+        "temp_max": 19.6,
+        "pressure": 1026,
+        "humidity": 36,
+        "sea_level": 1026,
+        "grnd_level": 1010
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.74,
+        "deg": 42,
+        "gust": 4.21
+    },
+    "clouds": {
+        "all": 4
+    },
+    "dt": 1714318282,
+    "sys": {
+        "type": 2,
+        "id": 2089522,
+        "country": "UA",
+        "sunrise": 1714271871,
+        "sunset": 1714324357
+    },
+    "timezone": 10800,
+    "id": 696050,
+    "name": "Pushcha-Vodytsya",
+    "cod": 200
+}
