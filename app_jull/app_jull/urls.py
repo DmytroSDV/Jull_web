@@ -21,5 +21,10 @@ from django.contrib import admin
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("news.urls")),
+
+    path("", include("app_photo.urls")),
+    path("", include("notes.urls"))
+
     path("users/", include("users.urls")),
+
 ]

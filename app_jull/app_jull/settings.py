@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 
 from pathlib import Path
+
+import cloudinary_storage
+
 import os
 
 
@@ -23,6 +26,7 @@ from dotenv import load_dotenv
 
 dotenv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
 load_dotenv(dotenv_path)
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -59,8 +63,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "news",
+
+    "app_photo",
+    "cloudinary",
+    "cloudinary_storage",
+    "notes"
+
     "users",
     "django_celery_results",
+
 ]
 
 
@@ -180,6 +191,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
+CLOUDINARY_STORAGE={
+    'CLOUD_NAME':'dozl7iemt',
+    'API_KEY':'828841675812886',
+    'API_SECRET':'LqE8T3BpI1spWSj_bDAipypzMm8'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 AUTH_USER_MODEL = "users.CustomUser"
 
 CELERY_BROKER_URL = "redis://localhost:6379/0"
@@ -196,4 +216,5 @@ CACHES = {
         "LOCATION": "redis://localhost:6379/1",
     }
 }
+
 

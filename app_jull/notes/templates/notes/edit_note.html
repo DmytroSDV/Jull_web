@@ -1,0 +1,18 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+<div class="container">
+    <h1>Edit Note</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" class="form-control">{{ form.initial.content }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags" class="form-control" value="{{ form.initial.tags }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{%extends "news/base_form.html"%}
+{%block content%}
+<div class="container mt-3">
+    <form action="{% url 'app_photo:edit_image' data.id %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <img src="{{ data.image.url }}" width="360" alt="" style="">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Description</label>
+            <input type="text" value="{{data.description}}" name="description">
+            <span>{{form.errors.description}}</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+         <button type="submit" class="btn btn-primary">Reset</button>
+    </form>
+</div>
+{%endblock%}

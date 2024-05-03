@@ -1,0 +1,14 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+<div class="container">
+    <h1>Search Notes</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags" class="form-control" placeholder="Enter tags">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+{% endblock %}

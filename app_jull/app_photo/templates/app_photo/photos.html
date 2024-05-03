@@ -1,0 +1,36 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+<div class="container mt-3">
+    <h1>Галерея медиафайлов</h1>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <a href="" class="btn btn-primary btn-block">Мои фотографии</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{%url 'app_photo:show_video'%}" class="btn btn-primary btn-block">Мои видео</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{%url 'app_photo:show_another'%}" class="btn btn-primary btn-block">Другие файлы</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        {% for data in image_data %}
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                {% if data.file_type == 'image' %}
+                     <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}">
+                <div class="card-body">
+                    <p class="card-text">{{ data.description }}</p>
+                    <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'app_photo:remove_image' data.id %}" class="btn btn-primary">Delete</a>
+                    <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
