@@ -1,0 +1,13 @@
+{% extends "news/base_form.html"%}
+
+
+{% block content %}
+
+<div><h2>{{sience.title}}</h2></div>
+<span><h3>{{sience.date_of}}  {{sience.time_of}}</h3></span>   
+<div>
+    <img src={{sience.image_url}} width="" height="" alt={{sience.title}}> 
+</div>   
+<div>{{sience.content}}</div>    
+
+{% endblock %}
