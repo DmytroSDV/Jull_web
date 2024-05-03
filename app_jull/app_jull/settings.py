@@ -51,8 +51,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -62,6 +60,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "news",
     "users",
+    "django_celery_results",
 ]
 
 
@@ -180,4 +179,21 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+
 AUTH_USER_MODEL = "users.CustomUser"
+
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+# CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+# CELERY_RESULT_BACKEND = "django-db"
+
+# celery setting.
+CELERY_CACHE_BACKEND = "default"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://localhost:6379/1",
+    }
+}
+

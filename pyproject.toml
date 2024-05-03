@@ -12,7 +12,18 @@ django = "^5.0.4"
 psycopg2 = "^2.9.9"
 python-dotenv = "^1.0.1"
 pillow = "^10.3.0"
+scrapy = "^2.11.1"
+requests = "^2.31.0"
+redis = "^5.0.4"
+django-redis = "^5.4.0"
+celery = "^5.4.0"
+django-celery-results = "^2.5.1"
 
+
+
+[tool.poetry.group.test.dependencies]
+eventlet = "^0.36.1"
+flower = "^2.0.1"
 
 [build-system]
 requires = ["poetry-core"]

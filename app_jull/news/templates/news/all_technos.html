@@ -1,0 +1,26 @@
+{% extends "news/base_form.html"%}
+
+
+{% block content %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>Технології</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_technos'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for techon in techno_items %}
+                <div class="blockComingUK"> 
+                        <a class="blockComingUK_link clink" href="{% url "news:one_techno" techon.title %}"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{techon.image_url}} width="" height="" alt={{techon.title}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <span class="">{{techon.date_of}} {{techon.time_of}}</span> </div>
+                        <span class="blockComing_span">{{techon.title}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
+{% endblock %}

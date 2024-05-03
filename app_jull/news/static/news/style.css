@@ -1,47 +1,90 @@
-/* Общие стили для контейнера */
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+.blockComingUK {
+    width: 24%;
+    display: block;
+    unicode-bidi: isolate;
 }
 
-/* Стили для контейнера на широких экранах */
-@media (min-width: 100px) {
-    .container {
-        width: 1170px;
-    }
-}
-
-/* Стили для колонки col-md-8 */
-.col-md-8 {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Стили для футера */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-.main-content {
-    flex: 1 0 auto;
-}
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.H2alike {
+    background: #212121;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
     width: 100%;
-    background-color: #128049;
-    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
 }
-.footer .container {
-    padding: 20px 0;
+
+.ukraine {
+    margin-bottom: 50px;
 }
-.col-md-12 text-right{
-    float: right;
+
+.LinkH2Alike {
+    font-size: 18px;
+    padding-right: 15px;
+    color: #d00000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: "Open Sans", serif;
+    color: #212121;
+}
+
+h2 {
+    font-size: 27px;
+    line-height: 34px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    font-family: 'Russo One';
+}
+
+.BlockAlike {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.blockComing_flex img {
+    width: 100%;
+    object-fit: cover;
+}
+
+img,
+form {
+    border: 0;
+    margin: 0;
+}
+
+img,
+object,
+iframe,
+audio,
+video,
+table,
+embed {
+    max-width: 100%;
+}
+
+.blockComing_flex {
+    height: 100%;
 }

@@ -1,4 +1,96 @@
 {% extends "news/base_form.html" %}
 {% block content %}
-{% load static %}
+
+{% comment %} Articles {% endcomment %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>Статті</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_articles'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for article in article_items %}
+                <div class="blockComingUK"> 
+                        <a class="blockComingUK_link clink" href="{% url 'news:one_article' article.title %}"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{article.image_url}} width="" height="" alt={{article.title}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <span class="">{{article.date_of}} {{article.time_of}}</span> </div>
+                        <span class="blockComing_span">{{article.title}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
+
+{% comment %} Siences {% endcomment %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>Наука</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_siences'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for sience in sience_items %}
+                <div class="blockComingUK"> 
+                        <a class="blockComingUK_link clink" href="{% url 'news:one_sience' sience.title %}"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{sience.image_url}} width="" height="" alt={{sience.title}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <span class="">{{sience.date_of}} {{sience.time_of}}</span> </div>
+                        <span class="blockComing_span">{{sience.title}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
+
+{% comment %} Techno {% endcomment %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>Технології</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_technos'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for techno in techno_items %}
+                <div class="blockComingUK"> 
+                        <a class="blockComingUK_link clink" href="{% url 'news:one_techno' techno.title %}"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{techno.image_url}} width="" height="" alt={{techno.title}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <span class="">{{techno.date_of}} {{techno.time_of}}</span> </div>
+                        <span class="blockComing_span">{{techno.title}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
+
+{% comment %} Sport {% endcomment %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>Спорт</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_sports'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for sport in sport_items %}
+                <div class="blockComingUK"> 
+                        <a class="blockComingUK_link clink" href="{% url 'news:one_sport' sport.title %}"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{sport.image_url}} width="" height="" alt={{sport.title}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <span class="">{{sport.date_of}} {{sport.time_of}}</span> </div>
+                        <span class="blockComing_span">{{sport.title}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
+
 {% endblock %}
