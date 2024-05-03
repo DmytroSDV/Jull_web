@@ -1,0 +1,50 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+<div class="container mt-3">
+    <h1 class="mb-4">Галерея медіафайлів</h1>
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <a href="{% url 'app_photo:show_photo' %}" class="btn btn-primary btn-block">Мої фотографії</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'app_photo:show_video' %}" class="btn btn-primary btn-block">Мої відео</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-block">Інші файли</a>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for data in image_data %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                {% if data.file_type == 'image' %}
+                <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}">
+                {% elif data.file_type == 'text' %}
+                <div class="card-body text-center">
+                    <span style="font-size: 5rem;">📄</span> <!-- Використовуємо символ для текстового файлу -->
+                </div>
+                {% elif data.file_type == 'video' %}
+                <div class="card-body">
+                    <video controls class="card-img-top" style="max-width: 100%;">
+                        <source src="{{ data.url }}" type="video/mp4">
+                        Ваш браузер не підтримує відео.
+                    </video>
+                </div>
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text">{{ data.description }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Редагувати опис</a>
+                        <a href="{% url 'app_photo:remove_image' data.id %}" class="btn btn-danger">Видалити</a>
+                        <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-success">Завантажити</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+

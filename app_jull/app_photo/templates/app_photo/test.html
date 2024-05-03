@@ -1,0 +1,22 @@
+{%extends "news/base_form.html"%}
+{%block content%}
+<div class="contain mt-3"><h1>pictures</h1>
+    <div class="row">
+         {% for data in image_data %}
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}" style="max-width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">{{ data.description }}
+                    </p>
+                    <a href="" class="btn btn-primary">Edit description</a>
+                    <a href="" class="btn btn-primary">Delete picture</a>
+                </div>
+            </div>
+        </div>
+        >
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}

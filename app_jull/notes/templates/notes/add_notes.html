@@ -1,0 +1,18 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+<div class="container" >
+        <h1>Add New Note</h1>
+        <form action="{% url 'notes:add_notes' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+{% endblock %}

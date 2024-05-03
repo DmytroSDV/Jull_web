@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "news",
+    "app_photo",
+    "cloudinary",
+    "cloudinary_storage",
+    "notes"
 ]
 
 MIDDLEWARE = [
@@ -122,3 +127,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CLOUDINARY_STORAGE={
+    'CLOUD_NAME':'dozl7iemt',
+    'API_KEY':'828841675812886',
+    'API_SECRET':'LqE8T3BpI1spWSj_bDAipypzMm8'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
