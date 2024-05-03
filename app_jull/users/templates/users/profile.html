@@ -1,0 +1,34 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+<div class="profile-container">
+    <h1>Profile: {{ user.username }}</h1>
+    <img src="https://i.pinimg.com/236x/77/b2/01/77b201a6f553878e6cc53ea4da4bc568.jpg" alt="Avatar of user">
+</div>
+<form method="post" enctype="multipart/form-data" class="avatar-input">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="id_avatar" class="small mb-1">Change Avatar:</label>
+                {{ profile_form.avatar }}
+                <input type="hidden" name="username" value="{{ user.username }}">
+                <span>{{ profile_form.avatar.errors }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="btn-grid">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+
+</form>
+
+<div class="btn-group">
+    <a href="{% url 'users:logout' %}" class="btn btn-danger">Logout</a>
+    <a href="{% url 'users:password_reset' %}" class="btn btn-primary">Reset Password</a>
+    <a href="{% url 'users:contacts' %}" class="btn btn-secondary login-button">Contacts</a>
+    <a href="" class="btn btn-secondary login-button">Galery</a>
+</div>
+{% endblock %}

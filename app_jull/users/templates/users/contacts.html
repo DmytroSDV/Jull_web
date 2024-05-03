@@ -1,0 +1,39 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+<h2>Contact List</h2>
+<form method="GET" class="search-form" action="{% url 'users:contact_search' %}">
+    <div class="search-input-container">
+        <input type="text" name="query" placeholder="Search by name, address, phone, email, or birthday">
+        <button type="submit">
+            <img src="{% static 'microphone-black-shape.png' %}" alt="Microphone">
+        </button>
+    </div>
+</form>
+
+<a href="{% url 'users:contact_create' %}" class="btn btn-primary">Add contact</a>
+<a href="{% url 'users:upcoming_birthdays' %}" class="btn btn-info">Upcoming Birthdays</a>
+
+{% if contacts %}
+    <ul>
+    {% for contact in contacts %}
+        <li>
+            <strong>Name:</strong> {{ contact.name }}<br>
+            <strong>Address:</strong> {{ contact.address }}<br>
+            <strong>Phone Number:</strong> {{ contact.phone_number }}<br>
+            <strong>Email:</strong> {{ contact.email }}<br>
+            <strong>Birthday:</strong> {{ contact.birthday }}<br>
+            <a href="{% url 'users:contact_edit' contact.pk %}" class="btn btn-info">Edit</a>
+            <form action="{% url 'users:contact_delete' contact.pk %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no contacts yet.</p>
+{% endif %}
+
+{% endblock %}

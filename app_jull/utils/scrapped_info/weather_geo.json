@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Kremenchuk",
+        "local_names": {
+            "lt": "Kremenčukas",
+            "ru": "Кременчуг",
+            "et": "Krementšuk",
+            "da": "Krementjuk",
+            "bg": "Кременчук",
+            "ml": "ക്രെമെൻചുക്ക്",
+            "he": "קרמנצ'וג",
+            "hu": "Kremencsuk",
+            "nl": "Krementsjoek",
+            "cs": "Kremenčuk",
+            "uz": "Kremenchuk",
+            "fr": "Krementchouk",
+            "it": "Kremenčuk",
+            "pl": "Krzemieńczuk",
+            "sr": "Кременчук",
+            "ko": "크레멘추크",
+            "zh": "克列缅丘克",
+            "fi": "Krementšuk",
+            "es": "Kremenchuk",
+            "ro": "Kremenciuk",
+            "uk": "Кременчук",
+            "en": "Kremenchuk",
+            "sv": "Krementjuk",
+            "hr": "Kremenčuk",
+            "de": "Krementschuk"
+        },
+        "lat": 49.0629553,
+        "lon": 33.403516,
+        "country": "UA",
+        "state": "Poltava Oblast"
+    }
+]

@@ -1,0 +1,13 @@
+{% extends "news/base_form.html"%}
+
+
+{% block content %}
+
+<div><h2>{{techno.title}}</h2></div>
+<span><h3>{{techno.date_of}}  {{techno.time_of}}</h3></span>   
+<div>
+    <img src={{techno.image_url}} width="" height="" alt={{techno.title}}> 
+</div>   
+<div>{{techno.content}}</div>    
+
+{% endblock %}

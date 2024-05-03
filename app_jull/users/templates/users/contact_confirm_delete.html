@@ -1,0 +1,13 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+<h2>Confirm Delete Contact</h2>
+<p>Are you sure you want to delete the following contact?</p>
+<p>Name: {{ contact.name }}</p>
+<p>Birthday: {{ contact.birthday }}</p>
+<form action="{% url 'users:delete_contact' contact.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+{% endblock %}

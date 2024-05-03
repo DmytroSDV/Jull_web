@@ -1,0 +1,27 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+<title>Login</title>
+<div class="form-container">
+    <h2>Login</h2>
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="id_password">Password:</label>
+            {{ form.password }}
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <div class="forgot-password">
+        <a href="{% url 'users:password_reset' %}">Forgot password?</a>
+    </div>
+</div>
+{% endblock %}

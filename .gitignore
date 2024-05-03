@@ -1,2 +1,9 @@
 __pycache__
 .idea
+.env
+test_db.sqlite3
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
+Log
+0001_initial.py
