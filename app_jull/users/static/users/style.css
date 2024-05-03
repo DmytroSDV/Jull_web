@@ -1,0 +1,391 @@
+.signup-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #8b8b8b; 
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style formя btn */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.sign-Up {
+    margin-left: 515px;
+
+}
+
+/* Style form login */
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Style for messages об error */
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Reset password */
+
+/* Style for profile */
+
+.profile-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.profile-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.avatar-input {
+    margin-top: 20px;
+}
+
+.avatar-input label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn-grid {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-grid button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-grid button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-group a {
+    margin-bottom: 20px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-group a:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для контейнера кнопок */
+.btn-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container button,
+.btn-container a {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-container button:hover,
+.btn-container a:hover {
+    filter: brightness(110%);
+}
+/* Reset password confirm */
+.password-reset-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.password-reset-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.password-reset-form form {
+    text-align: left;
+}
+
+.password-reset-form form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.password-reset-form form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.password-reset-form form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.password-reset-form form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.password-reset-sent {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-reset-sent h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.password-reset-sent p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.password-reset-complete {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.password-reset-complete h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+.birthday-form {
+    margin-bottom: 20px;
+}
+
+.birthday-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.birthday-form input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.birthday-form button {
+    padding: 7px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.birthday-form button:hover {
+    background-color: #0056b3;
+}
+
+.search-form {
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 5px;
+    height: 47px;
+    position: relative;
+    top: 4px;
+    transition: box-shadow 0.3s, border-radius 0.3s; 
+}
+
+.search-form input[type="text"] {
+    width: 270px;
+    padding: 12px 24px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100%; 
+}
+
+.search-form:hover input[type="text"] {
+    border-color: #007bff;
+}
+.search-input-container {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.search-input-container input[type="text"] {
+    flex: 1; /* Растягиваем ввод текста, чтобы он занимал всё доступное пространство */
+    margin-right: 10px; /* Добавляем отступ справа для разделения элементов */
+}

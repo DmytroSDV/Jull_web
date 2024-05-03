@@ -1,11 +1,12 @@
 from django.urls import path
 
 from . import views
-
+from users import views as users_views
 app_name = "news"
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("login/", users_views.loginuser, name="login"),
     path("articles/", views.all_articles, name="all_articles"),
     path("article/<str:title>", views.one_article, name="one_article"),
     path("siences/", views.all_siences, name="all_siences"),
