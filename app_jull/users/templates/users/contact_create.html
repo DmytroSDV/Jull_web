@@ -1,0 +1,11 @@
+{% extends "news/base_form.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+<h2>Add contact</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}

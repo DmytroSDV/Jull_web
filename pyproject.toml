@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "jull-web"
 version = "0.1.0"
+package-mode = false
 description = ""
 authors = ["DmytroSDV <142345037+DmytroSDV@users.noreply.github.com>"]
 readme = "README.md"
@@ -8,6 +9,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.4"
+psycopg2 = "^2.9.9"
+python-dotenv = "^1.0.1"
+pillow = "^10.3.0"
 
 
 [build-system]
