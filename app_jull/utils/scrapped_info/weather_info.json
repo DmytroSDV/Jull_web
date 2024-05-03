@@ -1,46 +1,44 @@
 {
     "coord": {
-        "lon": 30.5233,
-        "lat": 50.45
+        "lon": 33.4035,
+        "lat": 49.063
     },
     "weather": [
         {
             "id": 800,
             "main": "Clear",
-            "description": "чисте небо",
+            "description": "clear sky",
             "icon": "01d"
         }
     ],
     "base": "stations",
     "main": {
-        "temp": 19.6,
-        "feels_like": 18.56,
-        "temp_min": 17.93,
-        "temp_max": 19.6,
-        "pressure": 1026,
-        "humidity": 36,
-        "sea_level": 1026,
-        "grnd_level": 1010
+        "temp": 22.88,
+        "feels_like": 21.98,
+        "temp_min": 22.88,
+        "temp_max": 22.88,
+        "pressure": 1024,
+        "humidity": 29,
+        "sea_level": 1024,
+        "grnd_level": 1013
     },
     "visibility": 10000,
     "wind": {
-        "speed": 2.74,
-        "deg": 42,
-        "gust": 4.21
+        "speed": 3.43,
+        "deg": 39,
+        "gust": 4.6
     },
     "clouds": {
-        "all": 4
+        "all": 0
     },
-    "dt": 1714318282,
+    "dt": 1714561534,
     "sys": {
-        "type": 2,
-        "id": 2089522,
         "country": "UA",
-        "sunrise": 1714271871,
-        "sunset": 1714324357
+        "sunrise": 1714530293,
+        "sunset": 1714582910
     },
     "timezone": 10800,
-    "id": 696050,
-    "name": "Pushcha-Vodytsya",
+    "id": 713101,
+    "name": "Avtozavodskiy Rayon",
     "cod": 200
 }

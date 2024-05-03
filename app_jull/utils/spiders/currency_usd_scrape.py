@@ -6,11 +6,16 @@ import scrapy
 from itemadapter import ItemAdapter
 from scrapy.crawler import CrawlerProcess
 from scrapy.item import Item, Field
+from django.utils import timezone
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app_jull.settings")
 django.setup()
 
+from news.models import UsdCurrency
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from customs.custom_logger import my_logger
 
 USD_CURRENCY_FILE = os.path.join(
     os.path.dirname(__file__), "..", "scrapped_info", "currency_usd_rate.json"
@@ -32,8 +37,30 @@ class DataPipeline:
         self.news.append(dict(adapter))
 
     def close_spider(self, spider):
-        with open(USD_CURRENCY_FILE, "w", encoding="utf-8") as fd:
-            json.dump(self.news, fd, ensure_ascii=False, indent=4)
+        # with open(USD_CURRENCY_FILE, "w", encoding="utf-8") as fd:
+        #     json.dump(self.news, fd, ensure_ascii=False, indent=4)
+
+        my_logger.log(f"{len(self.news)} usd scrapped len", 20)
+
+        today = timezone.now().date()
+        first_entry_date = (
+            UsdCurrency.objects.first().created_at.date()
+            if UsdCurrency.objects.exists()
+            else None
+        )
+
+        if first_entry_date and first_entry_date == today:
+            return
+        UsdCurrency.objects.all().delete()
+
+        for item in self.news:
+            usd_item = UsdCurrency(
+                bank_name=item["bank_name"],
+                bamk_cash_desk=item["bank_cash_desk"],
+                bank_card_online=item["bank_card_online"],
+                time_set=item["time_set"],
+            )
+            usd_item.save()
 
 
 class UsdSpider(scrapy.Spider):

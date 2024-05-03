@@ -1,0 +1,13 @@
+{% extends "news/base_form.html"%}
+
+
+{% block content %}
+
+<div><h2>{{sport.title}}</h2></div>
+<span><h3>{{sport.date_of}}  {{sport.time_of}}</h3></span>   
+<div>
+    <img src={{sport.image_url}} width="" height="" alt={{sport.title}}> 
+</div>   
+<div>{{sport.content}}</div>    
+
+{% endblock %}
