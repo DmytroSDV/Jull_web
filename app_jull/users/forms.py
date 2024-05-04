@@ -35,11 +35,11 @@ class LoginForm(forms.Form):
 
 
 class ProfileForm(forms.ModelForm):
-    avatar = forms.ImageField(widget=forms.FileInput())
+    avatar = forms.ImageField(max_length=200,widget=forms.FileInput())
 
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ['avatar']
 
 
 class ContactForm(forms.ModelForm):

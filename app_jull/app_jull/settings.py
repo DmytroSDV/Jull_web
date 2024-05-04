@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 
 from pathlib import Path
+
+
+import cloudinary
+import cloudinary_storage
+
 import os
 
 
@@ -183,6 +188,11 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+cloudinary.config(
+  cloud_name = os.getenv("CLOUD_NAME"),
+  api_key = os.getenv("API_KEY"),
+  api_secret = os.getenv("API_SECRET")
+)
 
 cloudinary.config(
   cloud_name = os.getenv("CLOUD_NAME"),
@@ -219,3 +229,4 @@ CACHES = {
         "LOCATION": "redis://localhost:6379/1",
     }
 }
+
