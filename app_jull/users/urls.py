@@ -20,6 +20,7 @@ urlpatterns = [
      path("reset-password/", views.ResetPasswordView.as_view(), name="password_reset"),
      path('upcoming_birthdays/', views.upcoming_birthdays, name='upcoming_birthdays'),
      path('contacts/search/', views.contact_search, name='contact_search'),
+     path('contacts/<int:pk>/delete/confirm/', views.contact_confirm_delete, name='contact_confirm_delete'),
      path("reset-password/done/", PasswordResetDoneView.as_view(template_name="users/password_reset_done.html"),
           name="password_reset_done"),
      path("reset-password/confirm/<uidb64>/<token>/",

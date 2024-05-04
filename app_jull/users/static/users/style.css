@@ -1,7 +1,7 @@
 .signup-form {
     max-width: 400px;
     margin: 0 auto;
-    background-color: #8b8b8b; 
+    background-color: #100235; 
     padding: 20px; 
     border-radius: 10px; 
 }
@@ -388,4 +388,141 @@ button[type="submit"]:hover {
 .search-input-container input[type="text"] {
     flex: 1; /* Растягиваем ввод текста, чтобы он занимал всё доступное пространство */
     margin-right: 10px; /* Добавляем отступ справа для разделения элементов */
+}
+
+
+/* Стили для Confirm Delete Contact */
+.confirm-delete-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.confirm-delete-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.confirm-delete-container p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.confirm-delete-container #delete-button {
+    margin-top: 20px;
+}
+
+.confirm-delete-container #success-message {
+    margin-top: 20px;
+    font-size: 18px;
+}
+/* Стили для Edit Contact */
+.edit-contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.edit-contact-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.edit-contact-container form {
+    margin-bottom: 20px;
+}
+
+.edit-contact-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.edit-contact-container form input[type="text"],
+.edit-contact-container form input[type="email"],
+.edit-contact-container form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.edit-contact-container form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-contact-container form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для Add contact */
+.add-contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-contact-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.add-contact-container form {
+    margin-bottom: 20px;
+}
+
+.add-contact-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.add-contact-container form input[type="text"],
+.add-contact-container form input[type="email"],
+.add-contact-container form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-contact-container form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-contact-container form button[type="submit"]:hover {
+    background-color: #0056b3;
 }

@@ -5,9 +5,51 @@
 <h2>Confirm Delete Contact</h2>
 <p>Are you sure you want to delete the following contact?</p>
 <p>Name: {{ contact.name }}</p>
+<p>Address: {{ contact.address }}</p>
+<p>Phone Number: {{ contact.phone_number }}</p>
+<p>Email: {{ contact.email }}</p>
 <p>Birthday: {{ contact.birthday }}</p>
-<form action="{% url 'users:delete_contact' contact.id %}" method="post">
+<form id="delete-contact-form" action="{% url 'users:contact_delete' contact.pk %}" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Delete">
+    <button id="delete-button" type="submit" class="btn btn-danger">Delete</button>
 </form>
+<a href="{% url 'users:contacts' %}" class="btn btn-primary">Back to Contacts</a>
+<!-- Сообщение об успешном удалении контакта -->
+<div id="success-message" style="display: none; color: green;">Contact successfully deleted.</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Получаем форму удаления и кнопку удаления
+        var deleteForm = document.getElementById('delete-contact-form');
+        var deleteButton = document.getElementById('delete-button');
+        // Добавляем обработчик события для отправки формы
+        deleteButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+            // Отправляем форму через fetch
+            fetch(deleteForm.action, {
+                method: deleteForm.method,
+                body: new FormData(deleteForm),
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(function (response) {
+                // Проверяем статус ответа
+                if (response.ok) {
+                    // Если запрос успешен, показываем сообщение об успешном удалении
+                    document.getElementById('success-message').style.display = 'block';
+                    // Через 3 секунды перенаправляем на страницу контактов
+                    setTimeout(function () {
+                        window.location.href = '{% url "users:contacts" %}';
+                    }, 3000);
+                } else {
+                    // Если произошла ошибка, показываем сообщение об ошибке
+                    console.error('Error deleting contact:', response.statusText);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error deleting contact:', error);
+            });
+        });
+    });
+</script>
 {% endblock %}

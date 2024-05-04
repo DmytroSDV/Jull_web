@@ -6,16 +6,14 @@ description = ""
 authors = ["DmytroSDV <142345037+DmytroSDV@users.noreply.github.com>"]
 readme = "README.md"
 
+
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.4"
-
-cloudinary = "^1.40.0"
+cloudinary = "1.40.0"
 django-cloudinary-storage = "^0.3.0"
-
 python-magic = "^0.4.27"
 python-magic-bin = "^0.4.14"
-
 psycopg2 = "^2.9.9"
 python-dotenv = "^1.0.1"
 pillow = "^10.3.0"
@@ -25,13 +23,14 @@ redis = "^5.0.4"
 django-redis = "^5.4.0"
 celery = "^5.4.0"
 django-celery-results = "^2.5.1"
-
-
+google = "^3.0.0"
+google-cloud-speech = "^2.26.0"
 
 
 [tool.poetry.group.test.dependencies]
 eventlet = "^0.36.1"
 flower = "^2.0.1"
+
 
 [build-system]
 requires = ["poetry-core"]
