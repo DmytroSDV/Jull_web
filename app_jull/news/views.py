@@ -131,3 +131,27 @@ def one_sport(request, title):
             "sport": sport,
         },
     )
+
+
+def all_banks_usd(request):
+    usd_item = UsdCurrency.objects.all()
+
+    return render(
+        request,
+        "news/all_banks_usd.html",
+        context={
+            "usd_item": usd_item,
+        },
+    )
+
+
+def all_banks_eur(request):
+    eur_item = EurCurrency.objects.all()
+
+    return render(
+        request,
+        "news/all_banks_eur.html",
+        context={
+            "eur_item": eur_item,
+        },
+    )

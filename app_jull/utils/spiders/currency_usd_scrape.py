@@ -20,12 +20,14 @@ from customs.custom_logger import my_logger
 USD_CURRENCY_FILE = os.path.join(
     os.path.dirname(__file__), "..", "scrapped_info", "currency_usd_rate.json"
 )
+BASE_URL = "https://minfin.com.ua"
 
 
 class UsdItem(Item):
     bank_name = Field()
     bank_cash_desk = Field()
     bank_card_online = Field()
+    image_url = Field()
     time_set = Field()
 
 
@@ -58,6 +60,7 @@ class DataPipeline:
                 bank_name=item["bank_name"],
                 bamk_cash_desk=item["bank_cash_desk"],
                 bank_card_online=item["bank_card_online"],
+                image_url=item["image_url"],
                 time_set=item["time_set"],
             )
             usd_item.save()
@@ -85,12 +88,38 @@ class UsdSpider(scrapy.Spider):
             ).get()
             time_set = row.css("td.mfcur-table-refreshtime::text").get().strip()
 
-            yield UsdItem(
-                bank_name=bank_name,
-                bank_cash_desk=bank_cash_desk,
-                bank_card_online=bank_card_online,
-                time_set=time_set,
+            bank_link = row.css(
+                "td.js-ex-rates.mfcur-table-bankname a::attr(href)"
+            ).get()
+            bank_link = f"{BASE_URL}{bank_link}"
+
+            yield scrapy.Request(
+                response.urljoin(bank_link),
+                callback=self.parse_bank_page,
+                meta={
+                    "bank_name": bank_name,
+                    "bank_cash_desk": bank_cash_desk,
+                    "bank_card_online": bank_card_online,
+                    "time_set": time_set,
+                },
             )
+
+    def parse_bank_page(self, response):
+        bank_name = response.meta["bank_name"]
+        bank_cash_desk = response.meta["bank_cash_desk"]
+        bank_card_online = response.meta["bank_card_online"]
+        time_set = response.meta["time_set"]
+
+        # Извлекаем URL изображения логотипа банка
+        image_url = response.css("span.c-main_logo img::attr(src)").get()
+
+        yield UsdItem(
+            bank_name=bank_name,
+            bank_cash_desk=bank_cash_desk,
+            bank_card_online=bank_card_online,
+            time_set=time_set,
+            image_url=f"{BASE_URL}{image_url}",
+        )
 
 
 def run_spider():
