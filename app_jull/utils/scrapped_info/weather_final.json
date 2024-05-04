@@ -1,21 +1,22 @@
 [
     {
-        "city": "Чернівці",
-        "lat": "48.2864702",
-        "lon": "25.9376532",
+        "city": "Луцьк",
+        "lat": "50.7450733",
+        "lon": "25.320078",
         "country_code": "UA",
-        "weather_condition": "чисте небо",
-        "temperature_current": "17.02",
-        "temperature_feels": "16.21",
-        "temperature_min": "17.02",
-        "temperature_max": "17.02",
-        "pressure_sea_level": "1015",
-        "pressure_ground_level": "985",
-        "humidity": "55",
-        "wind_speed": "2.88",
-        "wind_direction": "83",
-        "sunrise": "2024-05-04 05:52:01",
-        "sunset": "2024-05-04 20:33:54",
-        "region": "Chernivtsi"
+        "weather_condition": "scattered clouds",
+        "weather_icon": "03n",
+        "temperature_current": "14.58",
+        "temperature_feels": "13.84",
+        "temperature_min": "14.58",
+        "temperature_max": "14.58",
+        "pressure_sea_level": "1016",
+        "pressure_ground_level": "992",
+        "humidity": "67",
+        "wind_speed": "3.51",
+        "wind_direction": "200",
+        "sunrise": "05:46:59",
+        "sunset": "20:43:52",
+        "region": "Lutsk"
     }
 ]

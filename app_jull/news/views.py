@@ -155,3 +155,15 @@ def all_banks_eur(request):
             "eur_item": eur_item,
         },
     )
+
+
+def all_weather_cities(request):
+    weather_items = WeatherInfo.objects.all()
+
+    return render(
+        request,
+        "news/all_weather_cities.html",
+        context={
+            "weather_items": weather_items,
+        },
+    )

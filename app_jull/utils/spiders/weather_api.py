@@ -58,7 +58,7 @@ GEO_CODING_URL = "http://api.openweathermap.org/geo/1.0/direct?"
 
 
 def get_current_weather(
-    city: str = "Kyiv", limit: int = 1, units: str = "metric", language: str = "en"
+    city: str = "Луцьк", limit: int = 1, units: str = "metric", language: str = "en"
 ):
     full_data = []
     result_dict = {}
@@ -95,6 +95,7 @@ def get_current_weather(
             result_dict["weather_condition"] = next_responce_json["weather"][0][
                 "description"
             ]
+            result_dict["weather_icon"] = next_responce_json["weather"][0]["icon"]
             result_dict["temperature_current"] = str(next_responce_json["main"]["temp"])
             result_dict["temperature_feels"] = str(
                 next_responce_json["main"]["feels_like"]
@@ -113,11 +114,11 @@ def get_current_weather(
 
             result_dict["sunrise"] = datetime.fromtimestamp(
                 next_responce_json["sys"]["sunrise"]
-            ).strftime("%Y-%m-%d %H:%M:%S")
+            ).strftime("%H:%M:%S")
 
             result_dict["sunset"] = datetime.fromtimestamp(
                 next_responce_json["sys"]["sunset"]
-            ).strftime("%Y-%m-%d %H:%M:%S")
+            ).strftime("%H:%M:%S")
             result_dict["region"] = next_responce_json["name"]
 
             full_data.append(result_dict)
@@ -172,5 +173,5 @@ def weather_api_request():
 
 
 if __name__ == "__main__":
-    # get_current_weather()
-    weather_api_request()
+    get_current_weather()
+    # weather_api_request()

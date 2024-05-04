@@ -1,0 +1,139 @@
+{% extends "news/base_form.html"%}
+
+
+{% block content %}
+<style>
+    /* Прозрачность для каждого блока */
+    .ukraine {
+        background-color: rgba(128, 128, 128, 0.2);
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        margin-bottom: 20px;
+    }
+    .opacities {
+        background-color: rgba(128, 128, 128, 0.3);
+        padding: 20px;
+        margin-bottom: 50px;
+        margin-bottom: 20px;
+        
+    }
+    .titles{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+</style>
+
+<h1>Get weather:</h1>
+    <form class="for_form">
+        <input class="for_input" type="text" placeholder="Put your city">
+        <button class="for_button">Send</button>
+    </form>
+    <div class="weather">
+        <!-- <div class="left">
+            <b class="city">London</b>
+            <span class="for_spans">Вологість: <b class="for_b">92%</b></span>
+            <span class="for_spans">Швидкість вітру: <b class="for_b">3 m/s</b></span>
+            <span class="for_spans">Схід сонця: <b class="for_b">05:58:02</b></span>
+            <span class="for_spans">Захід сонця: <b class="for_b">20:58:54</b></span>
+        </div>
+        <div class="right">
+            <img class="for_img" src="https://openweathermap.org/img/wn/10d@2x.png">
+            <span class="temp">4℃</span>
+        </div> -->
+    </div>
+    <script>
+            document.querySelector('form').addEventListener('submit', e => {
+            e.preventDefault();
+            const input = document.querySelector('input');
+            getData(input.value.trim());
+        });
+
+        getData('London');
+        async function getData(city) {
+
+            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=78c49d0da7041c7c2d9e2de8d0db7caa`);
+            const data = await res.json();
+
+            if (res.status !== 200) {
+                alert(data.message);
+            } else {
+                createWeather(data);
+            }
+        }
+        function convertUnixTimestampToTime(unixTimestamp) {
+            var date = new Date(unixTimestamp * 1000);
+            var hours = date.getHours();
+            var minutes = "0" + date.getMinutes();
+            var seconds = "0" + date.getSeconds();
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+            return formattedTime;
+}
+        function createWeather(data) {
+            document.querySelector('.weather').innerHTML = `
+            <div class="left">
+                <b class="city">${data.name}</b>
+                <span class="for_spans">Вологість: <b class="for_b">${data.main.humidity}%</b></span>
+                <span class="for_spans">Швидкість вітру: <b class="for_b">${Math.round(data.wind.speed)} m/s</b></span>
+                {% comment %} <span class="for_spans">Схід сонця: <b class="for_b">${sunriseTime}</b></span>
+                <span class="for_spans">Захід сонця: <b class="for_b">${sunsetTime}}</b></span> {% endcomment %}
+            </div>
+            <div class="right">
+                <img class="for_img" src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+                <span class="temp">${Math.round(data.main.temp - 273)}℃</span>
+            </div>`;
+        }
+    </script>
+
+{% comment %} Weather {% endcomment %}
+<div class="ukraine">
+  <div class="ukraineH2 H2alike">
+    <div class="news__title__h2"><h2>Погода:</h2></div>
+    <div class="ukraineLink LinkAlike">
+      <a href="{% url 'news:all_weather_cities'%}">
+        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2>
+      </a>
+    </div>
+  </div>
+  <div class="ukraineBlock BlockAlike">
+    {% for weather in weather_items %}
+      <div class="blockComingUK opacities">
+        <div class="weather">
+          <div class="left">
+            <b class="city">{{ weather.city }}</b>
+            <span class="for_spans">Вологість: <b class="for_b">{{ weather.humidity }}%</b></span>
+            <span class="for_spans">Швидкість вітру: <b>{{ weather.wind_speed }} m/s</b></span>
+            <span class="for_spans">Схід сонця: <b>{{ weather.sunrise }}</b></span>
+            <span class="for_spans">Захід сонця: <b>{{ weather.sunset }}</b></span>
+          </div>
+          <div class="right">
+            <img id="weather-img-{{ weather.id }}" class="for_img">
+            <span class="temp">{{weather.temperature_current}}℃</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  async function updateWeatherImage(weatherId, city) {
+    const image = document.querySelector(`#weather-img-${weatherId}`);
+    if (image) {
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=78c49d0da7041c7c2d9e2de8d0db7caa`);
+      const data = await res.json();
+
+      if (res.ok) {
+        image.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+      } else {
+        alert(data.message);
+      }
+    }
+  }
+
+  {% for weather in weather_items %}
+    updateWeatherImage({{ weather.id }}, '{{ weather.city }}');
+  {% endfor %}
+</script>
+
+{% endblock %}

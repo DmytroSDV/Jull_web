@@ -18,4 +18,5 @@ urlpatterns = [
     path("sport/<str:title>", views.one_sport, name="one_sport"),
     path("usds/", views.all_banks_usd, name="all_banks_usd"),
     path("eurs/", views.all_banks_eur, name="all_banks_eur"),
+    path("weather/", views.all_weather_cities, name="all_weather_cities"),
 ]
