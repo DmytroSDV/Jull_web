@@ -1,7 +1,6 @@
 [tool.poetry]
 name = "jull-web"
 version = "0.1.0"
-package-mode = false
 description = ""
 authors = ["DmytroSDV <142345037+DmytroSDV@users.noreply.github.com>"]
 readme = "README.md"

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import cloudinary
 import cloudinary_storage
 
 import os
@@ -63,12 +64,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "news",
-
     "app_photo",
     "cloudinary",
     "cloudinary_storage",
-    "notes"
-
+    "notes",
     "users",
     "django_celery_results",
 
@@ -189,6 +188,11 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+cloudinary.config(
+  cloud_name = os.getenv("CLOUD_NAME"),
+  api_key = os.getenv("API_KEY"),
+  api_secret = os.getenv("API_SECRET")
+)
 
 
 CLOUDINARY_STORAGE={
@@ -216,5 +220,7 @@ CACHES = {
         "LOCATION": "redis://localhost:6379/1",
     }
 }
+
+
 
 

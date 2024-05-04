@@ -1,3 +1,5 @@
+import cloudinary.uploader
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import login, authenticate, logout
@@ -12,7 +14,7 @@ from datetime import datetime, timedelta
 
 
 from .forms import SignUpForm, LoginForm, ProfileForm, ContactForm
-from .models import Profile, Contact
+from .models import Profile, Contact,CustomUser
 
 
 def signup(request):
@@ -146,3 +148,27 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     success_url = reverse_lazy("users:password_reset_done")
     success_message = "An email with instructions to reset your password has been sent to %(email)s."
     subject_template_name = "users/password_reset_subject.txt"
+
+
+
+@login_required
+def add_avatar(request):
+    if request.method == 'POST':
+        user = request.user
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            avatar_file = request.FILES.get('avatar')
+
+            uploaded_file = cloudinary.uploader.upload(avatar_file, resource_type="image")
+            profile = Profile.objects.get_or_create(user=user)[0]
+            profile.avatar = uploaded_file['url']
+            profile.save()
+            return redirect('users:profile')
+        else:
+            print(form.errors)
+    return HttpResponse("Method not allowed", status=405)
+
+
+
+
+

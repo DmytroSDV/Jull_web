@@ -5,19 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormPicture
 from .models import Picture
 from os.path import splitext
-
-
-# Create your views here.
-
-
-# def upload(request):
-#     form = FormPicture(instance=Picture())
-#     if request.method == 'POST':
-#         form = FormPicture(request.POST, request.FILES, instance=Picture())
-#         if form.is_valid():
-#             form.save()
-#             return render(request, 'app_photo/upload.html', context={'form': form})
-#     return render(request, 'app_photo/upload.html', context={'form': form})
+import cloudinary
 
 
 
@@ -50,6 +38,7 @@ def show_images(request):
 
 
 def upload(request):
+
     if request.method == 'POST':
         form = FormPicture(request.POST, request.FILES)
         if form.is_valid():
