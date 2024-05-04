@@ -11,6 +11,7 @@
         </div>
         <div class="col-md-4">
             <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-block">Інші файли</a>
+             <a class="btn btn-primary btn-block" aria-current="page" href="{% url 'app_photo:upload' %}">Upload</a>
         </div>
     </div>
 
@@ -38,6 +39,7 @@
                         <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Редагувати опис</a>
                         <a href="{% url 'app_photo:remove_image' data.id %}" class="btn btn-danger">Видалити</a>
                         <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-success">Завантажити</a>
+
                     </div>
                 </div>
             </div>

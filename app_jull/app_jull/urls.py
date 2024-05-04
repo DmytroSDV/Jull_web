@@ -24,5 +24,4 @@ urlpatterns = [
     path("", include("app_photo.urls")),
     path("", include("notes.urls")),
     path("users/", include("users.urls")),
-
 ]
