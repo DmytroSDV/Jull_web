@@ -12,13 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 
 from pathlib import Path
-
-import cloudinary_storage
-
 import os
 
 
 from dotenv import load_dotenv
+import cloudinary_storage
+import cloudinary
 
 
 # Load environment variables from .env file
@@ -185,24 +184,34 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+cloudinary.config(
+  cloud_name = os.getenv("CLOUD_NAME"),
+  api_key = os.getenv("API_KEY"),
+  api_secret = os.getenv("API_SECRET")
+)
+
 
 CLOUDINARY_STORAGE={
-    'CLOUD_NAME':'dozl7iemt',
-    'API_KEY':'828841675812886',
-    'API_SECRET':'LqE8T3BpI1spWSj_bDAipypzMm8'
+    "CLOUD_NAME": os.getenv("CLOUD_NAME"),
+    "API_KEY": os.getenv("API_KEY"),
+    "API_SECRET": os.getenv("API_SECRET")
 }
+
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 AUTH_USER_MODEL = "users.CustomUser"
 
+
 CELERY_BROKER_URL = "redis://localhost:6379/0"
 # CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 # CELERY_RESULT_BACKEND = "django-db"
+
 # celery setting.
 CELERY_CACHE_BACKEND = "default"
+
 
 CACHES = {
     "default": {
@@ -210,5 +219,3 @@ CACHES = {
         "LOCATION": "redis://localhost:6379/1",
     }
 }
-
-

@@ -6,10 +6,11 @@ description = ""
 authors = ["DmytroSDV <142345037+DmytroSDV@users.noreply.github.com>"]
 readme = "README.md"
 
+
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.4"
-cloudinary = "^1.40.0"
+cloudinary = "1.40.0"
 django-cloudinary-storage = "^0.3.0"
 python-magic = "^0.4.27"
 python-magic-bin = "^0.4.14"
@@ -27,6 +28,7 @@ django-celery-results = "^2.5.1"
 [tool.poetry.group.test.dependencies]
 eventlet = "^0.36.1"
 flower = "^2.0.1"
+
 
 [build-system]
 requires = ["poetry-core"]
