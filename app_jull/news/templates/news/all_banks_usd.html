@@ -1,0 +1,81 @@
+{% extends "news/base_form.html"%}
+
+{% block content %}
+{% comment %} USD {% endcomment %}
+<style>
+    /* Прозрачность для каждого блока */
+    .ukraine {
+        background-color: rgba(128, 128, 128, 0.2);
+        padding: 20px;
+        margin-bottom: 50px;
+        margin-bottom: 20px;
+    }
+    .opacities {
+        background-color: rgba(128, 128, 128, 0.3);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .titles {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    /* Стили для таблицы */
+    .table-container {
+        overflow-x: auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .bank-logo {
+        width: 40px; /* Set the width of the bank logo */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 10px; /* Adjust spacing */
+    }
+</style>
+
+<div class="ukraine">
+    <div class="ukraineH2 H2alike">
+        <div class="news__title__h2"><h2>USD rates</h2></div>
+        <div class="ukraineLink LinkAlike">
+            <a href="{% url 'news:all_banks_usd'%}">
+                <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2>
+            </a>
+        </div>
+    </div>
+    <div class="ukraineBlock BlockAlike table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Банк</th>
+                    <th>В касах банків покупка/продаж</th>
+                    <th>Картою онлайн покупка/продаж</th>
+                    <th>Час оновлення</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usd in usd_item %}
+                <tr class="opacities">
+                    <td>
+                        <img src="{{ usd.image_url }}" alt="{{ usd.bank_name }}" class="bank-logo">
+                        {{ usd.bank_name }}
+                    </td>
+                    <td>{{ usd.bamk_cash_desk }}</td>
+                    <td>{{ usd.bank_card_online }}</td>
+                    <td>{{ usd.time_set }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
