@@ -6,7 +6,7 @@ from django.db import models
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField(null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True)
-    avatar = models.ImageField(upload_to="avatars/", null=True, blank=True)
+    avatar = models.ImageField(upload_to="avatars", null=True, blank=True)
     is_verified = models.BooleanField(default=False)
     groups = models.ManyToManyField("auth.Group", related_name="custom_user_groups", blank=True)
     user_permissions = models.ManyToManyField("auth.Permission", related_name="custom_user_permissions", blank=True)
@@ -17,7 +17,8 @@ class CustomUser(AbstractUser):
              
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True,)
+    avatar = models.ImageField(upload_to='avatars', max_length=200,null=True, blank=True)
+
 
     def __str__(self):
         return self.user.username
