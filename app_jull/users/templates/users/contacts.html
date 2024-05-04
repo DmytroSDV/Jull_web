@@ -14,6 +14,7 @@
 
 <a href="{% url 'users:contact_create' %}" class="btn btn-primary">Add contact</a>
 <a href="{% url 'users:upcoming_birthdays' %}" class="btn btn-info">Upcoming Birthdays</a>
+<a href="{% url 'users:profile' %}" class="btn btn-primary">Back to Profile</a>
 
 {% if contacts %}
     <ul>
@@ -25,15 +26,11 @@
             <strong>Email:</strong> {{ contact.email }}<br>
             <strong>Birthday:</strong> {{ contact.birthday }}<br>
             <a href="{% url 'users:contact_edit' contact.pk %}" class="btn btn-info">Edit</a>
-            <form action="{% url 'users:contact_delete' contact.pk %}" method="POST" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+            <a href="{% url 'users:contact_confirm_delete' contact.pk %}" class="btn btn-danger">Delete</a>
         </li>
     {% endfor %}
     </ul>
 {% else %}
     <p>You have no contacts yet.</p>
 {% endif %}
-
 {% endblock %}

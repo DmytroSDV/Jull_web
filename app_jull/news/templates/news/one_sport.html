@@ -1,13 +1,37 @@
-{% extends "news/base_form.html"%}
-
+{% extends "news/base_form.html" %}
 
 {% block content %}
+<style>
+    .article-content {
+        {% comment %} max-width: 800px; {% endcomment %}
+        margin: 0 auto; 
+        background-color: rgba(128, 128, 128, 0.2);
+        padding: 20px;
+    }
+    .article-content p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 
-<div><h2>{{sport.title}}</h2></div>
-<span><h3>{{sport.date_of}}  {{sport.time_of}}</h3></span>   
-<div>
-    <img src={{sport.image_url}} width="" height="" alt={{sport.title}}> 
-</div>   
-<div>{{sport.content}}</div>    
+<div class="row mt-5">
+    <div class="mx-auto">
+        <div class="article-header mb-4 bg-light p-3 rounded">
+            <h2>{{ sport.title }}</h2>
+            <p class="article-meta">{{ sport.date_of }} {{ sport.time_of }}</p>
+        </div>
+        <div class="article-body mb-4 text-justify bg-light p-3 rounded">
+            <div class="article-content">
+                <img src="{{ sport.image_url }}" class="img-fluid mb-3 center-block" alt="{{ sport.title }}">
+                {{ sport.content | safe }}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

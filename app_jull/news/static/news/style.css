@@ -13,15 +13,12 @@
     display: flex;
     justify-content: space-between;
 }
-
-.ukraine {
-    margin-bottom: 50px;
-}
-
 .LinkH2Alike {
     font-size: 18px;
     padding-right: 15px;
-    color: #d00000;
+    color: #67c8cf;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 * {

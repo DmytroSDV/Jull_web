@@ -27,5 +27,4 @@ urlpatterns = [
          PasswordResetCompleteView.as_view(template_name="users/password_reset_complete.html"),
          name="password_reset_complete"),
     path('users/profile/add_avatar/', views.add_avatar, name='add_avatar_url')
-
 ]

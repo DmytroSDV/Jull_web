@@ -1,5 +1,78 @@
 {% extends "news/base_form.html" %}
 {% block content %}
+<style>
+    /* Прозрачность для каждого блока */
+    .ukraine {
+        background-color: rgba(128, 128, 128, 0.2);
+        padding: 20px;
+        margin-bottom: 50px;
+        margin-bottom: 20px;
+    }
+    .opacities {
+        background-color: rgba(128, 128, 128, 0.3);
+        padding: 20px;
+        margin-bottom: 50px;
+        margin-bottom: 20px;
+    }
+    .titles{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    
+
+</style>
+
+{% comment %} EUR {% endcomment %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>EUR rates</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_banks_eur'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for eur in eur_item %}
+                <div class="blockComingUK opacities"> 
+                        <a class="blockComingUK_link clink"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{eur.image_url}} width="" height="" alt={{eur.bank_name}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <div class="">В касах банків покупка/продаж- {{eur.bamk_cash_desk}}</div> 
+                                <div class="">Картою онлайн покупка/продаж- {{eur.bank_card_online}}</div> 
+                                <div class="">Час оновлення - {{eur.time_set}}</div> 
+                        </div>
+                        <span class="titles">{{eur.bank_name}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
+
+{% comment %} USD {% endcomment %}
+<div class="ukraine">
+<div class="ukraineH2 H2alike">
+	<div class="news__title__h2"><h2>USD rates</h2></div>
+	<div class="ukraineLink LinkAlike">
+                <a href="{% url 'news:all_banks_usd'%}">
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2></a>
+                </div>
+</div>
+<div class="ukraineBlock BlockAlike">
+        {% for usd in usd_item %}
+                <div class="blockComingUK opacities"> 
+                        <a class="blockComingUK_link clink"> 
+                        <div class="blockComing_flex"> 
+                                <img src={{usd.image_url}} width="" height="" alt={{usd.bank_name}}> 
+                        <div>
+                        <div class="fa_icon_div_outFlex"> <i class="fa fa-calendar" aria-hidden="true"></i> 
+                                <div class="">В касах банків покупка/продаж- {{usd.bamk_cash_desk}}</div> 
+                                <div class="">Картою онлайн покупка/продаж- {{usd.bank_card_online}}</div> 
+                                <div class="">Час оновлення - {{usd.time_set}}</div> 
+                        </div>
+                        <span class="titles">{{usd.bank_name}}</span> 
+                </div> </div> </a> </div>
+        {% endfor %}
+</div></div>
 
 {% comment %} Articles {% endcomment %}
 <div class="ukraine">
@@ -7,12 +80,12 @@
 	<div class="news__title__h2"><h2>Статті</h2></div>
 	<div class="ukraineLink LinkAlike">
                 <a href="{% url 'news:all_articles'%}">
-                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2></a>
                 </div>
 </div>
 <div class="ukraineBlock BlockAlike">
         {% for article in article_items %}
-                <div class="blockComingUK"> 
+                <div class="blockComingUK opacities"> 
                         <a class="blockComingUK_link clink" href="{% url 'news:one_article' article.title %}"> 
                         <div class="blockComing_flex"> 
                                 <img src={{article.image_url}} width="" height="" alt={{article.title}}> 
@@ -30,12 +103,12 @@
 	<div class="news__title__h2"><h2>Наука</h2></div>
 	<div class="ukraineLink LinkAlike">
                 <a href="{% url 'news:all_siences'%}">
-                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2></a>
                 </div>
 </div>
 <div class="ukraineBlock BlockAlike">
         {% for sience in sience_items %}
-                <div class="blockComingUK"> 
+                <div class="blockComingUK opacities"> 
                         <a class="blockComingUK_link clink" href="{% url 'news:one_sience' sience.title %}"> 
                         <div class="blockComing_flex"> 
                                 <img src={{sience.image_url}} width="" height="" alt={{sience.title}}> 
@@ -53,12 +126,12 @@
 	<div class="news__title__h2"><h2>Технології</h2></div>
 	<div class="ukraineLink LinkAlike">
                 <a href="{% url 'news:all_technos'%}">
-                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2></a>
                 </div>
 </div>
 <div class="ukraineBlock BlockAlike">
         {% for techno in techno_items %}
-                <div class="blockComingUK"> 
+                <div class="blockComingUK opacities"> 
                         <a class="blockComingUK_link clink" href="{% url 'news:one_techno' techno.title %}"> 
                         <div class="blockComing_flex"> 
                                 <img src={{techno.image_url}} width="" height="" alt={{techno.title}}> 
@@ -76,12 +149,12 @@
 	<div class="news__title__h2"><h2>Спорт</h2></div>
 	<div class="ukraineLink LinkAlike">
                 <a href="{% url 'news:all_sports'%}">
-                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі</h2></a>
+                        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись всі:</h2></a>
                 </div>
 </div>
 <div class="ukraineBlock BlockAlike">
         {% for sport in sport_items %}
-                <div class="blockComingUK"> 
+                <div class="blockComingUK opacities"> 
                         <a class="blockComingUK_link clink" href="{% url 'news:one_sport' sport.title %}"> 
                         <div class="blockComing_flex"> 
                                 <img src={{sport.image_url}} width="" height="" alt={{sport.title}}> 

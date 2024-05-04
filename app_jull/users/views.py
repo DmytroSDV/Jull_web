@@ -105,10 +105,18 @@ def contact_edit(request, pk):
 
 
 def contact_delete(request, pk):
+
     contact = get_object_or_404(Contact, pk=pk)
+    
     if request.method == "POST":
+
         contact.delete()
+
+        messages.success(request, 'Contact successfully deleted.')
+        
         return redirect("users:contacts")
+    
+
     return render(request, "users/contact_confirm_delete.html", {"contact": contact})
     
 def upcoming_birthdays(request):
@@ -140,7 +148,9 @@ def contact_search(request):
     else:
         contacts = Contact.objects.all()
     return render(request, 'users/contacts.html', {'contacts': contacts})
-
+def contact_confirm_delete(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    return render(request, 'users/contact_confirm_delete.html', {'contact': contact})
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = "users/password_reset.html"
     email_template_name = "users/password_reset_email.html"
