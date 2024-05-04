@@ -9,7 +9,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     {% load static %}
     <link rel="icon" href="{% static 'Icon_jull.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'news/style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
     <title>Jull</title>
 </head>
 <body>
@@ -19,11 +19,9 @@
                 <h1>
                     <a href="/" style="text-decoration: none;">Jull assistant</a>
                 </h1>
-
                 <a class="nav-link active" aria-current="page" href="{% url 'app_photo:upload' %}">Upload</a>
                 <a class="nav-link active" aria-current="page" href="{% url 'app_photo:gallery' %}">Gallery</a>
                 <a class="nav-link active" aria-current="page" href="{% url 'notes:notes_list' %}">My Notes</a>
-
             </div>
             <div class="col-md-4 text-right">
                 <a href="{% url 'users:signup' %}" class="btn btn-primary signup-button">Sign Up</a>
