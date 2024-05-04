@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-
 from pathlib import Path
 
 
@@ -30,7 +29,6 @@ import cloudinary
 
 dotenv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
 load_dotenv(dotenv_path)
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -133,8 +131,8 @@ EMAIL_PORT = os.getenv("EMAIL_PORT")
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 EMAIL_STARTTLS = False
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
@@ -174,7 +172,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
@@ -189,26 +186,20 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 cloudinary.config(
-  cloud_name = os.getenv("CLOUD_NAME"),
-  api_key = os.getenv("API_KEY"),
-  api_secret = os.getenv("API_SECRET")
-)
-
-cloudinary.config(
-  cloud_name = os.getenv("CLOUD_NAME"),
-  api_key = os.getenv("API_KEY"),
-  api_secret = os.getenv("API_SECRET")
+    cloud_name=os.getenv("CLOUD_NAME"),
+    api_key=os.getenv("API_KEY"),
+    api_secret=os.getenv("API_SECRET"),
 )
 
 
-CLOUDINARY_STORAGE={
+CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.getenv("CLOUD_NAME"),
     "API_KEY": os.getenv("API_KEY"),
-    "API_SECRET": os.getenv("API_SECRET")
+    "API_SECRET": os.getenv("API_SECRET"),
 }
 
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 AUTH_USER_MODEL = "users.CustomUser"
@@ -229,4 +220,3 @@ CACHES = {
         "LOCATION": "redis://localhost:6379/1",
     }
 }
-
