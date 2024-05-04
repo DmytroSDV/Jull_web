@@ -23,8 +23,6 @@ redis = "^5.0.4"
 django-redis = "^5.4.0"
 celery = "^5.4.0"
 django-celery-results = "^2.5.1"
-google = "^3.0.0"
-google-cloud-speech = "^2.26.0"
 
 
 [tool.poetry.group.test.dependencies]

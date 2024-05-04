@@ -1,320 +1,366 @@
 [
     {
         "bank_name": "Приватбанк",
-        "bank_cash_desk": "39.300 / 39.900",
-        "bank_card_online": "39.430 /39.841",
-        "time_set": "2024.05.01 10:22"
+        "bank_cash_desk": "39.250 / 39.850",
+        "bank_card_online": "39.200 /39.841",
+        "time_set": "2024.05.04 15:23",
+        "image_url": "https://minfin.com.ua/img/company/1/slogo/logo/privat.jpg"
     },
     {
-        "bank_name": "Укрэксимбанк",
-        "bank_cash_desk": "39.350 / 39.950",
-        "bank_card_online": "39.350 /39.750",
-        "time_set": "2024.05.01 10:41"
+        "bank_name": "Пивденный",
+        "bank_cash_desk": "39.470 / 39.770",
+        "bank_card_online": "39.400 /39.830",
+        "time_set": "2024.05.03 00:00",
+        "image_url": "https://minfin.com.ua/img/company/23/logo/1550163481.jpg"
     },
     {
-        "bank_name": "Укргазбанк",
+        "bank_name": "Аккордбанк",
+        "bank_cash_desk": "39.400 / 39.900",
+        "bank_card_online": "39.534 /40.550",
+        "time_set": "2024.05.03 22:42",
+        "image_url": "https://minfin.com.ua/img/company/95/logo/1518512822.jpg"
+    },
+    {
+        "bank_name": "Таскомбанк",
+        "bank_cash_desk": "39.400 / 39.950",
+        "bank_card_online": "39.353 /39.890",
+        "time_set": "2024.05.04 15:24",
+        "image_url": "https://minfin.com.ua/img/company/84/logo/1318428147.jpg"
+    },
+    {
+        "bank_name": "Прокредит Банк",
+        "bank_cash_desk": "39.350 / 39.900",
+        "bank_card_online": "39.350 /39.850",
+        "time_set": "2024.05.03 00:00",
+        "image_url": "https://minfin.com.ua/img/company/143/logo/1393506399.jpg"
+    },
+    {
+        "bank_name": "Банк Кредит Днепр",
+        "bank_cash_desk": "39.350 / 39.750",
+        "bank_card_online": "39.300 /39.830",
+        "time_set": "2024.05.03 22:41",
+        "image_url": "https://minfin.com.ua/img/company/43/logo/1682491464.png"
+    },
+    {
+        "bank_name": "Восток Банк",
         "bank_cash_desk": "0.0000 / 0.0000",
-        "bank_card_online": "39.350 /39.750",
-        "time_set": "2024.05.01 08:00"
+        "bank_card_online": "39.300 /39.650",
+        "time_set": "2024.05.04 08:00",
+        "image_url": "https://minfin.com.ua/img/company/18/logo/1635234481.png"
+    },
+    {
+        "bank_name": "Кредобанк",
+        "bank_cash_desk": "39.310 / 39.770",
+        "bank_card_online": "39.210 /39.820",
+        "time_set": "2024.05.04 15:22",
+        "image_url": "https://minfin.com.ua/img/company/157/logo/1382108362.jpg"
+    },
+    {
+        "bank_name": "Абанк",
+        "bank_cash_desk": "39.300 / 39.900",
+        "bank_card_online": "39.200 /39.683",
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/229/logo/1683535456.png"
+    },
+    {
+        "bank_name": "OTP Bank",
+        "bank_cash_desk": "39.250 / 39.700",
+        "bank_card_online": "39.250 /39.700",
+        "time_set": "2024.05.03 22:42",
+        "image_url": "https://minfin.com.ua/img/company/6/logo/1275031036.jpg"
+    },
+    {
+        "bank_name": "Сенс Банк",
+        "bank_cash_desk": "39.250 / 39.900",
+        "bank_card_online": "39.150 /40.000",
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/63/logo/1669830131.png"
+    },
+    {
+        "bank_name": "Универсал Банк",
+        "bank_cash_desk": "38.800 / 39.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 22:43",
+        "image_url": "https://minfin.com.ua/img/company/123/logo/1504265279.jpg"
+    },
+    {
+        "bank_name": "Креди Агриколь Банк",
+        "bank_cash_desk": "39.300 / 39.790",
+        "bank_card_online": "39.300 /39.750",
+        "time_set": "2024.05.03 22:41",
+        "image_url": "https://minfin.com.ua/img/company/151/logo/1550744582.jpg"
     },
     {
         "bank_name": "ПУМБ",
         "bank_cash_desk": "39.400 / 39.900",
         "bank_card_online": "39.500 /39.800",
-        "time_set": "2024.05.01 10:41"
+        "time_set": "2024.05.04 15:23",
+        "image_url": "https://minfin.com.ua/img/company/148/logo/1571406205.jpg"
+    },
+    {
+        "bank_name": "Укргазбанк",
+        "bank_cash_desk": "0.0000 / 0.0000",
+        "bank_card_online": "39.350 /39.750",
+        "time_set": "2024.05.04 08:00",
+        "image_url": "https://minfin.com.ua/img/company/35/logo/1518644612.jpg"
+    },
+    {
+        "bank_name": "izibank",
+        "bank_cash_desk": "39.200 / 39.600",
+        "bank_card_online": "39.353 /39.890",
+        "time_set": "2024.05.03 15:17",
+        "image_url": "https://minfin.com.ua/img/company/1122/logo/1702481631.jpg"
     },
     {
         "bank_name": "Укрсиббанк",
-        "bank_cash_desk": "39.350 / 39.900",
-        "bank_card_online": "38.710 /39.500",
-        "time_set": "2024.05.01 10:21"
+        "bank_cash_desk": "39.250 / 39.850",
+        "bank_card_online": "38.560 /39.350",
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/159/logo/1531302764.jpg"
     },
     {
-        "bank_name": "Сенс Банк",
-        "bank_cash_desk": "39.500 / 39.950",
-        "bank_card_online": "39.350 /40.100",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Универсал Банк",
-        "bank_cash_desk": "38.750 / 39.850",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:23"
-    },
-    {
-        "bank_name": "Креди Агриколь Банк",
-        "bank_cash_desk": "39.400 / 39.950",
-        "bank_card_online": "39.300 /39.800",
-        "time_set": "2024.05.01 10:23"
-    },
-    {
-        "bank_name": "OTP Bank",
-        "bank_cash_desk": "39.400 / 39.900",
-        "bank_card_online": "39.400 /39.800",
-        "time_set": "2024.05.01 10:40"
-    },
-    {
-        "bank_name": "Кредобанк",
-        "bank_cash_desk": "39.410 / 39.940",
-        "bank_card_online": "39.440 /39.870",
-        "time_set": "2024.05.01 10:40"
-    },
-    {
-        "bank_name": "Пивденный",
-        "bank_cash_desk": "39.600 / 39.900",
-        "bank_card_online": "39.500 /39.850",
-        "time_set": "2024.05.01 00:00"
-    },
-    {
-        "bank_name": "Таскомбанк",
-        "bank_cash_desk": "39.400 / 40.000",
-        "bank_card_online": "39.452 /39.879",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "Прокредит Банк",
-        "bank_cash_desk": "39.400 / 39.950",
-        "bank_card_online": "39.400 /39.900",
-        "time_set": "2024.05.01 00:00"
-    },
-    {
-        "bank_name": "Абанк",
-        "bank_cash_desk": "39.400 / 40.000",
-        "bank_card_online": "39.300 /39.841",
-        "time_set": "2024.05.01 10:37"
-    },
-    {
-        "bank_name": "Аккордбанк",
-        "bank_cash_desk": "39.450 / 39.950",
-        "bank_card_online": "39.515 /40.550",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Банк Кредит Днепр",
-        "bank_cash_desk": "39.400 / 39.850",
-        "bank_card_online": "39.400 /39.800",
-        "time_set": "2024.04.30 22:41"
-    },
-    {
-        "bank_name": "Восток Банк",
+        "bank_name": "monobank",
         "bank_cash_desk": "0.0000 / 0.0000",
-        "bank_card_online": "39.400 /39.790",
-        "time_set": "2024.05.01 08:00"
-    },
-    {
-        "bank_name": "Идея Банк",
-        "bank_cash_desk": "39.500 / 39.950",
-        "bank_card_online": "39.500 /39.850",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Глобус",
-        "bank_cash_desk": "39.550 / 40.050",
-        "bank_card_online": "39.500 /39.850",
-        "time_set": "2024.05.01 09:27"
-    },
-    {
-        "bank_name": "МТБ Банк",
-        "bank_cash_desk": "39.400 / 39.900",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "Альянс Банк",
-        "bank_cash_desk": "39.400 / 39.900",
-        "bank_card_online": "39.400 /39.900",
-        "time_set": "2024.05.01 08:15"
-    },
-    {
-        "bank_name": "Коминбанк",
-        "bank_cash_desk": "39.300 / 39.980",
-        "bank_card_online": "39.300 /39.900",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "Банк Львов",
-        "bank_cash_desk": "39.620 / 39.780",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:22"
-    },
-    {
-        "bank_name": "Правекс Банк",
-        "bank_cash_desk": "39.600 / 39.890",
-        "bank_card_online": "39.500 /39.850",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Международный Инвестиционный Банк",
-        "bank_cash_desk": "39.500 / 39.950",
-        "bank_card_online": "39.500 /39.800",
-        "time_set": "2024.05.01 10:23"
-    },
-    {
-        "bank_name": "Радабанк",
-        "bank_cash_desk": "39.250 / 39.950",
-        "bank_card_online": "39.550 /39.850",
-        "time_set": "2024.04.30 08:00"
-    },
-    {
-        "bank_name": "Пиреус Банк",
-        "bank_cash_desk": "39.600 / 39.950",
-        "bank_card_online": "39.500 /39.850",
-        "time_set": "2024.04.30 08:00"
-    },
-    {
-        "bank_name": "Клиринговый Дом",
-        "bank_cash_desk": "39.450 / 39.880",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "Полтава-Банк",
-        "bank_cash_desk": "39.550 / 39.900",
-        "bank_card_online": "39.669 /40.462",
-        "time_set": "2024.04.30 18:21"
-    },
-    {
-        "bank_name": "Бізбанк",
-        "bank_cash_desk": "0.0000 / 0.0000",
-        "bank_card_online": "39.200 /39.850",
-        "time_set": "2024.05.01 08:00"
-    },
-    {
-        "bank_name": "Индустриалбанк",
-        "bank_cash_desk": "39.500 / 40.000",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "Юнекс Банк",
-        "bank_cash_desk": "39.150 / 39.850",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.04.30 23:21"
-    },
-    {
-        "bank_name": "Агропросперис Банк",
-        "bank_cash_desk": "39.500 / 39.900",
-        "bank_card_online": "39.750 /0.000",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "РВС Банк",
-        "bank_cash_desk": "39.300 / 39.870",
-        "bank_card_online": "39.670 /39.870",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Скай Банк",
-        "bank_cash_desk": "39.650 / 39.850",
-        "bank_card_online": "39.100 /40.100",
-        "time_set": "2024.05.01 08:00"
-    },
-    {
-        "bank_name": "Грант",
-        "bank_cash_desk": "39.300 / 39.900",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:40"
-    },
-    {
-        "bank_name": "Кристалбанк",
-        "bank_cash_desk": "39.300 / 39.950",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:14"
-    },
-    {
-        "bank_name": "Кредитвест Банк",
-        "bank_cash_desk": "39.450 / 39.650",
-        "bank_card_online": "39.450 /39.650",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Банк 3/4",
-        "bank_cash_desk": "39.300 / 39.900",
-        "bank_card_online": "39.400 /39.800",
-        "time_set": "2024.04.30 08:00"
-    },
-    {
-        "bank_name": "Кредит Европа Банк",
-        "bank_cash_desk": "38.900 / 39.900",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 08:00"
-    },
-    {
-        "bank_name": "Метабанк",
-        "bank_cash_desk": "39.100 / 40.100",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 08:54"
-    },
-    {
-        "bank_name": "Альтбанк",
-        "bank_cash_desk": "39.500 / 39.950",
-        "bank_card_online": "39.500 /39.950",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "Коминвестбанк",
-        "bank_cash_desk": "39.400 / 39.900",
-        "bank_card_online": "39.400 /39.900",
-        "time_set": "2024.05.01 09:00"
-    },
-    {
-        "bank_name": "Европромбанк",
-        "bank_cash_desk": "39.550 / 39.850",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:42"
-    },
-    {
-        "bank_name": "Мотор-Банк",
-        "bank_cash_desk": "39.400 / 40.000",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 00:00"
-    },
-    {
-        "bank_name": "Поликомбанк",
-        "bank_cash_desk": "39.400 / 40.050",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:41"
-    },
-    {
-        "bank_name": "ОКСИ Банк",
-        "bank_cash_desk": "0.0000 / 0.0000",
-        "bank_card_online": "39.100 /40.100",
-        "time_set": "2024.05.01 08:00"
+        "bank_card_online": "39.280 /39.830",
+        "time_set": "2024.05.04 15:20",
+        "image_url": "https://minfin.com.ua/img/company/658/logo/1619788053.png"
     },
     {
         "bank_name": "Украинский банк реконструкции и развития",
-        "bank_cash_desk": "39.450 / 39.900",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:35"
-    },
-    {
-        "bank_name": "Траст-капитал",
-        "bank_cash_desk": "39.600 / 39.950",
-        "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:34"
-    },
-    {
-        "bank_name": "Портал",
         "bank_cash_desk": "39.500 / 39.900",
         "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.04.30 08:00"
+        "time_set": "2024.05.04 15:30",
+        "image_url": "https://minfin.com.ua/img/company/49/logo/1275050156.jpg"
     },
     {
         "bank_name": "БТА Банк",
         "bank_cash_desk": "39.400 / 39.950",
         "bank_card_online": "0.000 /0.000",
-        "time_set": "2024.05.01 10:41"
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/70/logo/1274948681.jpg"
     },
     {
-        "bank_name": "izibank",
+        "bank_name": "Траст-капитал",
+        "bank_cash_desk": "39.750 / 39.950",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 22:34",
+        "image_url": "https://minfin.com.ua/img/company/120/logo/1331114140.jpg"
+    },
+    {
+        "bank_name": "Поликомбанк",
+        "bank_cash_desk": "39.400 / 39.800",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.04 15:22",
+        "image_url": "https://minfin.com.ua/img/company/104/logo/1344505063.jpg"
+    },
+    {
+        "bank_name": "ОКСИ Банк",
+        "bank_cash_desk": "39.400 / 39.800",
+        "bank_card_online": "39.100 /40.100",
+        "time_set": "2024.05.03 12:15",
+        "image_url": "https://minfin.com.ua/img/company/61/logo/1635499192.jpg"
+    },
+    {
+        "bank_name": "Мотор-Банк",
+        "bank_cash_desk": "39.300 / 39.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 00:00",
+        "image_url": "https://minfin.com.ua/img/company/198/logo/1275029563.jpg"
+    },
+    {
+        "bank_name": "Альтбанк",
+        "bank_cash_desk": "39.350 / 39.800",
+        "bank_card_online": "39.350 /39.850",
+        "time_set": "2024.05.03 23:41",
+        "image_url": "https://minfin.com.ua/img/company/87/logo/1479809249.jpg"
+    },
+    {
+        "bank_name": "Европромбанк",
+        "bank_cash_desk": "39.650 / 39.850",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 22:43",
+        "image_url": "https://minfin.com.ua/img/company/94/logo/1344499350.jpg"
+    },
+    {
+        "bank_name": "Метабанк",
+        "bank_cash_desk": "39.000 / 39.850",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 22:54",
+        "image_url": "https://minfin.com.ua/img/company/125/logo/1520323749.jpg"
+    },
+    {
+        "bank_name": "Коминвестбанк",
+        "bank_cash_desk": "39.500 / 39.900",
+        "bank_card_online": "39.300 /39.850",
+        "time_set": "2024.05.04 08:00",
+        "image_url": "https://minfin.com.ua/img/company/116/logo/1456247155.jpg"
+    },
+    {
+        "bank_name": "Кредит Европа Банк",
+        "bank_cash_desk": "38.900 / 39.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 08:00",
+        "image_url": "https://minfin.com.ua/img/company/13/logo/1274945529.jpg"
+    },
+    {
+        "bank_name": "Банк 3/4",
+        "bank_cash_desk": "39.200 / 39.750",
+        "bank_card_online": "0.000 /39.750",
+        "time_set": "2024.05.03 08:00",
+        "image_url": "https://minfin.com.ua/img/company/166/logo/1615151678.jpg"
+    },
+    {
+        "bank_name": "Кредитвест Банк",
+        "bank_cash_desk": "39.400 / 39.600",
+        "bank_card_online": "39.400 /39.600",
+        "time_set": "2024.05.04 15:30",
+        "image_url": "https://minfin.com.ua/img/company/52/logo/1275028777.jpg"
+    },
+    {
+        "bank_name": "Скай Банк",
+        "bank_cash_desk": "39.500 / 39.800",
+        "bank_card_online": "39.050 /40.050",
+        "time_set": "2024.05.04 08:00",
+        "image_url": "https://minfin.com.ua/img/company/86/logo/1498825282.jpg"
+    },
+    {
+        "bank_name": "Кристалбанк",
+        "bank_cash_desk": "39.200 / 39.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.04 15:26",
+        "image_url": "https://minfin.com.ua/img/company/559/logo/1687528502.png"
+    },
+    {
+        "bank_name": "Агропросперис Банк",
+        "bank_cash_desk": "39.500 / 39.900",
+        "bank_card_online": "39.750 /0.000",
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/32/logo/1519832586.jpg"
+    },
+    {
+        "bank_name": "Юнекс Банк",
+        "bank_cash_desk": "39.200 / 39.820",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 22:42",
+        "image_url": "https://minfin.com.ua/img/company/31/logo/1699545630.png"
+    },
+    {
+        "bank_name": "Грант",
+        "bank_cash_desk": "39.300 / 39.900",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.04 15:20",
+        "image_url": "https://minfin.com.ua/img/company/108/logo/1494420345.jpg"
+    },
+    {
+        "bank_name": "РВС Банк",
+        "bank_cash_desk": "39.300 / 39.870",
+        "bank_card_online": "39.540 /39.930",
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/14/logo/1703604196.png"
+    },
+    {
+        "bank_name": "Индустриалбанк",
+        "bank_cash_desk": "39.400 / 40.000",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.04 15:21",
+        "image_url": "https://minfin.com.ua/img/company/77/logo/1559039743.jpg"
+    },
+    {
+        "bank_name": "Бізбанк",
+        "bank_cash_desk": "39.500 / 39.850",
+        "bank_card_online": "39.200 /39.850",
+        "time_set": "2024.05.03 08:00",
+        "image_url": "https://minfin.com.ua/img/company/57/logo/1712244993.png"
+    },
+    {
+        "bank_name": "Полтава-Банк",
+        "bank_cash_desk": "39.450 / 39.850",
+        "bank_card_online": "39.535 /40.325",
+        "time_set": "2024.05.03 16:52",
+        "image_url": "https://minfin.com.ua/img/company/54/logo/1275035813.jpg"
+    },
+    {
+        "bank_name": "Клиринговый Дом",
+        "bank_cash_desk": "39.470 / 39.870",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 23:40",
+        "image_url": "https://minfin.com.ua/img/company/146/logo/1560330673.jpg"
+    },
+    {
+        "bank_name": "Пиреус Банк",
+        "bank_cash_desk": "39.500 / 39.890",
+        "bank_card_online": "39.140 /39.860",
+        "time_set": "2024.05.03 08:00",
+        "image_url": "https://minfin.com.ua/img/company/150/logo/1692615234.png"
+    },
+    {
+        "bank_name": "Радабанк",
+        "bank_cash_desk": "39.200 / 39.950",
+        "bank_card_online": "39.500 /39.800",
+        "time_set": "2024.05.03 08:00",
+        "image_url": "https://minfin.com.ua/img/company/46/logo/1678273822.jpg"
+    },
+    {
+        "bank_name": "Банк Львов",
+        "bank_cash_desk": "39.600 / 39.760",
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.04 15:22",
+        "image_url": "https://minfin.com.ua/img/company/136/logo/1707213947.png"
+    },
+    {
+        "bank_name": "Международный Инвестиционный Банк",
+        "bank_cash_desk": "39.500 / 39.950",
+        "bank_card_online": "39.400 /39.800",
+        "time_set": "2024.05.03 22:43",
+        "image_url": "https://minfin.com.ua/img/company/196/logo/1691770978.png"
+    },
+    {
+        "bank_name": "Правекс Банк",
+        "bank_cash_desk": "39.450 / 39.800",
+        "bank_card_online": "39.300 /39.750",
+        "time_set": "2024.05.04 15:22",
+        "image_url": "https://minfin.com.ua/img/company/155/logo/1513150329.jpg"
+    },
+    {
+        "bank_name": "Коминбанк",
+        "bank_cash_desk": "39.100 / 39.820",
+        "bank_card_online": "39.300 /39.850",
+        "time_set": "2024.05.04 15:23",
+        "image_url": "https://minfin.com.ua/img/company/48/logo/1654586712.png"
+    },
+    {
+        "bank_name": "Альянс Банк",
+        "bank_cash_desk": "39.000 / 39.700",
+        "bank_card_online": "39.000 /39.700",
+        "time_set": "2024.05.04 08:15",
+        "image_url": "https://minfin.com.ua/img/company/114/logo/1585240713.jpg"
+    },
+    {
+        "bank_name": "Укрэксимбанк",
+        "bank_cash_desk": "39.350 / 39.950",
+        "bank_card_online": "39.400 /39.800",
+        "time_set": "2024.05.03 22:43",
+        "image_url": "https://minfin.com.ua/img/company/15/logo/1704999701.png"
+    },
+    {
+        "bank_name": "МТБ Банк",
         "bank_cash_desk": "39.300 / 39.700",
-        "bank_card_online": "39.250 /39.594",
-        "time_set": "2024.04.30 12:50"
+        "bank_card_online": "0.000 /0.000",
+        "time_set": "2024.05.03 22:40",
+        "image_url": "https://minfin.com.ua/img/company/21/logo/1690976264.png"
     },
     {
-        "bank_name": "monobank",
-        "bank_cash_desk": "0.0000 / 0.0000",
-        "bank_card_online": "39.500 /39.830",
-        "time_set": "2024.05.01 10:42"
+        "bank_name": "Идея Банк",
+        "bank_cash_desk": "39.400 / 39.900",
+        "bank_card_online": "39.300 /39.700",
+        "time_set": "2024.05.04 15:20",
+        "image_url": "https://minfin.com.ua/img/company/85/logo/1485331835.jpg"
+    },
+    {
+        "bank_name": "Глобус",
+        "bank_cash_desk": "39.400 / 39.900",
+        "bank_card_online": "39.450 /39.800",
+        "time_set": "2024.05.02 22:56",
+        "image_url": "https://minfin.com.ua/img/company/42/logo/1531752875.jpg"
     }
 ]

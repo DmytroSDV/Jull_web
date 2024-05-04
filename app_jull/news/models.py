@@ -45,6 +45,7 @@ class EurCurrency(models.Model):
     bamk_cash_desk = models.CharField(max_length=250)
     bank_card_online = models.CharField(max_length=250)
     time_set = models.CharField(max_length=250)
+    image_url = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
@@ -53,6 +54,7 @@ class UsdCurrency(models.Model):
     bamk_cash_desk = models.CharField(max_length=250)
     bank_card_online = models.CharField(max_length=250)
     time_set = models.CharField(max_length=250)
+    image_url = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
 
 

@@ -68,7 +68,6 @@ INSTALLED_APPS = [
     "notes",
     "users",
     "django_celery_results",
-
 ]
 
 
@@ -123,8 +122,6 @@ DATABASES = {
 
 
 # Email
-
-
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
@@ -211,7 +208,6 @@ CELERY_BROKER_URL = "redis://localhost:6379/0"
 # CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 # CELERY_RESULT_BACKEND = "django-db"
-
 
 # celery setting.
 CELERY_CACHE_BACKEND = "default"

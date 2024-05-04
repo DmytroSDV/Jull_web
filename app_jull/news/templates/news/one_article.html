@@ -1,13 +1,37 @@
-{% extends "news/base_form.html"%}
-
+{% extends "news/base_form.html" %}
 
 {% block content %}
+<style>
+    .article-content {
+        {% comment %} max-width: 800px; {% endcomment %}
+        margin: 0 auto;
+        background-color: rgba(128, 128, 128, 0.2);
+        padding: 20px;
+    }
+    .article-content p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 
-<div><h2>{{article.title}}</h2></div>
-<span><h3>{{article.date_of}}  {{article.time_of}}</h3></span>   
-<div>
-    <img src={{article.image_url}} width="" height="" alt={{article.title}}> 
-</div>   
-<div>{{article.content}}</div>    
+<div class="row mt-5">
+    <div class="mx-auto">
+        <div class="article-header mb-4 bg-light p-3 rounded">
+            <h2>{{ article.title }}</h2>
+            <p class="article-meta">{{ article.date_of }} {{ article.time_of }}</p>
+        </div>
+        <div class="article-body mb-4 text-justify bg-light p-3 rounded">
+            <div class="article-content">
+                <img src="{{ article.image_url }}" class="img-fluid mb-3 center-block" alt="{{ article.title }}">
+                {{ article.content | safe }}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
