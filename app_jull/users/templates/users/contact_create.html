@@ -1,12 +1,47 @@
-{% extends "news/base_form.html" %}
+{% extends "users/base_form.html" %}
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'users/style.css' %}">
 <h2>Add contact</h2>
-<form method="post">
+<form id="add-contact-form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
 </form>
 <a href="{% url 'users:contacts' %}" class="btn btn-primary">Back to Contacts</a>
+<div id="success-message" style="display: none; color: green;">Contact is successfully created.</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var addContactForm = document.getElementById('add-contact-form');
+        addContactForm.addEventListener('submit', function (event) {
+            event.preventDefault(); 
+            fetch(addContactForm.action, {
+                method: addContactForm.method,
+                body: new FormData(addContactForm),
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(function (response) {
+                if (response.ok) {
+                    document.getElementById('success-message').style.display = 'block';
+                    setTimeout(function () {
+                        window.location.href = '{% url "users:contacts" %}';
+                    }, 3000);
+                } else {
+                    document.getElementById('success-message').style.display = 'none';
+                    var errorMessage = 'Error contact created: ' + response.statusText;
+                    alert(errorMessage);
+                    console.error(errorMessage);
+                }
+            })
+            .catch(function (error) {
+                document.getElementById('success-message').style.display = 'none';
+                var errorMessage = 'Error contact created: ' + error.message;
+                alert(errorMessage);
+                console.error(errorMessage);
+            });
+        });
+    });
+</script>
 {% endblock %}

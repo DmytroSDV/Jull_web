@@ -1,21 +1,22 @@
-{%extends "news/base_form.html"%}
-{%block content%}
+{% extends "news/base_form.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app_photo/style.css' %}">
 <div class="container mt-3">
     <form action="{% url 'app_photo:upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Description</label>
-            {{form.description}}
+            {{ form.description }}
             <div id="emailHelp" class="form-text">Description for picture</div>
-            <span>{{form.errors.description}}</span>
+            <span>{{ form.errors.description }}</span>
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Default file input example</label>
-            {{form.image}}
-            <span>{{form.errors.image}}</span>
+            {{ form.image }}
+            <span>{{ form.errors.image }}</span>
         </div>
-
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
-{%endblock%}
+{% endblock %}

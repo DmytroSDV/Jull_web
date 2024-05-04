@@ -1,9 +1,95 @@
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Стили для контейнера на широких экранах */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Стили для колонки col-md-8 */
+.col-md-8 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Стили для футера */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.main-content {
+    flex: 1 0 auto;
+}
+.footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #dee03f;
+    padding: 20px 0;
+}
+
+.footer .container {
+    padding: 1px 0;
+}
+
+.col-md-12 text-right{
+    float: right;
+    margin-top: 100px;
+}
+/* Common styles */
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+
+.btn-danger:hover {
+    opacity: 0.8;
+}
+
+/* Signup Form */
 .signup-form {
     max-width: 400px;
     margin: 0 auto;
-    background-color: #100235; 
-    padding: 20px; 
-    border-radius: 10px; 
+    background-color: #b3dbdb;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .signup-form h2 {
@@ -11,17 +97,14 @@
     margin-bottom: 20px;
 }
 
-
 .form-group {
     margin-bottom: 20px;
 }
-
 
 .form-group label {
     display: block;
     font-weight: bold;
 }
-
 
 .form-group input[type="text"],
 .form-group input[type="email"],
@@ -35,26 +118,7 @@
     box-sizing: border-box;
 }
 
-/* Style formя btn */
-.btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-.sign-Up {
-    margin-left: 515px;
-
-}
-
-/* Style form login */
+/* Login Form */
 .form-container {
     width: 400px;
     margin: 0 auto;
@@ -64,64 +128,13 @@
     border-radius: 5px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.forgot-password {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.forgot-password a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-/* Style for messages об error */
+/* Error messages */
 .error {
     color: red;
     margin-bottom: 10px;
 }
 
-/* Reset password */
-
-/* Style for profile */
-
+/* Profile Container */
 .profile-container {
     text-align: center;
     margin-top: 50px;
@@ -134,6 +147,7 @@ button[type="submit"]:hover {
     margin-bottom: 20px;
 }
 
+/* Avatar Input */
 .avatar-input {
     margin-top: 20px;
 }
@@ -143,6 +157,7 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
+/* Button Grid */
 .btn-grid {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -161,9 +176,9 @@ button[type="submit"]:hover {
 
 .btn-grid button:hover {
     background-color: #4CAF50;
-    color: white;
 }
 
+/* Button Group */
 .btn-group {
     margin-top: 20px;
     display: flex;
@@ -182,41 +197,9 @@ button[type="submit"]:hover {
 
 .btn-group a:hover {
     background-color: #f44336;
-    color: white;
 }
 
-.btn-primary,
-.btn-secondary,
-.btn-danger {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background-color: #007bff;
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-}
-
-.btn-danger {
-    background-color: #dc3545;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover,
-.btn-danger:hover {
-    background-color: #0056b3;
-}
-
-/* Стили для контейнера кнопок */
+/* Button Container */
 .btn-container {
     margin-top: 20px;
     display: flex;
@@ -231,16 +214,14 @@ button[type="submit"]:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 16px;
-    color: #fff;
-    text-decoration: none;
 }
 
 .btn-container button:hover,
 .btn-container a:hover {
     filter: brightness(110%);
 }
-/* Reset password confirm */
+
+/* Password Reset Form */
 .password-reset-form {
     max-width: 400px;
     margin: 0 auto;
@@ -250,68 +231,8 @@ button[type="submit"]:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.password-reset-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.password-reset-form form {
-    text-align: left;
-}
-
-.password-reset-form form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.password-reset-form form input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.password-reset-form form button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.password-reset-form form button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.password-reset-sent {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.password-reset-sent h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.password-reset-sent p {
-    color: #666;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
+/* Password Reset Sent Message */
+.password-reset-sent,
 .password-reset-complete {
     max-width: 400px;
     margin: 0 auto;
@@ -322,13 +243,21 @@ button[type="submit"]:hover {
     text-align: center;
 }
 
+.password-reset-sent h2,
 .password-reset-complete h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
+.password-reset-sent p,
+.password-reset-complete p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
 
+/* Birthday Form */
 .birthday-form {
     margin-bottom: 20px;
 }
@@ -359,6 +288,7 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Search Form */
 .search-form {
     display: inline-block;
     margin-right: 10px;
@@ -366,7 +296,7 @@ button[type="submit"]:hover {
     height: 47px;
     position: relative;
     top: 4px;
-    transition: box-shadow 0.3s, border-radius 0.3s; 
+    transition: box-shadow 0.3s, border-radius 0.3s;
 }
 
 .search-form input[type="text"] {
@@ -374,54 +304,24 @@ button[type="submit"]:hover {
     padding: 12px 24px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    height: 100%; 
+    height: 100%;
 }
 
 .search-form:hover input[type="text"] {
     border-color: #007bff;
 }
+
 .search-input-container {
     display: flex;
-    align-items: center; /* Выравнивание элементов по вертикали */
+    align-items: center;
 }
 
 .search-input-container input[type="text"] {
-    flex: 1; /* Растягиваем ввод текста, чтобы он занимал всё доступное пространство */
-    margin-right: 10px; /* Добавляем отступ справа для разделения элементов */
+    flex: 1;
+    margin-right: 10px;
 }
 
-
-/* Стили для Confirm Delete Contact */
-.confirm-delete-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.confirm-delete-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-.confirm-delete-container p {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #666;
-}
-
-.confirm-delete-container #delete-button {
-    margin-top: 20px;
-}
-
-.confirm-delete-container #success-message {
-    margin-top: 20px;
-    font-size: 18px;
-}
-/* Стили для Edit Contact */
+/* Edit Contact Container */
 .edit-contact-container {
     max-width: 600px;
     margin: 0 auto;
@@ -431,52 +331,9 @@ button[type="submit"]:hover {
     border-radius: 5px;
 }
 
-.edit-contact-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-.edit-contact-container form {
-    margin-bottom: 20px;
-}
-
-.edit-contact-container form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #666;
-}
-
-.edit-contact-container form input[type="text"],
-.edit-contact-container form input[type="email"],
-.edit-contact-container form input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.edit-contact-container form button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.edit-contact-container form button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Стили для Add contact */
-.add-contact-container {
-    max-width: 600px;
+/* Confirm Delete Contact Container */
+.confirm-delete-container {
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -484,45 +341,13 @@ button[type="submit"]:hover {
     border-radius: 5px;
 }
 
-.add-contact-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
+.confirm-delete-container h2 {
+    font-size: 1.5rem;
     color: #333;
+    margin-bottom: 1rem;
 }
 
-.add-contact-container form {
-    margin-bottom: 20px;
-}
-
-.add-contact-container form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #666;
-}
-
-.add-contact-container form input[type="text"],
-.add-contact-container form input[type="email"],
-.add-contact-container form input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.add-contact-container form button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-contact-container form button[type="submit"]:hover {
-    background-color: #0056b3;
+.confirm-delete-container p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
