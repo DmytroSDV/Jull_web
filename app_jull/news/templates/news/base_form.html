@@ -13,28 +13,25 @@
     <title>Jull</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row header-box pt-3 mb-3">
-            <div class="col-md-8">
-                <h1>
-                    <a href="/" style="text-decoration: none;">Jull assistant</a>
-                </h1>
-
-
-
-
+    <div class="top_container">
+            <div class="row header-box pt-3 mb-3">
+                <div class="col-md-8">
+                    <h1 class="main_head_title">
+                        <a href="/" style="text-decoration: none;">Jull assistant</a>
+                    </h1>
+                </div>
+                <div class="button_main">
+                    <a href="{% url 'users:signup' %}" class="btn btn-primary signup-button">Sign Up</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'users:profile' %}" class="btn btn-secondary profile-button">Profile</a>
+                    {% else %}
+                        <a href="{% url 'users:login' %}" class="btn btn-secondary login-button">Login</a>
+                    {% endif %}
+                </div>
             </div>
-            <div class="col-md-4 text-right">
-                <a href="{% url 'users:signup' %}" class="btn btn-primary signup-button">Sign Up</a>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'users:profile' %}" class="btn btn-secondary login-button">Profile</a>
-                {% else %}
-                    <a href="{% url 'users:login' %}" class="btn btn-secondary login-button">Login</a>
-                {% endif %}
-            </div>
-        </div>
-        {% block content %} {% endblock %}
-        <footer class="footer">
+    </div>
+   
+        {% comment %} <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -43,7 +40,16 @@
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </footer> {% endcomment %}
+    
+    
+        {% block content %} {% endblock %}
+        <div class="footer_container bg-primary footer_text mt-5 py-5 px-sm-3 px-md-5">
+            <div class="container text-center py-5">
+                <p class="m-0">
+                    <img src="{% static 'Umbrella_logo.ico' %}" alt="Web.World" >
+                    <a class="footer_text font-weight-bold">Web.World</a> - Corporation</p>
+            </div>
+        </div>
 </body>
 </html>

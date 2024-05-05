@@ -38,12 +38,12 @@
           <div class="left">
             <b class="city">{{ weather.city }}</b>
             <span class="for_spans">Вологість: <b class="for_b">{{ weather.humidity }}%</b></span>
-            <span class="for_spans">Швидкість вітру: <b>{{ weather.wind_speed }} m/s</b></span>
-            <span class="for_spans">Схід сонця: <b>{{ weather.sunrise }}</b></span>
-            <span class="for_spans">Захід сонця: <b>{{ weather.sunset }}</b></span>
+            <span class="for_spans">Швидкість вітру: <b class="for_b">{{ weather.wind_speed }} m/s</b></span>
+            <span class="for_spans">Схід сонця: <b class="for_b">{{ weather.sunrise }}</b></span>
+            <span class="for_spans">Захід сонця: <b class="for_b">{{ weather.sunset }}</b></span>
           </div>
           <div class="right">
-            <img id="weather-img-{{ weather.id }}" class="for_img">
+            <img id="weather-img-{{ weather.id }}" class="for_img" src="{{weather.weather_icon}}">
             <span class="temp">{{weather.temperature_current}}℃</span>
           </div>
         </div>
@@ -52,7 +52,7 @@
   </div>
 </div>
 
-<script>
+{% comment %} <script>
   async function updateWeatherImage(weatherId, city) {
     const image = document.querySelector(`#weather-img-${weatherId}`);
     if (image) {
@@ -70,7 +70,7 @@
   {% for weather in weather_items %}
     updateWeatherImage({{ weather.id }}, '{{ weather.city }}');
   {% endfor %}
-</script>
+</script> {% endcomment %}
 
 
 {% comment %} EUR {% endcomment %}
@@ -215,6 +215,7 @@
                         <span class="blockComing_span">{{sport.title}}</span> 
                 </div> </div> </a> </div>
         {% endfor %}
-</div></div>
+</div>
+</div>
 
 {% endblock %}
