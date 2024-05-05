@@ -1,4 +1,4 @@
-{%extends "news/base_form.html"%}
+{% extends "users/base_form.html" %}
 {%block content%}
 <div class="container mt-3">
     <form action="{% url 'app_photo:edit_image' data.id %}" method="post">
