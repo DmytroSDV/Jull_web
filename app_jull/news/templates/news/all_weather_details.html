@@ -22,6 +22,42 @@
         text-decoration: underline;
         font-weight: bold;
     }
+    .table-container {
+    overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .opacities:hover {
+        background-color: #f2f2f2;
+    }
+
+    .weather-condition {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .weather-icon {
+        vertical-align: middle;
+        max-width: 30px;
+        max-height: 30px;
+    }
+
 </style>
 
 <h1>Get weather:</h1>
@@ -51,7 +87,7 @@
             } else {
                 createWeather(data);
             }
-        } 
+        }
         function convertUnixTimestampToTime(unixTimestamp) {
             var date = new Date(unixTimestamp * 1000);
             var hours = date.getHours();
@@ -95,37 +131,71 @@
             </div>`;
         }
     </script>
+
 {% comment %} Weather {% endcomment %}
 <div class="ukraine">
-  <div class="ukraineH2 H2alike">
-    <div class="news__title__h2"><h2>Погода:</h2></div>
-    <div class="ukraineLink LinkAlike">
-      <a href="{% url 'news:all_weather_details'%}">
-        <h2 class="ukraineLinkH2 LinkH2Alike">Дивитись в деталях::</h2>
+    <div class="ukraineH2 H2alike">
+        <div class="news__title__h2"><h2>Погода в деталях</h2></div>
+        <div class="ukraineLink LinkAlike">
+      <a href="{% url 'news:all_weather_cities'%}">
+        <h2 class="ukraineLinkH2 LinkH2Alike">Загальні дані:</h2>
       </a>
     </div>
   </div>
-  <div class="ukraineBlock BlockAlike">
-    {% for weather in weather_items %}
-      <div class="blockComingUK opacities">
-        <div class="weather">
-          <div class="left">
-            <b class="city">{{ weather.city }}</b>
-            <span class="for_spans">Вологість: <b class="for_b">{{ weather.humidity }}%</b></span>
-            <span class="for_spans">Швидкість вітру: <b class="for_b">{{ weather.wind_speed }} m/s</b></span>
-            <span class="for_spans">Схід сонця: <b class="for_b">{{ weather.sunrise }}</b></span>
-            <span class="for_spans">Захід сонця: <b class="for_b">{{ weather.sunset }}</b></span>
-          </div>
-          <div class="right">
-            <img id="weather-img-{{ weather.id }}" class="for_img" src="{{weather.weather_icon}}">
-            <span class="temp">{{weather.temperature_current}}℃</span>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
+    <div class="ukraineBlock BlockAlike table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Oblast</th>
+                    <th>City</th>
+                    <th>lat°</th>
+                    <th>lon°</th>
+                    <th>CC</th>
+                    <th>Weather</th>
+                    <th>T℃ now</th>
+                    <th>T℃ feels</th>
+                    <th>T℃ min</th>
+                    <th>T℃ max</th>
+                    <th>Pressure sea hPa</th>
+                    <th>Pressure hPa</th>
+                    <th>Humidity %</th>
+                    <th>Wind speed m/s</th>
+                    <th>Sunrise</th>
+                    <th>Sunset</th>
+                    <th>Region</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for weather in weather_items %}
+                <tr class="opacities">
+                    <td>{{ weather.oblast }}</td>
+                    <td>{{ weather.city }}</td>
+                    <td>{{ weather.lat }}</td>
+                    <td>{{ weather.lon }}</td>
+                    <td>{{ weather.country_code }}</td>
+                    <td>
+                        <span class="weather-condition">{{ weather.weather_condition }}</span>
+                        <img src="{{ weather.weather_icon }}" alt="{{ weather.oblast }}" class="weather-icon">
+                    </td>
+                    <td>{{ weather.temperature_current }}</td>
+                    <td>{{ weather.temperature_feels }}</td>
+                    <td>{{ weather.temperature_min }}</td>
+                    <td>{{ weather.temperature_max }}</td>
+                    <td>{{ weather.pressure_sea_level }}</td>
+                    <td>{{ weather.pressure_ground_level }}</td>
+                    <td>{{ weather.humidity }}</td>
+                    <td>{{ weather.wind_speed }}</td>
+                    <td>{{ weather.sunrise }}</td>
+                    <td>{{ weather.sunset }}</td>
+                    <td>{{ weather.region }}</td>
+                    <td>{{ weather.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
-
 {% comment %} <script>
   async function updateWeatherImage(weatherId, city) {
     const image = document.querySelector(`#weather-img-${weatherId}`);
@@ -145,5 +215,4 @@
     updateWeatherImage({{ weather.id }}, '{{ weather.city }}');
   {% endfor %}
 </script> {% endcomment %}
-
 {% endblock %}

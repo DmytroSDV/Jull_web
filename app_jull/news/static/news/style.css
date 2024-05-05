@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
-.for_form {
+/* 1 */
+.get_for_form {
     display: flex;
     gap: 1px;
 }
 
-.for_input {
-    width: 175px;
+.get_for_input {
+    width: 305px;
     padding: 5px;
     outline: none;
     border: 1px solid #eb6e16;
@@ -15,8 +16,8 @@
     background-color: #fafafa;
 }
 
-.for_button {
-    width: 90px;
+.get_for_button {
+    width: 110px;
     border: none;
     border-radius: 4px;
     color: #fafafa;
@@ -26,15 +27,15 @@
     cursor: pointer;
 }
 
-.for_button:hover {
+.get_for_button:hover {
     background-color: #c4580b;
 }
 
-.weather {
+.get_weather {
     display: flex;
     justify-content: space-between;
     gap: 5px;
-    width: 220px;
+    width: 1870px;
     height: 150px;
     margin-top: 5px;
     padding: 5px;
@@ -42,6 +43,76 @@
     border-radius: 4px;
     background-color: #83eaf1;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-image: url('background_img.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.get_city {
+    overflow: hidden;
+    display: block;
+    width: 180px;
+    margin-bottom: 5px;
+    color: #eb6e16;
+    font-size: 27px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.get_for_img {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    width: 80px;
+    height: 80px;
+}
+
+.get_temp {
+    color: #0060ff;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: right;
+    position: absolute;
+    top: 87px;
+    right: 6px;
+    width: 80px;
+    height: 80px;
+}
+
+.get_for_spans {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.get_for_b {
+    color: #eb6e16;
+}
+
+.get_right {
+    position: relative;
+    padding-top: 60px;
+}
+
+/* 2 */
+
+.weather {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    width: 405px;
+    height: 150px;
+    margin-top: 5px;
+    padding: 5px;
+    border: 2px solid #eb6e16;
+    border-radius: 4px;
+    background-color: #83eaf1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-image: url('background_img.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .city {
@@ -70,8 +141,8 @@
     font-weight: 900;
     text-align: right;
     position: absolute;
-    top: 107px;
-    right: 6px;
+    top: 117px;
+    right: -2px;
     width: 80px;
     height: 80px;
 }
@@ -79,6 +150,7 @@
 .for_spans {
     display: block;
     margin-top: 5px;
+    font-weight: bold;
 }
 
 .for_b {
@@ -89,11 +161,53 @@
     position: relative;
     padding-top: 60px;
 }
+
 .container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.top_container {
+    text-align: left;
+    margin-bottom: 80px;
+}
+
+.button_main {
+    position: relative;
+}
+
+.button_main .login-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 107px;
+    margin-top: -45px;
+}
+
+.button_main .signup-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 15px;
+    margin-top: -45px;
+}
+
+.button_main .profile-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 107px;
+    margin-top: -45px;
+}
+
+.main_head_title {
+    font-size: 50px;
+    background: linear-gradient(#1f86f5, #a08c19);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Стили для контейнера на широких экранах */
@@ -112,15 +226,18 @@
 }
 
 /* Стили для футера */
-html, body {
+html,
+body {
     height: 100%;
-    margin: 0;
+    margin: 15px;
     display: flex;
     flex-direction: column;
 }
+
 .main-content {
     flex: 1 0 auto;
 }
+
 .footer {
     bottom: 0;
     left: 0;
@@ -133,11 +250,22 @@ html, body {
     padding: 1px 0;
 }
 
-.col-md-12 text-right{
+.col-md-12 text-right {
     float: right;
     margin-top: 100px;
 }
 
+.footer_container {
+    background: linear-gradient(#0474ec, #f3d840);
+}
+
+.footer_text {
+    color: #0d3c8d !important;
+    font-size: 40px;
+
+}
+
+/* Styles for main page */
 .blockComingUK {
     width: 24%;
     display: block;

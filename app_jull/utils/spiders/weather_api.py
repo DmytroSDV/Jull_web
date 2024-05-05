@@ -56,6 +56,9 @@ FINAL_INFO = os.path.join(
 CURRENT_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?"
 GEO_CODING_URL = "http://api.openweathermap.org/geo/1.0/direct?"
 
+WEATHER_ICON_URL_PREFIX = "https://openweathermap.org/img/wn/"
+WEATHER_ICON_URL_SUFFIX = "@2x.png"
+
 
 def get_current_weather(
     city: str = "Луцьк", limit: int = 1, units: str = "metric", language: str = "en"
@@ -127,8 +130,8 @@ def get_current_weather(
     else:
         my_logger.log(f"Error: {response.status_code} \n {response.text}", 40)
 
-    with open(FINAL_INFO, "w", encoding="utf-8") as fh:
-        fh.write(json.dumps(full_data, ensure_ascii=False, indent=4))
+    # with open(FINAL_INFO, "w", encoding="utf-8") as fh:
+    #     fh.write(json.dumps(full_data, ensure_ascii=False, indent=4))
     return full_data
 
 
@@ -149,6 +152,7 @@ def weather_api_request():
             returned_data = get_current_weather(city=city, language="ua")
 
             for item in returned_data:
+                weather_middle = item["weather_icon"]
                 item_object = WeatherInfo(
                     oblast=oblast,
                     city=item["city"],
@@ -156,6 +160,7 @@ def weather_api_request():
                     lon=item["lon"],
                     country_code=item["country_code"],
                     weather_condition=item["weather_condition"],
+                    weather_icon=f"{WEATHER_ICON_URL_PREFIX}{weather_middle}{WEATHER_ICON_URL_SUFFIX}",
                     temperature_current=item["temperature_current"],
                     temperature_feels=item["temperature_feels"],
                     temperature_min=item["temperature_min"],
@@ -173,5 +178,5 @@ def weather_api_request():
 
 
 if __name__ == "__main__":
-    get_current_weather()
-    # weather_api_request()
+    # get_current_weather()
+    weather_api_request()

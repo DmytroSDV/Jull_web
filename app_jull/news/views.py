@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Count
+import random
 
 from news.models import (
     ArticleNews,
@@ -14,13 +15,22 @@ from news.models import (
 
 
 def index(request):
-    article_items = ArticleNews.objects.all()[:4]
-    eur_item = EurCurrency.objects.all()[:4]
-    usd_item = UsdCurrency.objects.all()[:4]
-    sience_items = SienceNews.objects.all()[:4]
-    techno_items = TechnoNews.objects.all()[:4]
-    sport_items = SportNews.objects.all()[:4]
-    weather_items = WeatherInfo.objects.all()[:4]
+
+    articles = list(ArticleNews.objects.all())
+    eur = list(EurCurrency.objects.all())
+    usd = list(UsdCurrency.objects.all())
+    siences = list(SienceNews.objects.all())
+    technos = list(TechnoNews.objects.all())
+    sports = list(SportNews.objects.all())
+    weather = list(WeatherInfo.objects.all())
+
+    article_items = random.sample(articles, min(4, len(articles)))
+    eur_item = random.sample(eur, min(4, len(eur)))
+    usd_item = random.sample(usd, min(4, len(usd)))
+    sience_items = random.sample(siences, min(4, len(siences)))
+    techno_items = random.sample(technos, min(4, len(technos)))
+    sport_items = random.sample(sports, min(4, len(sports)))
+    weather_items = random.sample(weather, min(4, len(weather)))
 
     return render(
         request,
@@ -163,6 +173,18 @@ def all_weather_cities(request):
     return render(
         request,
         "news/all_weather_cities.html",
+        context={
+            "weather_items": weather_items,
+        },
+    )
+
+
+def all_weather_details(request):
+    weather_items = WeatherInfo.objects.all()
+
+    return render(
+        request,
+        "news/all_weather_details.html",
         context={
             "weather_items": weather_items,
         },
