@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from .forms import NoteForm,SearchNoteForm
 from .models import Note, Tag
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -60,11 +60,13 @@ def add_notes(request):
             for tag_name in tag_names:
                 tag, created = Tag.objects.get_or_create(tag=tag_name.strip())
                 note.tags.add(tag)  # Додати тег до запису
-
+            messages.success(request, 'Заметка успешно создана.')
             return redirect('notes:notes_list')
+        else:
+            # Если форма не прошла валидацию, добавляем сообщение об ошибке
+            messages.error(request, 'Заметка не создана. Пожалуйста, заполните все поля формы.')
     else:
         form = NoteForm()
-        print('Error creating')
     return render(request, 'notes/add_notes.html', {'form': form})
 
 
@@ -83,4 +85,6 @@ def search_notes(request):
 
 def notes_by_tag(request, tag):
     notes = Note.objects.filter(tags__tag__iexact=tag)
+    if not notes.exists():
+        messages.info(request, f'Заметок с тегом "{tag}" не найдено.')
     return render(request, 'notes/notes_by_tag.html', {'notes': notes, 'tag': tag})

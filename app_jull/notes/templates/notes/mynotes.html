@@ -2,6 +2,7 @@
 {% block content %}
 <div class="container">
     <h1>Note List</h1>
+    {% if notes %}
     <ul class="list-group">
         {% for note in notes %}
         <li class="list-group-item">
@@ -21,6 +22,9 @@
             </div>
         </li>
         {% endfor %}
+        {% else %}
+        <p>No notes</p>
+        {% endif %}
     </ul>
     <a href="{% url 'notes:add_notes' %}" class="btn btn-primary mt-3">Add New Note</a>
     <a href="{% url 'notes:search_notes' %}" class="btn btn-primary mt-3">Search Notes</a>

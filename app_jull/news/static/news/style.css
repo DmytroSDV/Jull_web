@@ -171,7 +171,9 @@
 
 .top_container {
     text-align: left;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+    padding: 10px;
+    background: linear-gradient(#382288, #f3d840, #415c7a);
 }
 
 .button_main {
@@ -204,7 +206,7 @@
 
 .main_head_title {
     font-size: 50px;
-    background: linear-gradient(#1f86f5, #a08c19);
+    background: linear-gradient(#801010, #0d0e0d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -225,13 +227,23 @@
     padding-right: 15px;
 }
 
-/* Стили для футера */
+/* Стили body */
 html,
 body {
     height: 100%;
-    margin: 15px;
+    margin: 1px;
     display: flex;
     flex-direction: column;
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: "Open Sans", serif;
+    color: #212121;
+    /* background: linear-gradient(#99a4b1, #f3d840, #382288); */
+    background-color: #fff;
+    background-image: url('main_index.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .main-content {
@@ -256,7 +268,7 @@ body {
 }
 
 .footer_container {
-    background: linear-gradient(#0474ec, #f3d840);
+    background: linear-gradient(#99a4b1, #f3d840, #382288);
 }
 
 .footer_text {
@@ -301,13 +313,6 @@ a {
     text-decoration: none;
 }
 
-body {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.5;
-    font-family: "Open Sans", serif;
-    color: #212121;
-}
 
 h2 {
     font-size: 27px;
@@ -335,6 +340,7 @@ h6 {
 
 .blockComing_flex img {
     width: 100%;
+    margin-bottom: 15px;
     object-fit: cover;
 }
 

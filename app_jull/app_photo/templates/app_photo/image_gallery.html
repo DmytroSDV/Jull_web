@@ -4,13 +4,13 @@
     <h1 class="mb-4">Галерея медіафайлів</h1>
     <div class="row mb-4">
         <div class="col-md-4">
-            <a href="{% url 'app_photo:show_photo' %}" class="btn btn-primary btn-block">Мої фотографії</a>
+            <a href="{% url 'app_photo:show_photo' %}" class="btn btn-primary btn-block">My photos</a>
         </div>
         <div class="col-md-4">
-            <a href="{% url 'app_photo:show_video' %}" class="btn btn-primary btn-block">Мої відео</a>
+            <a href="{% url 'app_photo:show_video' %}" class="btn btn-primary btn-block">My video</a>
         </div>
         <div class="col-md-4">
-            <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-block">Інші файли</a>
+            <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-block">Another files</a>
              <a class="btn btn-primary btn-block" aria-current="page" href="{% url 'app_photo:upload' %}">Upload</a>
         </div>
     </div>
@@ -36,9 +36,9 @@
                 <div class="card-body">
                     <p class="card-text">{{ data.description }}</p>
                     <div class="d-flex justify-content-between">
-                        <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Редагувати опис</a>
-                        <a href="{% url 'app_photo:remove_image' data.id %}" class="btn btn-danger">Видалити</a>
-                        <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-success">Завантажити</a>
+                        <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'app_photo:remove_image' data.id %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-success">Upload</a>
 
                     </div>
                 </div>
