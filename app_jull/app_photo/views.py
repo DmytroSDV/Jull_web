@@ -53,8 +53,9 @@ def upload(request):
                 picture.description = form.cleaned_data['description']
                 picture.image = uploaded_file['secure_url']  # URL загруженного файла
                 picture.save()
+                form.add_error('image','File was successfully uploaded')
 
-                return render(request, 'app_photo/upload.html', {'form': form})
+                return redirect('app_photo:gallery')
     else:
         form = FormPicture()
     return render(request, 'app_photo/upload.html', {'form': form})
