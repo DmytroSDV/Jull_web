@@ -13,12 +13,26 @@
 
     <title>Jull</title>
 </head>
+<style>
+.top_container {
+    text-align: left;
+    margin-bottom: 40px;
+    padding: 10px;
+    background: linear-gradient(#382288, #f3d840, #607fa3);
+}
+.footer_container {
+
+    background: linear-gradient(#152d47, #f3d840, #382288);
+}
+</style>
 <body>
     <div class="top_container">
             <div class="row header-box pt-3 mb-3">
                 <div class="col-md-8">
                     <h1 class="main_head_title">
-                        <a href="/" style="text-decoration: none;">Jull assistant</a>
+                        <a href="/" style="text-decoration: none;">
+                            <img src="{% static 'web_world.ico' %}" alt="Web.World" >
+                            Jull assistant</a>
                     </h1>
                 </div>
                 <div class="button_main">
@@ -30,7 +44,7 @@
                     {% endif %}
                 </div>
             </div>
-        </div> 
+    </div> 
         {% comment %} <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -45,7 +59,7 @@
         <div class="footer_container bg-primary footer_text mt-5 py-5 px-sm-3 px-md-5">
             <div class="container text-center py-5">
                 <p class="m-0">
-                    <img src="{% static 'Umbrella_logo.ico' %}" alt="Web.World" >
+                    <a href="/"><img src="{% static 'web_world.ico' %}" alt="Web.World" ></a>
                     <a class="footer_text font-weight-bold">Web.World</a> - Corporation</p>
             </div>
         </div>
