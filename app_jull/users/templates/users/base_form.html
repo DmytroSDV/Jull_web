@@ -43,12 +43,12 @@
                 </div>
                 <div class="button_main">
                     {% if request.path == "/users/profile/" %}
-                        <div class="btn-group mt-3" role="group" aria-label="Basic example">
-                            <a href="{% url 'users:contacts' %}" class="btn btn-work btn-sm">My Contacts</a>
-                            <a href="{% url 'app_photo:gallery' %}" class="btn btn-work btn-sm">Gallery</a>
-                            <a href="{% url 'notes:notes_list' %}" class="btn btn-work btn-sm">My Notes</a>
-                            <a href="{% url 'users:password_reset' %}" class="btn btn-primary btn-sm reset-password">Reset Password</a>
-                            <a href="{% url 'users:logout' %}" class="btn btn-danger btn-sm">Logout</a>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{% url 'users:contacts' %}" class="btn btn-work">My Contacts</a>
+                            <a href="{% url 'app_photo:gallery' %}" class="btn btn-work">Gallery</a>
+                            <a href="{% url 'notes:notes_list' %}" class="btn btn-work">My Notes</a>
+                            <a href="{% url 'users:password_reset' %}" class="btn btn-primary reset-password">Reset Password</a>
+                            <a href="{% url 'users:logout' %}" class="btn btn-logout">Logout</a>
                         </div>
                     {% endif %}
                     <a href="{% url 'users:profile' %}" class="btn btn-secondary profile-button">Back to my Profile</a>

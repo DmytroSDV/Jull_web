@@ -151,6 +151,7 @@ def contact_search(request):
 def contact_confirm_delete(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     return render(request, 'users/contact_confirm_delete.html', {'contact': contact})
+
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = "users/password_reset.html"
     email_template_name = "users/password_reset_email.html"

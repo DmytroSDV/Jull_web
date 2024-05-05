@@ -37,10 +37,10 @@
                 </div>
                 <div class="button_main">
                     {% if user.is_authenticated %}
-                        <a href="{% url 'users:profile' %}" class="btn btn-secondary profile-button">Profile</a>
+                        <a href="{% url 'users:profile' %}" class="btn profile-button">Profile</a>
                     {% else %}
-                        <a href="{% url 'users:signup' %}" class="btn btn-primary signup-button">Sign Up</a>
-                        <a href="{% url 'users:login' %}" class="btn btn-secondary login-button">Login</a>
+                        <a href="{% url 'users:signup' %}" class="btn signup-button">Sign Up</a>
+                        <a href="{% url 'users:login' %}" class="btn login-button">Login</a>
                     {% endif %}
                 </div>
             </div>
