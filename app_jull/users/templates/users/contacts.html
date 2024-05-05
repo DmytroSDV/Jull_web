@@ -1,21 +1,15 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'users/style.css' %}">
 <h2>Contact List</h2>
 <form method="GET" class="search-form" action="{% url 'users:contact_search' %}">
     <div class="search-input-container">
         <input type="text" name="query" placeholder="Search by name, address, phone, email, or birthday">
-        <button type="submit">
-            <img src="{% static 'microphone-black-shape.png' %}" alt="Microphone">
-        </button>
+        <button type="submit"></button>
     </div>
 </form>
-
 <a href="{% url 'users:contact_create' %}" class="btn btn-primary">Add contact</a>
 <a href="{% url 'users:upcoming_birthdays' %}" class="btn btn-info">Upcoming Birthdays</a>
 <a href="{% url 'users:profile' %}" class="btn btn-primary">Back to Profile</a>
-
 {% if contacts %}
     <ul>
     {% for contact in contacts %}
