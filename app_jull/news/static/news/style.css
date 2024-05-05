@@ -341,3 +341,44 @@ h6 {
 .blockComing_flex {
     height: 100%;
 }
+.btn {
+    width: 80px; /* Уменьшаем ширину кнопки */
+    height: 35px;
+    border-radius: 20px; /* Увеличиваем радиус закругления */
+}
+.login-button { 
+    color: #000000;
+    background-color: #14bed4;
+    border-color: #14bed4;
+}
+
+.login-button:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
+}
+
+.profile-button{ 
+    color: #000000;
+    background-color: #14bed4;
+    border-color: #14bed4;
+}
+
+.profile-button:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
+}
+
+.signup-button{ 
+    color: #000000;
+    background-color: #14bed4;
+    border-color: #14bed4;
+}
+
+.signup-button:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
+}
+

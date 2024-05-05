@@ -169,33 +169,20 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-/*  */
-.top_container {
-    text-align: left;
-    margin-bottom: 80px;
-}
+/* Customs styles btn header  */
 
 .button_main {
     position: relative;
 }
 
-.button_main .login-button {
+.button_main .profile-button {
     position: absolute;
     top: 0;
     right: 0;
     margin-right: 107px;
     margin-top: -45px;
 }
-
-.button_main .signup-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 15px;
-    margin-top: -45px;
-}
-
-.button_main .profile-button {
+.button_main .btn-group {
     position: absolute;
     top: 0;
     right: 0;
@@ -349,6 +336,8 @@ h6 {
 /* Customs styles from profile */
 /* Закругляем все кнопки */
 .btn {
+    width: 200px; /* Уменьшаем ширину кнопки */
+    height: 35px;
     border-radius: 20px; /* Увеличиваем радиус закругления */
 }
 
@@ -363,9 +352,21 @@ h6 {
     background-color: #c82333;
     border-color: #bd2130;
 }
+.login-button { 
+    color: #000000;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
 
-/* Стили для кнопки "Logout" */
+.login-button:hover {
+    color: #ffffff;
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Стили для кнопки "Reset Back" */
 .btn-danger {
+    margin-top: 5px;
     color: #000000;
     background-color: #dc3545;
     border-color: #dc3545;
@@ -397,7 +398,7 @@ h6 {
 
 .btn-success {
     color: #000000;
-    background-color: #218838;
+    background-color: #217e37;
     border-color: #1e7e34;
 }
 
@@ -413,50 +414,81 @@ h6 {
 }
 
 .btn-for-avatar{
-    margin-top: 10px;
+    margin-right: 100px;
 }
 
 
 .name-profille{
     margin-top: 10px;
 }
-.top_container {
-    text-align: left;
-    margin-bottom: 80px;
+
+.btn-load-file {
+    size: 100px;
+    color: #000000;
+    background-color: #2082d3;
+    border-color: #2082d3;
+    margin-bottom: 5px;
 }
 
-.button_main {
-    position: relative;
+.btn-load-file:hover {
+    color: #ffffff;
+    background-color: #0f4079;
+    border-color: #0f4079;
 }
 
-.button_main .login-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 107px;
-    margin-top: -45px;
+.btn-logout{ 
+    color: #000000;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
-.button_main .signup-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 15px;
-    margin-top: -45px;
+.btn-logout:hover {
+    color: #ffffff;
+    background-color: #c82333;
+    border-color: #bd2130;
 }
 
-.button_main .profile-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 107px;
-    margin-top: -45px;
+.pass-submit {
+    margin-top: 10px;
+    margin-left: 162px;
 }
 
-.main_head_title {
-    font-size: 50px;
-    background: linear-gradient(#1f86f5, #a08c19);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.btn-back {
+    color: #000000;
+    background-color: #ec932d;
+    border-color: #ec932d;
+}
+.btn-back:hover {
+    color: #ffffff;
+    background-color: #ecb80a;
+    border-color: #ecb80a;
+}
+
+
+.save-new-pass{
+    margin-left: 160px;
+
+}
+
+.password-reset-form {
+    background-color: #cbd0d4; /* Цвет фона формы */
+    transition: background-color 0.3s;
+}
+.password-reset-form:hover {
+    background-color: #e9ecef; /* Новый цвет фона при наведении курсора */
+}
+.password-reset-form .card {
+    background-color: #b6b6d1; /* Цвет фона карточки */
+    border-radius: 10px; /* Округление краев карточки */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+}
+
+.password-reset-form input.form-control:focus,
+.password-reset-form input.form-control:hover { /* Добавлены стили для поля ввода при наведении */
+    border-color: #80bdff; /* Цвет рамки при фокусе на поле ввода */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Эффект тени при фокусе на поле ввода */
+}
+.confirm-pass-btn{
+    margin-top: 30px;
+    margin-left: -150px;
 }
