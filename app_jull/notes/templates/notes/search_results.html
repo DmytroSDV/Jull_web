@@ -3,6 +3,7 @@
 
 <div class="container mt-3">
     <h1>Search Results</h1>
+    {% if notes %}
     <ul class="list-group">
         {% for note in notes %}
         <li class="list-group-item">
@@ -19,6 +20,9 @@
             </div>
         </li>
         {% endfor %}
+        {% else %}
+        <p>No notes found.</p>
+        {% endif %}
     </ul>
     <a href="{% url 'notes:search_notes' %}" class="btn btn-primary mt-3">New Search</a>
 </div>
