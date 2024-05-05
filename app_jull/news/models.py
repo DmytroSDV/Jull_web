@@ -78,6 +78,7 @@ class WeatherInfo(models.Model):
     lon = models.CharField(max_length=250)
     country_code = models.CharField(max_length=250)
     weather_condition = models.CharField(max_length=250)
+    weather_icon = models.CharField(max_length=50)
     temperature_current = models.CharField(max_length=250)
     temperature_feels = models.CharField(max_length=250)
     temperature_min = models.CharField(max_length=250)
