@@ -21,16 +21,15 @@
                     </h1>
                 </div>
                 <div class="button_main">
-                    <a href="{% url 'users:signup' %}" class="btn btn-primary signup-button">Sign Up</a>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'users:profile' %}" class="btn btn-secondary profile-button">Profile</a>
-                    {% else %}
-                        <a href="{% url 'users:login' %}" class="btn btn-secondary login-button">Login</a>
-                    {% endif %}
+                  {% if user.is_authenticated %}
+                      <a href="{% url 'users:profile' %}" class="btn btn-secondary login-button">Profile</a>
+                  {% else %}
+                      <a href="{% url 'users:signup' %}" class="btn btn-primary signup-button">Sign Up</a>
+                      <a href="{% url 'users:login' %}" class="btn btn-secondary login-button">Login</a>
+                  {% endif %}
                 </div>
             </div>
-    </div>
-   
+    </div  
         {% comment %} <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -40,9 +39,7 @@
                     </div>
                 </div>
             </div>
-        </footer> {% endcomment %}
-    
-    
+        </footer> {% endcomment %} 
         {% block content %} {% endblock %}
         <div class="footer_container bg-primary footer_text mt-5 py-5 px-sm-3 px-md-5">
             <div class="container text-center py-5">

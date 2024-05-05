@@ -1,7 +1,5 @@
 {% extends "news/base_form.html" %}
 {% block content %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'app_photo/style.css' %}">
 <div class="container mt-3">
     <form action="{% url 'app_photo:upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}

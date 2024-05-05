@@ -1,354 +1,74 @@
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Стили для контейнера на широких экранах */
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
-}
-
-/* Стили для колонки col-md-8 */
-.col-md-8 {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Стили для футера */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-.main-content {
-    flex: 1 0 auto;
-}
-.footer {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #dee03f;
-    padding: 20px 0;
-}
-
-.footer .container {
-    padding: 1px 0;
-}
-
-.col-md-12 text-right{
-    float: right;
-    margin-top: 100px;
-}
-
-/* Common styles */
-h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
+/* Customs styles from profile */
+/* Закругляем все кнопки */
 .btn {
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s, color 0.3s;
-    cursor: pointer;
+    border-radius: 20px; /* Увеличиваем радиус закругления */
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    font-size: 1rem;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-.btn-danger {
+/* Стили для кнопки "Reset Password" */
+.reset-password {
+    color: #111111;
     background-color: #dc3545;
-    color: #fff;
-    border: 1px solid #dc3545;
+    border-color: #dc3545;
+}
+
+.reset-password:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Стили для кнопки "Logout" */
+.btn-danger {
+    color: #000000;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 .btn-danger:hover {
-    opacity: 0.8;
+    background-color: #c82333;
+    border-color: #bd2130;
 }
 
-/* Signup Form */
-.signup-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #b3dbdb;
-    padding: 20px;
-    border-radius: 10px;
+/* Стили для кнопки "Gallery My Notes Contacts" */
+.btn-work {
+    color: #000000;
+    background-color: #2082d3;
+    border-color: #2082d3;
 }
 
-.signup-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.btn-work:hover {
+    color: #ffffff;
+    background-color: #063469;
+    border-color: #063469;
 }
 
-.form-group {
-    margin-bottom: 20px;
+/* Уменьшаем размер аватара */
+.avatar-img {
+    width: 150px; /* Пример: уменьшаем ширину до 100px */
+    height: auto; /* Сохраняем пропорции */
 }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
+.btn-success {
+    color: #000000;
+    background-color: #218838;
+    border-color: #1e7e34;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"],
-.form-group textarea,
-.form-group button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.btn-success:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
 }
 
-/* Login Form */
-.form-container {
-    width: 400px;
-    margin: 0 auto;
-    padding: 40px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* Error messages */
-.error {
-    color: red;
-    margin-bottom: 10px;
-}
-
-/* Profile Container */
-.profile-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.profile-container img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-/* Avatar Input */
-.avatar-input {
+.form-left-margin {
     margin-top: 20px;
+    margin-right: 800px; 
 }
 
-.avatar-input label {
-    display: block;
-    margin-bottom: 10px;
+.btn-for-avatar{
+    margin-top: 10px;
 }
 
-/* Button Grid */
-.btn-grid {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
 
-.btn-grid button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-grid button:hover {
-    background-color: #4CAF50;
-}
-
-/* Button Group */
-.btn-group {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.btn-group a {
-    margin-bottom: 20px;
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.btn-group a:hover {
-    background-color: #f44336;
-}
-
-/* Button Container */
-.btn-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.btn-container button,
-.btn-container a {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-container button:hover,
-.btn-container a:hover {
-    filter: brightness(110%);
-}
-
-/* Password Reset Form */
-.password-reset-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Password Reset Sent Message */
-.password-reset-sent,
-.password-reset-complete {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.password-reset-sent h2,
-.password-reset-complete h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.password-reset-sent p,
-.password-reset-complete p {
-    color: #666;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Birthday Form */
-.birthday-form {
-    margin-bottom: 20px;
-}
-
-.birthday-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.birthday-form input[type="number"] {
-    width: 100px;
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.birthday-form button {
-    padding: 7px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.birthday-form button:hover {
-    background-color: #0056b3;
-}
-
-/* Search Form */
-.search-form {
-    display: inline-block;
-    margin-right: 10px;
-    border-radius: 5px;
-    height: 47px;
-    position: relative;
-    top: 4px;
-    transition: box-shadow 0.3s, border-radius 0.3s;
-}
-
-.search-form input[type="text"] {
-    width: 270px;
-    padding: 12px 24px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    height: 100%;
-}
-
-.search-form:hover input[type="text"] {
-    border-color: #007bff;
-}
-
-.search-input-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-input-container input[type="text"] {
-    flex: 1;
-    margin-right: 10px;
-}
-
-/* Edit Contact Container */
-.edit-contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* Confirm Delete Contact Container */
-.confirm-delete-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.confirm-delete-container h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.confirm-delete-container p {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+.name-profille{
+    margin-top: 10px;
 }

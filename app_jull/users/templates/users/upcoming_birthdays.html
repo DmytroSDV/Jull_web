@@ -1,7 +1,5 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'users/style.css' %}">
 <h2>Upcoming Birthdays</h2>
 <form method="GET" action="{% url 'users:upcoming_birthdays' %}">
     <label for="days">Enter number of days:</label>
