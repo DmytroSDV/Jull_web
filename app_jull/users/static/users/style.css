@@ -279,15 +279,9 @@ h6 {
 
 }
 
-.password-reset-form {
-    background-color: #cbd0d4; /* Цвет фона формы */
-    transition: background-color 0.3s;
-}
-.password-reset-form:hover {
-    background-color: #e9ecef; /* Новый цвет фона при наведении курсора */
-}
+
 .password-reset-form .card {
-    background-color: #b6b6d1; /* Цвет фона карточки */
+    background-color: #ffffff; /* Цвет фона карточки */
     border-radius: 10px; /* Округление краев карточки */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для карточки */
 }
@@ -300,4 +294,91 @@ h6 {
 .confirm-pass-btn{
     margin-top: 30px;
     margin-left: -150px;
+}
+
+.form-control:focus, .form-control:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+.btn-login-h {
+    margin-top: 20px;
+    margin-left: 160px;
+    color: #000000;
+    background-color: #2082d3;
+    border-color: #2082d3;
+}
+
+.btn-login-h:hover {
+    color: #ffffff;
+    background-color: #063469;
+}
+
+.forgot-password-link:hover {
+    /* Ваши стили при наведении */
+    text-decoration: underline; /* Пример: подчеркивание */
+    color: #db7031; /* Пример: изменение цвета */
+}
+/* CSS для подсветки чекбокса при наведении */
+.form-check-input:hover {
+    outline: 2px solid #007bff; /* Любой цвет обводки, который вам нравится */
+}
+
+/* Скрытие стандартного фокусного эффекта */
+.form-check-input:focus {
+    outline: none;
+}
+.form-check{
+    margin-top: 10px;
+}
+
+.signup-login:hover{
+    text-decoration: underline;
+    color: #34bed6; /* Пример: изменение цвета */
+}
+
+
+.password-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-left: none;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.password-toggle i {
+    font-size: 1.25rem; /* Размер иконки */
+    color: #495057; /* Цвет иконки */
+}
+
+.btns-show-pass{
+    width: 150px;
+    border-radius: 0px;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+.btns-show-pass:hover{
+    text-decoration: underline;
+    color: #70c7f0;
+}
+
+.btn-profile{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 107px;
+    margin-top: -45px; 
+    color: #000000;
+    background-color: #14bed4;
+    border-color: #14bed4;
+}
+
+.btn-profile:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
 }

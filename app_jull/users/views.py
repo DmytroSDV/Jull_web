@@ -34,16 +34,22 @@ def signup(request):
 
 
 def loginuser(request):
-    error_message = None
     if request.method == "POST":
-        user = authenticate(username=request.POST["username"], password=request.POST["password"])
-        if user is None:
-            error_message = "Username or password didn't match"
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('users:profile')
+            else:
+                messages.error(request, 'Invalid username or password.')
         else:
-            login(request, user)
-            return redirect(to="users:profile")
-
-    return render(request, "users/login.html", context={"form": LoginForm(), "error_message": error_message})
+            messages.error(request, 'Please enter both username and password.')
+    else:
+        form = LoginForm()
+    return render(request, 'users/login.html', {'form': form})
 
 
 @login_required
