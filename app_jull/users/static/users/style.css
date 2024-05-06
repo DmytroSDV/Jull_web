@@ -19,6 +19,7 @@
     margin-right: 107px;
     margin-top: -45px;
 }
+
 .button_main .btn-group {
     position: absolute;
     top: 0;
@@ -136,9 +137,11 @@ h6 {
 /* Customs styles from profile */
 /* Закругляем все кнопки */
 .btn {
-    width: 200px; /* Уменьшаем ширину кнопки */
+    width: 200px;
+    /* Уменьшаем ширину кнопки */
     height: 35px;
-    border-radius: 20px; /* Увеличиваем радиус закругления */
+    border-radius: 20px;
+    /* Увеличиваем радиус закругления */
     border-radius: 20px;
     /* Увеличиваем радиус закругления */
 }
@@ -154,7 +157,8 @@ h6 {
     background-color: #c82333;
     border-color: #bd2130;
 }
-.login-button { 
+
+.login-button {
     color: #000000;
     background-color: #dc3545;
     border-color: #dc3545;
@@ -218,7 +222,7 @@ h6 {
 }
 
 
-.btn-for-avatar{
+.btn-for-avatar {
     margin-right: 100px;
     margin-top: 10px;
 }
@@ -246,7 +250,7 @@ h6 {
     border-color: #0f4079;
 }
 
-.btn-logout{ 
+.btn-logout {
     color: #000000;
     background-color: #dc3545;
     border-color: #dc3545;
@@ -268,36 +272,48 @@ h6 {
     background-color: #ec932d;
     border-color: #ec932d;
 }
+
 .btn-back:hover {
     color: #ffffff;
     background-color: #ecb80a;
     border-color: #ecb80a;
 }
 
-.save-new-pass{
+.save-new-pass {
     margin-left: 160px;
 
 }
 
 .password-reset-form {
-    background-color: #cbd0d4; /* Цвет фона формы */
+    background-color: #cbd0d4;
+    /* Цвет фона формы */
     transition: background-color 0.3s;
 }
+
 .password-reset-form:hover {
-    background-color: #e9ecef; /* Новый цвет фона при наведении курсора */
+    background-color: #e9ecef;
+    /* Новый цвет фона при наведении курсора */
 }
+
 .password-reset-form .card {
-    background-color: #b6b6d1; /* Цвет фона карточки */
-    border-radius: 10px; /* Округление краев карточки */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+    background-color: #b6b6d1;
+    /* Цвет фона карточки */
+    border-radius: 10px;
+    /* Округление краев карточки */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Тень для карточки */
 }
 
 .password-reset-form input.form-control:focus,
-.password-reset-form input.form-control:hover { /* Добавлены стили для поля ввода при наведении */
-    border-color: #80bdff; /* Цвет рамки при фокусе на поле ввода */
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Эффект тени при фокусе на поле ввода */
+.password-reset-form input.form-control:hover {
+    /* Добавлены стили для поля ввода при наведении */
+    border-color: #80bdff;
+    /* Цвет рамки при фокусе на поле ввода */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    /* Эффект тени при фокусе на поле ввода */
 }
-.confirm-pass-btn{
+
+.confirm-pass-btn {
     margin-top: 30px;
     margin-left: -150px;
 }

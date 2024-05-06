@@ -52,8 +52,17 @@
                         </div>
                     {% else %}
                         {% if request.path != "/users/login/" %}
-                            <a href="{% url 'users:profile' %}" class="btn btn-secondary profile-button">Back to my Profile</a>
+
+                            <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
+
                         {% endif%}
+                        
+                        {% if request.path == "/users/profile/my_notes/" %}
+                            
+                                <a href="{% url 'notes:add_notes' %}" class="btn btn-primary addnote-button">Add New Note</a>
+                                <a href="{% url 'notes:search_notes' %}" class="btn btn-primary addnote-button">Search Notes</a>
+
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

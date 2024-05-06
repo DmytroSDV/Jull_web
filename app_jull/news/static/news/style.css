@@ -9,6 +9,7 @@
 .get_for_input {
     width: 305px;
     padding: 5px;
+    margin-left: 20px;
     outline: none;
     border: 1px solid #eb6e16;
     border-radius: 4px;
@@ -33,11 +34,14 @@
 
 .get_weather {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     gap: 5px;
-    width: 1870px;
+    width: 100%;
+    max-width: 1860px;
     height: 150px;
     margin-top: 5px;
+    margin-left: 20px;
     padding: 5px;
     border: 2px solid #eb6e16;
     border-radius: 4px;
@@ -98,11 +102,11 @@
 /* 2 */
 
 .weather {
-
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     gap: 5px;
-    width: 405px;
+    width: 100%;
     height: 150px;
     margin-top: 5px;
     padding: 5px;
@@ -347,12 +351,14 @@ h6 {
 .blockComing_flex {
     height: 100%;
 }
+
 .btn {
-    width: 80px; /* Уменьшаем ширину кнопки */
+    width: 100px;
     height: 35px;
-    border-radius: 20px; /* Увеличиваем радиус закругления */
+    border-radius: 20px;
 }
-.login-button { 
+
+.login-button {
     color: #000000;
     background-color: #14bed4;
     border-color: #14bed4;
@@ -364,7 +370,7 @@ h6 {
     border-color: #29a744;
 }
 
-.profile-button{ 
+.profile-button {
     color: #000000;
     background-color: #14bed4;
     border-color: #14bed4;
@@ -376,7 +382,7 @@ h6 {
     border-color: #29a744;
 }
 
-.signup-button{ 
+.signup-button {
     color: #000000;
     background-color: #14bed4;
     border-color: #14bed4;
@@ -387,4 +393,3 @@ h6 {
     background-color: #29a744;
     border-color: #29a744;
 }
-

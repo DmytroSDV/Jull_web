@@ -133,10 +133,10 @@ folder_name = current_date.strftime("%Y-%m")
 
 
 folder_path_info = os.path.join(
-    os.path.dirname(__file__), "..", "..", "..", "Log", "INFO", folder_name
+    os.path.dirname(__file__), "..", "..", "Log", "INFO", folder_name
 )
 folder_path_errors = os.path.join(
-    os.path.dirname(__file__), "..", "..", "..", "Log", "ERROR", folder_name
+    os.path.dirname(__file__), "..", "..", "Log", "ERROR", folder_name
 )
 os.makedirs(folder_path_info, exist_ok=True)
 os.makedirs(folder_path_errors, exist_ok=True)
