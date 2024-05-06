@@ -1,25 +1,179 @@
 {% extends "users/base_form.html" %}
+
 {% block content %}
 <title>Login</title>
-<div class="form-container">
-    <h2>Login</h2>
-    {% if error_message %}
-        <p class="error">{{ error_message }}</p>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="id_username">Username:</label>
-            {{ form.username }}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h2 class="text-center">Login</h2>
+                </div>
+                <div class="card-body">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    <form method="post" id="login-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">Username or email:</label>
+                            <input type="text" class="form-control" id="id_username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password">Password:</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="id_password" name="password" required>
+                                <div class="input-group-append">
+                                    <button class="btn btns-show-pass" type="button" id="show-password-button">
+                                        <i class="fa fa-eye-slash"></i> Show Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                          
+                        <div class="forgot-password">
+                            <a href="{% url 'users:password_reset' %}" class="forgot-password-link">Forgot password?</a>
+                        </div>           
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="remember-me">
+                            <label class="form-check-label" for="remember-me">Remember Me</label>
+                        </div>
+                        <button type="submit" class="btn btn-login-h">Login</button>
+                        <div class="mt-3 text-center">
+                            <p><strong>Don't have an account yet?</strong></p>
+                            <a class="signup-login" href="{% url 'users:signup' %}">Sign Up</a>
+                        </div>                        
+                    </form>
+                    
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="id_password">Password:</label>
-            {{ form.password }}
-        </div>
-        <button type="submit">Login</button>
-    </form>
-    <div class="forgot-password">
-        <a href="{% url 'users:password_reset' %}">Forgot password?</a>
     </div>
 </div>
+<script>
+document.getElementById('show-password-button').addEventListener('click', function() {
+    var passwordInput = document.getElementById('id_password');
+    var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('fa-eye');
+    this.querySelector('i').classList.toggle('fa-eye-slash');
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('login-form');
+    var usernameInput = document.getElementById('id_username');
+    var passwordInput = document.getElementById('id_password');
+
+    // Function to add or remove classes based on field validity
+    function updateFieldStatus(inputField, isValid) {
+        var fieldIcon = inputField.nextElementSibling;
+        if (isValid) {
+            inputField.classList.remove('is-invalid');
+            inputField.classList.add('is-valid');
+            fieldIcon.classList.remove('fa-times');
+            fieldIcon.classList.add('fa-check');
+        } else {
+            inputField.classList.remove('is-valid');
+            inputField.classList.add('is-invalid');
+            fieldIcon.classList.remove('fa-check');
+            fieldIcon.classList.add('fa-times');
+        }
+    }
+
+    // Event listener for input fields to update status on change
+    [usernameInput, passwordInput].forEach(function(inputField) {
+        inputField.addEventListener('input', function() {
+            var isValid = this.value.trim() !== '';
+            updateFieldStatus(this, isValid);
+        });
+    });
+
+    // Event listener for form submission
+    form.addEventListener('submit', function(event) {
+        // Check if both fields are filled
+        var isUsernameValid = usernameInput.value.trim() !== '';
+        var isPasswordValid = passwordInput.value.trim() !== '';
+
+        // Update status for both fields
+        updateFieldStatus(usernameInput, isUsernameValid);
+        updateFieldStatus(passwordInput, isPasswordValid);
+
+        // If either field is empty, prevent form submission
+        if (!isUsernameValid || !isPasswordValid) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        form.classList.add('was-validated');
+    }, false);
+});
+</script>   
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var rememberMeCheckbox = document.getElementById('remember-me');
+        var usernameInput = document.getElementById('id_username');
+        var passwordInput = document.getElementById('id_password');
+
+        // Проверка наличия сохраненных данных при загрузке страницы
+        window.onload = function() {
+            var savedUsername = getCookie('savedUsername');
+            var savedPassword = getCookie('savedPassword');
+
+            if (savedUsername && savedPassword) {
+                usernameInput.value = savedUsername;
+                passwordInput.value = savedPassword;
+            }
+        }
+
+        // Обработчик события изменения состояния чекбокса
+        rememberMeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                // Если чекбокс отмечен, сохраните данные в куки
+                var username = usernameInput.value;
+                var password = passwordInput.value;
+                setCookie('savedUsername', username, 30); // сохранение на 30 дней (в примере)
+                setCookie('savedPassword', password, 30);
+            } else {
+                // Если чекбокс не отмечен, удалите куки
+                deleteCookie('savedUsername');
+                deleteCookie('savedPassword');
+            }
+        });
+
+        // Функция для установки куки
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Функция для получения значения куки по имени
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+
+        // Функция для удаления куки
+        function deleteCookie(name) {
+            document.cookie = name + '=; Max-Age=-99999999;';
+        }
+    });
+</script>
+
 {% endblock %}
