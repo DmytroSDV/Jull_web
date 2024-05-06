@@ -1,38 +1,52 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<h2 class="sign-Up">Sign Up</h2>
-<form method="post" id="signup-form" class="signup-form">
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="id_username">* Username:</label>
-        {{ form.username }}
+<title>Login</title>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h2 class="text-center">Sign Up</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="signup-form" class="signup-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">* Username:</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password1">* Password:</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password2">* Confirm Password:</label>
+                            {{ form.password2 }}
+                            {% if form.password1.value != form.password2.value %}
+                                <p style="color: red;">Passwords do not match.</p>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">* Email:</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_date_of_birth">* Date of Birth:</label>
+                            <input type="date" id="id_date_of_birth" name="date_of_birth" value="{{ form.date_of_birth.value }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_bio">Bio:</label>
+                            <textarea id="id_bio" name="bio" rows="4" cols="50">{{ form.bio.value }}</textarea>
+                        </div>
+                        <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
+                    </form>
+                    <div id="success-message" style="display: none; color: green;">Success registration</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="id_password1">* Password:</label>
-        {{ form.password1 }}
-    </div>
-    <div class="form-group">
-        <label for="id_password2">* Confirm Password:</label>
-        {{ form.password2 }}
-        {% if form.password1.value != form.password2.value %}
-            <p style="color: red;">Passwords do not match.</p>
-        {% endif %}
-    </div>
-    <div class="form-group">
-        <label for="id_email">* Email:</label>
-        {{ form.email }}
-    </div>
-    <div class="form-group">
-        <label for="id_date_of_birth">* Date of Birth:</label>
-        <input type="date" id="id_date_of_birth" name="date_of_birth" value="{{ form.date_of_birth.value }}">
-    </div>
-    <div class="form-group">
-        <label for="id_bio">Bio:</label>
-        <textarea id="id_bio" name="bio" rows="4" cols="50">{{ form.bio.value }}</textarea>
-    </div>
-    <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
-</form>
-<div id="success-message" style="display: none; color: green;">Success registration</div>
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var signupForm = document.getElementById('signup-form');

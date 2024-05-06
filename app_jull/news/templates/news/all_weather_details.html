@@ -3,16 +3,15 @@
 
 {% block content %}
 <style>
-    /* Прозрачность для каждого блока */
     .ukraine {
-        background-color: rgba(128, 128, 128, 0.2);
+        background-color: rgba(128, 128, 128, 0.5);
         padding: 20px;
-        margin-top: 20px;
         margin-bottom: 50px;
         margin-bottom: 20px;
+        font-weight: bold;
     }
     .opacities {
-        background-color: rgba(128, 128, 128, 0.3);
+        background-color: rgba(128, 128, 128, 0.5);
         padding: 20px;
         margin-bottom: 50px;
         margin-bottom: 20px;
@@ -60,14 +59,15 @@
 
 </style>
 
-<h1>Get weather:</h1>
+<h1 style="margin-left: 20px;">Get weather:</h1>
     <form class="get_for_form">
-        <input class="get_for_input" type="text" placeholder="Put your city">
+        <input class="get_for_input" type="text" placeholder="Put your city" style="margin-left: 20px;">
         <button class="get_for_button">Send</button>
     </form>
     <div>
     <div class="get_weather">
     </div>
+  </div>
   </div>
     <script>
             document.querySelector('form').addEventListener('submit', e => {

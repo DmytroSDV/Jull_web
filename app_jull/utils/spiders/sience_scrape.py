@@ -42,7 +42,7 @@ class DataPipeline:
         # with open(TECHNO_NEWS_FILE, "w", encoding="utf-8") as fd:
         #     json.dump(self.news, fd, ensure_ascii=False, indent=4)
 
-        my_logger.log(f"{len(self.news)} sience scrapped len", 20)
+        # my_logger.log(f"{len(self.news)} sience scrapped len", 20)
 
         for item in self.news:
             if not SienceNews.objects.filter(title=item["title"]).exists():

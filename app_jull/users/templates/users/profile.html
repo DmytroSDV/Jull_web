@@ -1,6 +1,7 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-{% load static %}
+{%load static%}
+
 <div class="container profile-container">
     <div class="avatar-container ">
         <h4 class="name-profille">{{ user.username }}</h4>
@@ -16,9 +17,9 @@
         {% csrf_token %}
         <div class="form-row">
             <div class="col-md-6 ">
-                <label for="id_avatar" class="small mb-2">Choose a new avatar:</label>
                 <div class="form-group">
-                    {{ profile_form.avatar }}
+                    <input type="file" id="id_avatar" name="avatar" style="display:none;">
+                    <button type="button" id="file-button" class="btn btn-load-file">Change the avatar</button>
                     <span class="text-danger">{{ profile_form.avatar.errors }}</span>
                 </div>
             </div>
@@ -27,8 +28,11 @@
             <button type="submit" class="btn btn-success btn-sm">Save Changes</button>
             <button type="reset" class="btn btn-danger btn-sm ml-2">Reset</button>
         </div>
-    </form>
-</div>
+    </form> 
+<script>
+document.getElementById('file-button').addEventListener('click', function() {
+    document.getElementById('id_avatar').click();
+});
+</script>
 {% endblock %}
-
 

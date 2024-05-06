@@ -14,10 +14,11 @@ urlpatterns = [
     path("contact/create/", views.contact_create, name="contact_create"),
     path("contact/<int:pk>/edit/", views.contact_edit, name="contact_edit"),
     path("contact/<int:pk>/delete/", views.contact_delete, name="contact_delete"),
-    path("reset-password/", views.ResetPasswordView.as_view(), name="password_reset"),
     path('upcoming_birthdays/', views.upcoming_birthdays, name='upcoming_birthdays'),
     path('contacts/search/', views.contact_search, name='contact_search'),
     path('contacts/<int:pk>/delete/confirm/', views.contact_confirm_delete, name='contact_confirm_delete'),
+    path('users/profile/add_avatar/', views.add_avatar, name='add_avatar_url'),
+    path("reset-password/", views.ResetPasswordView.as_view(), name="password_reset"),
     path("reset-password/done/", PasswordResetDoneView.as_view(template_name="users/password_reset_done.html"),
          name="password_reset_done"),
     path("reset-password/confirm/<uidb64>/<token>/",
@@ -27,6 +28,9 @@ urlpatterns = [
     path("reset-password/complete/",
          PasswordResetCompleteView.as_view(template_name="users/password_reset_complete.html"),
          name="password_reset_complete"),
+
     path('users/profile/add_avatar/', views.add_avatar, name='add_avatar_url'),
     path("contacts/<int:page>", views.contact_list, name="paginator_contacts"),
+
+
 ]
