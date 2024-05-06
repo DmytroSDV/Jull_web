@@ -1,6 +1,6 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<div class="container">
+<div class="container form-control">
     <h1>Note List</h1>
     {% if notes %}
     <ul class="list-group">
@@ -10,11 +10,11 @@
                 <div class="col-md-10">
                     <h4>{{ note.content }}</h4>
                     <div class="tags">
-                        <p>Tags: {% for tag in note.tags.all %}<a href="{% url 'notes:notes_by_tag' tag.tag %}">{{ tag.tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                        <p>Tags: {% for tag in note.tags.all %}<a class="all_tags" href="{% url 'notes:notes_by_tag' tag.tag %}">{{ tag.tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <div class="btn-group" role="group" aria-label="Note Actions">
+                    <div class="" role="group" aria-label="Note Actions">
                         <a href="{% url 'notes:edit_notes' note.id %}" class="btn btn-primary">Edit</a>
                         <a href="{% url 'notes:delete_notes' note.id %}" class="btn btn-danger">Delete</a>
                     </div>
@@ -26,7 +26,5 @@
         <p>No notes</p>
         {% endif %}
     </ul>
-    <a href="{% url 'notes:add_notes' %}" class="btn btn-primary mt-3">Add New Note</a>
-    <a href="{% url 'notes:search_notes' %}" class="btn btn-primary mt-3">Search Notes</a>
 </div>
 {% endblock %}

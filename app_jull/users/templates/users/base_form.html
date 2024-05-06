@@ -28,7 +28,6 @@
     background: linear-gradient(#382288, #f3d840, #607fa3);
     }
     .footer_container {
-
         background: linear-gradient(#152d47, #f3d840, #382288);
     }
 </style>
@@ -51,17 +50,38 @@
                             <a href="{% url 'users:password_reset' %}" class="btn btn-primary reset-password">Reset Password</a>
                             <a href="{% url 'users:logout' %}" class="btn btn-logout">Logout</a>
                         </div>
-                        {% else %}
-                        {% if request.path != "/users/login/" %}
-                            <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
-                        {% endif%}
-                        
-                        {% if request.path == "/users/profile/my_notes/" %}
+                    {% else %}
+                            {% if request.path != "/users/login/" %}
+                                <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
+                            {% endif%}
                             
-                                <a href="{% url 'notes:add_notes' %}" class="btn btn-primary addnote-button">Add New Note</a>
-                                <a href="{% url 'notes:search_notes' %}" class="btn btn-primary addnote-button">Search Notes</a>
+                            {% if request.path == "/users/profile/my_notes/" %}
+                                <a href="{% url 'notes:add_notes' %}" class="btn btn-primary btn-addnote">Add New Note</a>
+                                <a href="{% url 'notes:search_notes' %}" class="btn btn-primary btn-searchnote">Search Notes</a>
+                            {% endif %}
 
-                        {% endif %}
+                            {% if request.path == "/users/profile/my_notes/search_note/" %}
+                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
+                            {% endif %}
+
+                            {% if "/users/profile/my_notes/edit_notes/" in request.path %}
+                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
+                            {% endif %}
+
+                            {% if "/users/profile/notes_by_tag/" in request.path %}
+                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
+                            {% endif %}
+
+                            {% if request.path == "/users/profile/my_notes/add_notes" %}
+                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
+                            {% endif %}
+
+                            {% if request.path == "/users/profile/gallery/" %}
+                                <a href="{% url 'app_photo:show_photo' %}" class="btn btn-primary btn-myphoto">My photos</a>
+                                <a href="{% url 'app_photo:show_video' %}" class="btn btn-primary btn-myvideo">My video</a>
+                                <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-anotherfiles">Another files</a>
+                                <a href="{% url 'app_photo:upload' %}" class="btn btn-primary btn-upload">Upload</a>
+                            {% endif %}
                     {% endif %}
                 </div>
             </div>
