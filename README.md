@@ -48,3 +48,4 @@
   - Each registered user have access to their own data and files;
   - Implemented password recovery mechanisms for the user by email;
 
+      poetry export -f requirements.txt --output requirements.txt --without-hashes
