@@ -52,15 +52,13 @@
                             <a href="{% url 'users:logout' %}" class="btn btn-logout">Logout</a>
                         </div>
                         {% else %}
-                        {% if request.path != "/users/login/" %}
+                        {% if request.path not in request_paths %}
                             <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
-                        {% endif%}
-                        
-                        {% if request.path == "/users/profile/my_notes/" %}
-                            
-                                <a href="{% url 'notes:add_notes' %}" class="btn btn-primary addnote-button">Add New Note</a>
-                                <a href="{% url 'notes:search_notes' %}" class="btn btn-primary addnote-button">Search Notes</a>
-
+                        {% endif %}
+  
+                        {% if request.path == "/users/profile/my_notes/" %}                     
+                            <a href="{% url 'notes:add_notes' %}" class="btn btn-primary addnote-button">Add New Note</a>
+                            <a href="{% url 'notes:search_notes' %}" class="btn btn-primary addnote-button">Search Notes</a>
                         {% endif %}
                     {% endif %}
                 </div>

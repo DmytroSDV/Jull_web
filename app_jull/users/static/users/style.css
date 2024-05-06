@@ -302,7 +302,7 @@ h6 {
     /* Округление краев карточки */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     /* Тень для карточки */
-
+}
 
 .password-reset-form .card {
     background-color: #ffffff; /* Цвет фона карточки */
@@ -406,6 +406,19 @@ h6 {
 }
 
 .btn-profile:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
+}
+
+
+.btn-profile-pass-comp {
+    color: #000000;
+    background-color: #2082d3;
+    border-color: #2082d3;
+}
+
+.btn-profile-pass-comp:hover {
     color: #ffffff;
     background-color: #29a744;
     border-color: #29a744;
