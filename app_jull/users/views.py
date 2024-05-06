@@ -1,4 +1,5 @@
 import cloudinary.uploader
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.messages.views import SuccessMessageMixin
@@ -78,8 +79,17 @@ def profile(request):
 
 
 @login_required
-def contact_list(request):
-    user_contacts = Contact.objects.filter(user=request.user)
+def contact_list(request,page=1):
+    user_contacts = Contact.objects.all()
+    user = request.user
+    user_contacts = Contact.objects.filter(user=user.id)
+    paginator = Paginator(user_contacts, 5)
+    try:
+        user_contacts = paginator.page(page)
+    except PageNotAnInteger:
+        user_contacts = paginator.page(1)
+    except EmptyPage:
+        user_contacts = paginator.page(paginator.num_pages)
     return render(request, "users/contacts.html", {"contacts": user_contacts})
 
 

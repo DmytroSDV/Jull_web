@@ -1,5 +1,6 @@
 import cloudinary.uploader
 import requests
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormPicture
@@ -20,20 +21,20 @@ def get_file_type(url):
     else:
         return 'unknown'
 
-def show_images(request):
-    images = Picture.objects.all()
-
-    image_data = [
-        {
-            'url': image.image.url,
-            'description': image.description,
-            'id': image.id,
-            'file_type': get_file_type(image.image.url)
-        } for image in images
-    ]
-
-
-    return render(request, 'app_photo/image_gallery.html', {'image_data': image_data})
+# def show_images(request):
+#     images = Picture.objects.all()
+#
+#     image_data = [
+#         {
+#             'url': image.image.url,
+#             'description': image.description,
+#             'id': image.id,
+#             'file_type': get_file_type(image.image.url)
+#         } for image in images
+#     ]
+#
+#
+#     return render(request, 'app_photo/image_gallery.html', {'image_data': image_data})
 
 
 
@@ -103,7 +104,7 @@ def download_image(request, image_id):
         # Обработка ошибок, если изображение не найдено или произошла другая ошибка
         return HttpResponse("Error: " + str(e))
 
-def show_all_photo(request):
+def show_all_photo(request,page=1):
     images = Picture.objects.all()
 
     image_data = [
@@ -114,12 +115,19 @@ def show_all_photo(request):
             'file_type': get_file_type(image.image.url)
         } for image in images
     ]
+    paginator = Paginator(image_data, 5)
+    try:
+        image_data = paginator.page(page)
+    except PageNotAnInteger:
+        image_data = paginator.page(1)
+    except EmptyPage:
+        image_data = paginator.page(paginator.num_pages)
 
 
     return render(request, 'app_photo/photos.html', {'image_data': image_data})
 
 
-def show_all_video(request):
+def show_all_video(request,page=1):
     images = Picture.objects.all()
 
     image_data = [
@@ -130,11 +138,41 @@ def show_all_video(request):
             'file_type': get_file_type(image.image.url)
         } for image in images
     ]
+    paginator = Paginator(image_data, 5)
+    try:
+        image_data = paginator.page(page)
+    except PageNotAnInteger:
+        image_data = paginator.page(1)
+    except EmptyPage:
+        image_data = paginator.page(paginator.num_pages)
 
 
     return render(request, 'app_photo/videos.html', {'image_data': image_data})
 
-def show_all_another(request):
+def show_all_another(request,page=1):
+    images = Picture.objects.all()
+
+    image_data = [
+        {
+            'url': image.image.url,
+            'description': image.description,
+            'id': image.id,
+            'file_type': get_file_type(image.image.url)
+        } for image in images
+    ]
+    paginator = Paginator(image_data, 5)
+    try:
+        image_data = paginator.page(page)
+    except PageNotAnInteger:
+        image_data = paginator.page(1)
+    except EmptyPage:
+        image_data = paginator.page(paginator.num_pages)
+
+
+    return render(request, 'app_photo/another_files.html', {'image_data': image_data})
+
+
+def show_images(request,page=1):
     images = Picture.objects.all()
 
     image_data = [
@@ -146,5 +184,12 @@ def show_all_another(request):
         } for image in images
     ]
 
+    paginator = Paginator(image_data, 5)
+    try:
+        image_data = paginator.page(page)
+    except PageNotAnInteger:
+        image_data = paginator.page(1)
+    except EmptyPage:
+        image_data = paginator.page(paginator.num_pages)
 
-    return render(request, 'app_photo/another_files.html', {'image_data': image_data})
+    return render(request, 'app_photo/image_gallery.html', {'image_data': image_data})
