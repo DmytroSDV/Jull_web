@@ -1,5 +1,6 @@
 {% extends "users/base_form.html" %}
 {% block content %}
+
 <div class="container form-control">
     <h1>Note List</h1>
     {% if notes %}
@@ -27,4 +28,19 @@
         {% endif %}
     </ul>
 </div>
+ <nav class="pagination-nav ">
+            <ul class="pager" >
+
+                <li class="previous">
+                    <a class="{% if not notes.has_previous %} disabled {% endif %}"
+                       href="{% if notes.has_previous %} {% url 'notes:paginator_notes_list' notes.previous_page_number %} {% else %} # {% endif %}">Previous<span aria-hidden="true">→</span></a>
+                </li>
+                <li class="next">
+                    <a class="{% if not notes.has_next %} disabled {% endif %}"
+                       href="{% if notes.has_next %} {% url 'notes:paginator_notes_list' notes.next_page_number %} {% else %} # {% endif %}">Next
+                        <span aria-hidden="true">→</span></a>
+                </li>
+
+            </ul>
+        </nav>
 {% endblock %}

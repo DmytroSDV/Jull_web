@@ -11,5 +11,6 @@ urlpatterns = [
     path("users/profile/my_notes/edit_notes/<int:notes_id>/", views.edit_note, name="edit_notes"),
     path("users/profile/my_notes/search_note/", views.search_notes, name="search_notes"),
     path('users/profile/notes_by_tag/<str:tag>/', views.notes_by_tag, name='notes_by_tag'),
+    path("users/profile/my_notes/<int:page>", views.show_notes, name="paginator_notes_list"),
 
 ]

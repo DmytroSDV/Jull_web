@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 
 from .forms import NoteForm,SearchNoteForm
@@ -7,8 +8,15 @@ from django.contrib import messages
 # Create your views here.
 
 
-def show_notes(request):
+def show_notes(request,page=1):
     notes = Note.objects.all()
+    paginator = Paginator(notes, 5)
+    try:
+        notes = paginator.page(page)
+    except PageNotAnInteger:
+        notes = paginator.page(1)
+    except EmptyPage:
+        notes = paginator.page(paginator.num_pages)
     return render(request, "notes/mynotes.html", context={"notes": notes})
 
 
