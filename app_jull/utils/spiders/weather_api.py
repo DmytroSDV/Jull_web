@@ -5,6 +5,10 @@ import django
 import sys
 from datetime import datetime
 from django.utils import timezone
+from dotenv import load_dotenv
+
+dotenv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
+load_dotenv(dotenv_path)
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app_jull.settings")
@@ -43,7 +47,7 @@ OBLAST_CITIES = {
 }
 
 
-API_KEY = "78c49d0da7041c7c2d9e2de8d0db7caa"
+API_KEY = os.getenv("WEATHER_API_KEY")
 WEATHER_GEO = os.path.join(
     os.path.dirname(__file__), "..", "scrapped_info", "weather_geo.json"
 )

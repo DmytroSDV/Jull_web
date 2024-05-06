@@ -42,7 +42,7 @@ class DataPipeline:
         # with open(USD_CURRENCY_FILE, "w", encoding="utf-8") as fd:
         #     json.dump(self.news, fd, ensure_ascii=False, indent=4)
 
-        my_logger.log(f"{len(self.news)} usd scrapped len", 20)
+        # my_logger.log(f"{len(self.news)} usd scrapped len", 20)
 
         today = timezone.now().date()
         first_entry_date = (

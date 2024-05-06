@@ -43,7 +43,7 @@ class DataPipeline:
     def close_spider(self, spider):
         # with open(ARTICLES_NEWS_FILE, "w", encoding="utf-8") as fd:
         #     json.dump(self.news, fd, ensure_ascii=False, indent=4)
-        my_logger.log(f"{len(self.news)} articles scrapped len", 20)
+        # my_logger.log(f"{len(self.news)} articles scrapped len", 20)
 
         for item in self.news:
             if not ArticleNews.objects.filter(title=item["title"]).exists():
