@@ -1,5 +1,6 @@
 {% extends "users/base_form.html" %}
 {% block content %}
+{% load static %}
 <div class="container mt-3">
     <h1 class="mb-4">Галерея медіафайлів</h1>
     <div class="row mb-4">
@@ -45,6 +46,21 @@
             </div>
         </div>
         {% endfor %}
+        <nav class="pagination-nav ">
+            <ul class="pager">
+
+                <li class="previous">
+                    <a class="{% if not image_data.has_previous %} disabled {% endif %}"
+                       href="{% if image_data.has_previous %} {% url 'app_photo:paginator_gallery' image_data.previous_page_number %} {% else %} # {% endif %}">Previous<span aria-hidden="true">→</span></a>
+                </li>
+                <li class="next">
+                    <a class="{% if not image_data.has_next %} disabled {% endif %}"
+                       href="{% if image_data.has_next %} {% url 'app_photo:paginator_gallery' image_data.next_page_number %} {% else %} # {% endif %}">Next
+                        <span aria-hidden="true">→</span></a>
+                </li>
+
+            </ul>
+        </nav>
     </div>
 </div>
 {% endblock %}

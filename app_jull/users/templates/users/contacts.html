@@ -11,20 +11,36 @@
 <a href="{% url 'users:upcoming_birthdays' %}" class="btn btn-info">Upcoming Birthdays</a>
 <a href="{% url 'users:profile' %}" class="btn btn-primary">Back to Profile</a>
 {% if contacts %}
-    <ul>
+<ul>
     {% for contact in contacts %}
-        <li>
-            <strong>Name:</strong> {{ contact.name }}<br>
-            <strong>Address:</strong> {{ contact.address }}<br>
-            <strong>Phone Number:</strong> {{ contact.phone_number }}<br>
-            <strong>Email:</strong> {{ contact.email }}<br>
-            <strong>Birthday:</strong> {{ contact.birthday }}<br>
-            <a href="{% url 'users:contact_edit' contact.pk %}" class="btn btn-info">Edit</a>
-            <a href="{% url 'users:contact_confirm_delete' contact.pk %}" class="btn btn-danger">Delete</a>
-        </li>
+    <li>
+        <strong>Name:</strong> {{ contact.name }}<br>
+        <strong>Address:</strong> {{ contact.address }}<br>
+        <strong>Phone Number:</strong> {{ contact.phone_number }}<br>
+        <strong>Email:</strong> {{ contact.email }}<br>
+        <strong>Birthday:</strong> {{ contact.birthday }}<br>
+        <a href="{% url 'users:contact_edit' contact.pk %}" class="btn btn-info">Edit</a>
+        <a href="{% url 'users:contact_confirm_delete' contact.pk %}" class="btn btn-danger">Delete</a>
+    </li>
     {% endfor %}
-    </ul>
+</ul>
 {% else %}
-    <p>You have no contacts yet.</p>
+<p>You have no contacts yet.</p>
 {% endif %}
+<nav>
+    <ul class="pager">
+
+        <li class="previous">
+            <a class="{% if not contacts.has_previous %} disabled {% endif %}"
+               href="{% if contacts.has_previous %} {% url 'users:paginator_contacts' contacts.previous_page_number %} {% else %} # {% endif %}">Previous<span
+                    aria-hidden="true">→</span></a>
+        </li>
+        <li class="next">
+            <a class="{% if not contacts.has_next %} disabled {% endif %}"
+               href="{% if contacts.has_next %} {% url 'users:paginator_contacts' contacts.next_page_number %} {% else %} # {% endif %}">Next
+                <span aria-hidden="true">→</span></a>
+        </li>
+
+    </ul>
+</nav>
 {% endblock %}
