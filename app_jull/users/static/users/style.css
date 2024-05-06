@@ -305,9 +305,12 @@ h6 {
 }
 
 .password-reset-form .card {
-    background-color: #ffffff; /* Цвет фона карточки */
-    border-radius: 10px; /* Округление краев карточки */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+    background-color: #ffffff;
+    /* Цвет фона карточки */
+    border-radius: 10px;
+    /* Округление краев карточки */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Тень для карточки */
 }
 
 .password-reset-form input.form-control:focus,
@@ -324,7 +327,8 @@ h6 {
     margin-left: -150px;
 }
 
-.form-control:focus, .form-control:hover {
+.form-control:focus,
+.form-control:hover {
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -345,25 +349,31 @@ h6 {
 
 .forgot-password-link:hover {
     /* Ваши стили при наведении */
-    text-decoration: underline; /* Пример: подчеркивание */
-    color: #db7031; /* Пример: изменение цвета */
+    text-decoration: underline;
+    /* Пример: подчеркивание */
+    color: #db7031;
+    /* Пример: изменение цвета */
 }
+
 /* CSS для подсветки чекбокса при наведении */
 .form-check-input:hover {
-    outline: 2px solid #007bff; /* Любой цвет обводки, который вам нравится */
+    outline: 2px solid #007bff;
+    /* Любой цвет обводки, который вам нравится */
 }
 
 /* Скрытие стандартного фокусного эффекта */
 .form-check-input:focus {
     outline: none;
 }
-.form-check{
+
+.form-check {
     margin-top: 10px;
 }
 
-.signup-login:hover{
+.signup-login:hover {
     text-decoration: underline;
-    color: #34bed6; /* Пример: изменение цвета */
+    color: #34bed6;
+    /* Пример: изменение цвета */
 }
 
 
@@ -379,27 +389,31 @@ h6 {
 }
 
 .password-toggle i {
-    font-size: 1.25rem; /* Размер иконки */
-    color: #495057; /* Цвет иконки */
+    font-size: 1.25rem;
+    /* Размер иконки */
+    color: #495057;
+    /* Цвет иконки */
 }
 
-.btns-show-pass{
+.btns-show-pass {
     width: 150px;
     border-radius: 0px;
     background-color: #ffffff;
     border-color: #ffffff;
 }
-.btns-show-pass:hover{
+
+.btns-show-pass:hover {
     text-decoration: underline;
     color: #70c7f0;
 }
 
-.btn-profile{
+.btn-profile {
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 107px;
-    margin-top: -45px; 
+    font-weight: bold;
+    margin-right: 17px;
+    margin-top: -45px;
     color: #000000;
     background-color: #14bed4;
     border-color: #14bed4;
@@ -410,6 +424,7 @@ h6 {
     background-color: #29a744;
     border-color: #29a744;
 }
+
 
 
 .btn-profile-pass-comp {
@@ -423,3 +438,95 @@ h6 {
     background-color: #29a744;
     border-color: #29a744;
 }
+
+.btn-searchnote {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 237px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
+.btn-addnote {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 467px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
+.btn-mynotes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 237px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
+.all_tags {
+    color: #000000;
+    background-color: #1dbeca;
+    border: 5px solid #14bed4;
+    box-shadow: 2px 5px 5px #14bed4;
+}
+
+.btn-myphoto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 237px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
+.btn-myvideo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 467px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
+.btn-anotherfiles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 697px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
+.btn-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 697px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
+}
+
