@@ -53,9 +53,9 @@
                             <a href="{% url 'users:logout' %}" class="btn btn-logout">Logout</a>
                         </div>
                     {% else %}
-                            {% if request.path != "/users/login/" %}
+                            {% if request.path not in request_paths %}
                                 <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
-                            {% endif%}
+                            {% endif %}}
                             
                             {% if request.path == "/users/profile/my_notes/" %}
                                 <a href="{% url 'notes:add_notes' %}" class="btn btn-primary btn-addnote">Add New Note</a>
@@ -84,6 +84,7 @@
                                 <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-anotherfiles">Another files</a>
                                 <a href="{% url 'app_photo:upload' %}" class="btn btn-primary btn-upload">Upload</a>
                             {% endif %}
+
                     {% endif %}
                 </div>
             </div>

@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 
 
 from .forms import SignUpForm, LoginForm, ProfileForm, ContactForm
-from .models import Profile, Contact,CustomUser
+from .models import Profile, Contact
 
 
 def signup(request):
@@ -27,8 +27,12 @@ def signup(request):
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-              
             return redirect("news:index")
+        else:
+            # Обработка ошибок для отдельных полей
+            for field in form.errors:
+                for error in form.errors[field]:
+                    messages.error(request, f"{field}: {error}")
     else:
         form = SignUpForm()
     return render(request, "users/signup.html", {"form": form})
@@ -199,3 +203,6 @@ def add_avatar(request):
 
 
 
+def some_view(request):
+    request_paths = ['/users/login/', '/users/signup/']
+    return render(request, 'your_template.html', {'request_paths': request_paths})

@@ -425,6 +425,20 @@ h6 {
     border-color: #29a744;
 }
 
+
+
+.btn-profile-pass-comp {
+    color: #000000;
+    background-color: #2082d3;
+    border-color: #2082d3;
+}
+
+.btn-profile-pass-comp:hover {
+    color: #ffffff;
+    background-color: #29a744;
+    border-color: #29a744;
+}
+
 .btn-searchnote {
     position: absolute;
     top: 0;
@@ -515,3 +529,4 @@ h6 {
     background-color: #7fca1d;
     border-color: #14bed4;
 }
+

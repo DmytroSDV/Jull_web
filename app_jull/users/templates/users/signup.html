@@ -4,57 +4,111 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card mt-5">
-                <div class="card-header">
-                    <h2 class="text-center">Sign Up</h2>
+            <h2 class="text-center mb-4">Sign Up</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form method="post" id="signup-form" class="signup-form needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_username">* Username:</label>
+                    <input type="text" class="form-control" id="id_username" name="username" required>
+                    <div class="invalid-feedback">Please provide a username.</div>
                 </div>
-                <div class="card-body">
-                    <form method="post" id="signup-form" class="signup-form">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="id_username">* Username:</label>
-                            {{ form.username }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_password1">* Password:</label>
-                            {{ form.password1 }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_password2">* Confirm Password:</label>
-                            {{ form.password2 }}
-                            {% if form.password1.value != form.password2.value %}
-                                <p style="color: red;">Passwords do not match.</p>
-                            {% endif %}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_email">* Email:</label>
-                            {{ form.email }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_date_of_birth">* Date of Birth:</label>
-                            <input type="date" id="id_date_of_birth" name="date_of_birth" value="{{ form.date_of_birth.value }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="id_bio">Bio:</label>
-                            <textarea id="id_bio" name="bio" rows="4" cols="50">{{ form.bio.value }}</textarea>
-                        </div>
-                        <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
-                    </form>
-                    <div id="success-message" style="display: none; color: green;">Success registration</div>
+                <div class="form-group">
+                    <label for="id_password1">* Password:</label>
+                    <input type="password" class="form-control" id="id_password1" name="password1" required>
+                    <div class="invalid-feedback">Please provide a password.</div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="id_password2">* Confirm Password:</label>
+                    <input type="password" class="form-control" id="id_password2" name="password2" required>
+                    <div class="invalid-feedback">Please confirm your password.</div>
+                </div>
+                <div class="form-group">
+                    <label for="id_email">* Email:</label>
+                    <input type="email" class="form-control" id="id_email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <div class="invalid-feedback">Please provide a valid email address.</div>
+                </div>
+                <div class="form-group">
+                    <label for="id_date_of_birth">* Date of Birth:</label>
+                    <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
+                    <div class="invalid-feedback">You must be at least 14 years old.</div>
+                </div>
+                <div class="form-group">
+                    <label for="id_bio">Bio:</label>
+                    <textarea class="form-control" id="id_bio" name="bio" rows="4"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+            <div id="success-message" class="text-center text-success mt-3" style="display: none;">Success registration</div>
         </div>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var signupForm = document.getElementById('signup-form');
-        signupForm.addEventListener('submit', function (event) {
-            event.preventDefault(); 
-            fetch(signupForm.action, {
-                method: signupForm.method,
-                body: new FormData(signupForm),
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('signup-form');
+    var usernameInput = document.getElementById('id_username');
+    var password1Input = document.getElementById('id_password1');
+    var password2Input = document.getElementById('id_password2');
+    var emailInput = document.getElementById('id_email');
+    var dateOfBirthInput = document.getElementById('id_date_of_birth');
+
+    form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        form.classList.add('was-validated');
+
+        // Check if passwords match
+        if (password1Input.value !== password2Input.value) {
+            password2Input.setCustomValidity('Passwords do not match.');
+        } else {
+            password2Input.setCustomValidity('');
+        }
+
+        // Check if user is at least 14 years old
+        var today = new Date();
+        var birthDate = new Date(dateOfBirthInput.value);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        if (age < 14) {
+            dateOfBirthInput.setCustomValidity('You must be at least 14 years old.');
+        } else {
+            dateOfBirthInput.setCustomValidity('');
+        }
+
+        // Check if email is valid
+        if (!emailInput.checkValidity()) {
+            emailInput.setCustomValidity('Please provide a valid email address.');
+        } else {
+            emailInput.setCustomValidity('');
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var signuptForm = document.getElementById('signup-form');
+    signuptForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        if (signuptForm.checkValidity()) {
+            fetch(signuptForm.action, {
+                method: signuptForm.method,
+                body: new FormData(signuptForm),
                 headers: {
                     'X-CSRFToken': '{{ csrf_token }}'
                 }
@@ -67,18 +121,21 @@
                     }, 3000);
                 } else {
                     document.getElementById('success-message').style.display = 'none';
-                    var errorMessage = 'Registration error: ' + response.statusText;
+                    var errorMessage = 'Error contact registration: ' + response.statusText;
                     alert(errorMessage);
                     console.error(errorMessage);
                 }
             })
             .catch(function (error) {
                 document.getElementById('success-message').style.display = 'none';
-                var errorMessage = 'Registration error: ' + error.message;
+                var errorMessage = 'Error contact registration: ' + error.message;
                 alert(errorMessage);
                 console.error(errorMessage);
             });
-        });
+        } else {
+            signuptForm.classList.add('was-validated');
+        }
     });
+});
 </script>
 {% endblock %}
