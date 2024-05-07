@@ -1,39 +1,96 @@
 {% extends "users/base_form.html" %}
 {% block content %}
+<style>
+    .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px; /* Добавим отступ между карточками */
+    }
+
+    .card-img-top {
+        flex: 1;
+        object-fit: cover;
+    }
+
+    .card-body {
+        flex-grow: 0;
+    }
+
+    .card-text {
+        margin-bottom: 0;
+    }
+
+    /* Стили для кнопок внутри карточки */
+    .card-buttons {
+        display: flex;
+        justify-content: space-between; /* Равномерно распределяем кнопки по ширине */
+    }
+    .custom-btn {
+        display: inline-block;
+        padding: 8px 16px; /* увеличим отступы для кнопок */
+        margin-bottom: 0;
+        font-size: 16px; /* увеличим размер шрифта */
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        min-width: 120px; /* установим минимальную ширину для кнопок */
+    }
+
+    .custom-btn:not(:last-child) {
+        margin-right: 8px; /* уменьшим расстояние между кнопками */
+    }
+
+
+</style>
 <div class="container">
     <h1>Фото галерея:</h1>
 
     <div class="row">
         {% for data in image_data %}
-        <div class="col-md-6" style="margin-top: 20px;">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-6">
+            <div class="card">
                 {% if data.file_type == 'image' %}
-                     <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}">
+                <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}">
                 <div class="card-body">
                     <p class="card-text">{{ data.description }}</p>
-                    <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'app_photo:remove_image' data.id %}" class="btn btn-primary">Delete</a>
-                    <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-primary">Download</a>
+                    <div class="card-buttons">
+                        <a href="{% url 'app_photo:edit_image' data.id %}" class="custom-btn">Edit</a>
+                        <a href="{% url 'app_photo:remove_image' data.id %}" class="custom-btn">Delete</a>
+                        <a href="{% url 'app_photo:download_image' data.id %}" class="custom-btn">Download</a>
+                    </div>
                 </div>
+                {% endif %}
             </div>
         </div>
-        {% endif %}
         {% endfor %}
     </div>
 </div>
-<nav class="pagination-nav ">
-            <ul class="pager">
-
-                <li class="previous">
-                    <a class="{% if not image_data.has_previous %} disabled {% endif %}"
-                       href="{% if image_data.has_previous %} {% url 'app_photo:paginator_show_photo' image_data.previous_page_number %} {% else %} # {% endif %}">Previous<span aria-hidden="true">→</span></a>
-                </li>
-                <li class="next">
-                    <a class="{% if not image_data.has_next %} disabled {% endif %}"
-                       href="{% if image_data.has_next %} {% url 'app_photo:paginator_show_photo' image_data.next_page_number %} {% else %} # {% endif %}">Next
-                        <span aria-hidden="true">→</span></a>
-                </li>
-
-            </ul>
+<nav class="pagination-nav">
+    <ul class="pager">
+        <li class="previous">
+            <a class="{% if not image_data.has_previous %} disabled {% endif %}"
+               href="{% if image_data.has_previous %} {% url 'app_photo:paginator_show_photo' image_data.previous_page_number %} {% else %} # {% endif %}">Previous<span
+                    aria-hidden="true">→</span></a>
+        </li>
+        <li class="next">
+            <a class="{% if not image_data.has_next %} disabled {% endif %}"
+               href="{% if image_data.has_next %} {% url 'app_photo:paginator_show_photo' image_data.next_page_number %} {% else %} # {% endif %}">Next
+                <span aria-hidden="true">→</span></a>
+        </li>
+    </ul>
 </nav>
 {% endblock %}

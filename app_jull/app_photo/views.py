@@ -113,9 +113,9 @@ def show_all_photo(request,page=1):
             'description': image.description,
             'id': image.id,
             'file_type': get_file_type(image.image.url)
-        } for image in images
+        } for image in images if get_file_type(image.image.url) == 'image'
     ]
-    paginator = Paginator(image_data, 5)
+    paginator = Paginator(image_data, 6)
     try:
         image_data = paginator.page(page)
     except PageNotAnInteger:
@@ -127,27 +127,33 @@ def show_all_photo(request,page=1):
     return render(request, 'app_photo/photos.html', {'image_data': image_data})
 
 
-def show_all_video(request,page=1):
+def show_all_video(request, page=1):
+    # Получаем все изображения из базы данных
     images = Picture.objects.all()
 
-    image_data = [
+    # Фильтруем изображения, оставляя только видеофайлы
+    video_images = [
         {
             'url': image.image.url,
             'description': image.description,
             'id': image.id,
             'file_type': get_file_type(image.image.url)
-        } for image in images
+        } for image in images if get_file_type(image.image.url) == 'video'
     ]
-    paginator = Paginator(image_data, 5)
+
+    # Разбиваем список видеофайлов на страницы
+    paginator = Paginator(video_images, 6)
     try:
-        image_data = paginator.page(page)
+        video_images_page = paginator.page(page)
     except PageNotAnInteger:
-        image_data = paginator.page(1)
+        # Если номер страницы не целое число, показываем первую страницу
+        video_images_page = paginator.page(1)
     except EmptyPage:
-        image_data = paginator.page(paginator.num_pages)
+        # Если номер страницы больше максимального, показываем последнюю страницу
+        video_images_page = paginator.page(paginator.num_pages)
 
-
-    return render(request, 'app_photo/videos.html', {'image_data': image_data})
+    # Отображаем шаблон с отфильтрованными видеофайлами на первой странице
+    return render(request, 'app_photo/videos.html', {'image_data': video_images_page})
 
 def show_all_another(request,page=1):
     images = Picture.objects.all()
@@ -158,9 +164,9 @@ def show_all_another(request,page=1):
             'description': image.description,
             'id': image.id,
             'file_type': get_file_type(image.image.url)
-        } for image in images
+        } for image in images if get_file_type(image.image.url) != 'video' and get_file_type(image.image.url) != 'image'
     ]
-    paginator = Paginator(image_data, 5)
+    paginator = Paginator(image_data, 6)
     try:
         image_data = paginator.page(page)
     except PageNotAnInteger:
@@ -184,7 +190,7 @@ def show_images(request,page=1):
         } for image in images
     ]
 
-    paginator = Paginator(image_data, 5)
+    paginator = Paginator(image_data, 6)
     try:
         image_data = paginator.page(page)
     except PageNotAnInteger:
