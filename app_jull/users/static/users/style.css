@@ -93,9 +93,12 @@ body {
 }
 
 .footer_container {
-
     background: linear-gradient(#152d47, #f3d840, #382288);
 }
+
+/* .for_footer_increase{
+    padding: 200px;
+} */
 
 .footer_text {
     color: #0d3c8d !important;
@@ -511,7 +514,7 @@ h6 {
     top: 0;
     right: 0;
     font-weight: bold;
-    margin-right: 697px;
+    margin-right: 927px;
     margin-top: -45px;
     color: #000000;
     background-color: #7fca1d;
@@ -529,6 +532,7 @@ h6 {
     background-color: #7fca1d;
     border-color: #14bed4;
 }
+
 
 .btn-signup {
     margin-top: 10px;
@@ -562,4 +566,15 @@ h6 {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
+
+.btn-myphotogalery{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 237px;
+    margin-top: -45px;
+    color: #000000;
+    background-color: #7fca1d;
+    border-color: #14bed4;
 }

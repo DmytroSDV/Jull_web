@@ -1,6 +1,7 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<div class="container mt-3">
+<div class="container form-control">
+    <h2 style="margin-bottom: 20px;">File uploader:</h2>
     <form action="{% url 'app_photo:upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">

@@ -15,7 +15,7 @@
     <link rel="icon" href="{% static 'Icon_jull.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'users/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'notes/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app_photo/style.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'app_photo/style.css' %}"> {% endcomment %}
     <title>Jull</title>
 </head>
 <style>
@@ -37,27 +37,50 @@
     }
 </style>
 <body>
-<div class="top_container">
-    <div class="row header-box pt-3 mb-3">
-        <div class="col-md-8">
-            <h1 class="main_head_title">
-                <a href="/" style="text-decoration:none">
-                    <img src="{% static 'web_world.ico' %}" alt="Web.World">
-                    Jull assistant
-                </a>
-            </h1>
-        </div>
-        <div class="button_main">
-            {% if request.path not in request_paths %}
-                <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
-            {% endif %}
-            {% if request.path == "/users/profile/" %}
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{% url 'users:contacts' %}" class="btn btn-work">My Contacts</a>
-                    <a href="{% url 'app_photo:gallery' %}" class="btn btn-work">Gallery</a>
-                    <a href="{% url 'notes:notes_list' %}" class="btn btn-work">My Notes</a>
-                    <a href="{% url 'users:password_reset' %}" class="btn btn-primary reset-password">Reset Password</a>
-                    <a href="{% url 'users:logout' %}" class="btn btn-logout">Logout</a>
+    <div class="top_container">
+            <div class="row header-box pt-3 mb-3">
+                <div class="col-md-8">
+                    <h1 class="main_head_title">
+                        <a href="/" style="text-decoration:none">
+                            <img src="{% static 'web_world.ico' %}" alt="Web.World" >
+                            Jull assistant</a>
+                    </h1>
+                </div>
+                <div class="button_main">
+                    {% if request.path == "/users/profile/" %}
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{% url 'users:contacts' %}" class="btn btn-work">My Contacts</a>
+                            <a href="{% url 'app_photo:gallery' %}" class="btn btn-work">Gallery</a>
+                            <a href="{% url 'notes:notes_list' %}" class="btn btn-work">My Notes</a>
+                            <a href="{% url 'users:password_reset' %}" class="btn btn-primary reset-password">Reset Password</a>
+                            <a href="{% url 'users:logout' %}" class="btn btn-logout">Logout</a>
+                        </div>
+                    {% else %}
+                            {% if request.path != '/users/login/' and request.path != '/users/signup/' %}
+                                <a href="{% url 'users:profile' %}" class="btn btn-profile">My Profile</a>
+                            {% endif %}
+                            
+                            {% if request.path == "/users/profile/my_notes/" %}
+                                <a href="{% url 'notes:add_notes' %}" class="btn btn-primary btn-addnote">Add New Note</a>
+                                <a href="{% url 'notes:search_notes' %}" class="btn btn-primary btn-searchnote">Search Notes</a>
+                            {% endif %}
+
+                            {% if request.path == "/users/profile/my_notes/search_note/" or "/users/profile/my_notes/edit_notes/" in request.path or "/users/profile/notes_by_tag/" in request.path or request.path == "/users/profile/my_notes/add_notes" %}
+                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
+                            {% endif %}
+
+                            {% if request.path == "/users/profile/gallery/" %}
+                                <a href="{% url 'app_photo:show_photo' %}" class="btn btn-primary btn-myphoto">My photos</a>
+                                <a href="{% url 'app_photo:show_video' %}" class="btn btn-primary btn-myvideo">My video</a>
+                                <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-anotherfiles">Another files</a>
+                                <a href="{% url 'app_photo:upload' %}" class="btn btn-primary btn-upload">Upload</a>
+                            {% endif %}
+
+                            {% if request.path == "/users/profile/gallery/my_photo" or request.path == "/users/profile/gallery/my_video" or request.path == "/users/profile/gallery/upload/" or request.path == "/users/profile/gallery/another" %}
+                                <a href="{% url 'app_photo:gallery' %}" class="btn btn-primary btn-myphotogalery">Gallery</a>
+                            {% endif %}
+
+                    {% endif %}
                 </div>
             {% else %}
                 {% if request.path not in request_paths %}
@@ -104,12 +127,14 @@
             </div>
         </footer> {% endcomment %} 
         {% block content %} {% endblock %}
+        <div style="padding: 150px;">
         <div class="footer_container bg-primary footer_text mt-5 px-sm-3 px-md-5 fixed-bottom">
             <div class="container text-center py-5">
                 <p class="m-0">
                     <a href="/"><img src="{% static 'web_world.ico' %}" alt="Web.World"></a>
                     <a class="footer_text font-weight-bold">Web.World</a> - Corporation</p>
             </div>
+        </div>
         </div>
 </body>
 </html>
