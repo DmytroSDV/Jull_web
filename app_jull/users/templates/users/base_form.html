@@ -62,19 +62,7 @@
                                 <a href="{% url 'notes:search_notes' %}" class="btn btn-primary btn-searchnote">Search Notes</a>
                             {% endif %}
 
-                            {% if request.path == "/users/profile/my_notes/search_note/" %}
-                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
-                            {% endif %}
-
-                            {% if "/users/profile/my_notes/edit_notes/" in request.path %}
-                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
-                            {% endif %}
-
-                            {% if "/users/profile/notes_by_tag/" in request.path %}
-                                <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
-                            {% endif %}
-
-                            {% if request.path == "/users/profile/my_notes/add_notes" %}
+                            {% if request.path == "/users/profile/my_notes/search_note/" or "/users/profile/my_notes/edit_notes/" in request.path or "/users/profile/notes_by_tag/" in request.path or request.path == "/users/profile/my_notes/add_notes" %}
                                 <a href="{% url 'notes:notes_list' %}" class="btn btn-primary btn-mynotes">My Notes</a>
                             {% endif %}
 
@@ -83,6 +71,10 @@
                                 <a href="{% url 'app_photo:show_video' %}" class="btn btn-primary btn-myvideo">My video</a>
                                 <a href="{% url 'app_photo:show_another' %}" class="btn btn-primary btn-anotherfiles">Another files</a>
                                 <a href="{% url 'app_photo:upload' %}" class="btn btn-primary btn-upload">Upload</a>
+                            {% endif %}
+
+                            {% if request.path == "/users/profile/gallery/my_photo" or request.path == "/users/profile/gallery/my_video" or request.path == "/users/profile/gallery/upload/" or request.path == "/users/profile/gallery/another" %}
+                                <a href="{% url 'app_photo:gallery' %}" class="btn btn-primary btn-myphotogalery">Gallery</a>
                             {% endif %}
 
                     {% endif %}
@@ -100,12 +92,14 @@
             </div>
         </footer> {% endcomment %} 
         {% block content %} {% endblock %}
+        <div style="padding: 150px;">
         <div class="footer_container bg-primary footer_text mt-5 px-sm-3 px-md-5 fixed-bottom">
             <div class="container text-center py-5">
                 <p class="m-0">
                     <a href="/"><img src="{% static 'web_world.ico' %}" alt="Web.World"></a>
                     <a class="footer_text font-weight-bold">Web.World</a> - Corporation</p>
             </div>
+        </div>
         </div>
 </body>
 </html>

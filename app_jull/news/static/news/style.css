@@ -9,7 +9,6 @@
 .get_for_input {
     width: 305px;
     padding: 5px;
-    margin-left: 20px;
     outline: none;
     border: 1px solid #eb6e16;
     border-radius: 4px;
@@ -29,7 +28,7 @@
 }
 
 .get_for_button:hover {
-    background-color: #c4580b;
+    background-color: #5134d1;
 }
 
 .get_weather {
@@ -41,7 +40,6 @@
     max-width: 1860px;
     height: 150px;
     margin-top: 5px;
-    margin-left: 20px;
     padding: 5px;
     border: 2px solid #eb6e16;
     border-radius: 4px;
@@ -204,7 +202,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 107px;
+    margin-right: 15px;
     margin-top: -45px;
 }
 
@@ -234,6 +232,7 @@
 /* Стили body */
 html,
 body {
+    
     height: 100%;
     margin: 1px;
     display: flex;
