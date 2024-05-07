@@ -73,3 +73,30 @@
     margin-right: 300px;
     /* Добавляем отступ справа для кнопки "Next" */
 }
+
+
+
+/* Стили для арточек ввода файлов"Reset Back" */
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-right: 5px;
+}
