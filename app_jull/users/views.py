@@ -28,11 +28,11 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect("news:index")
-        else:
-            # Обработка ошибок для отдельных полей
-            for field in form.errors:
-                for error in form.errors[field]:
-                    messages.error(request, f"{field}: {error}")
+        # else:
+        #     # Обработка ошибок для отдельных полей
+        #     for field in form.errors:
+        #         for error in form.errors[field]:
+        #             messages.error(request, f"{field}: {error}")
     else:
         form = SignUpForm()
     return render(request, "users/signup.html", {"form": form})
@@ -205,4 +205,4 @@ def add_avatar(request):
 
 def some_view(request):
     request_paths = ['/users/login/', '/users/signup/']
-    return render(request, 'your_template.html', {'request_paths': request_paths})
+    return render(request, 'base_form.html', {'request_paths': request_paths})

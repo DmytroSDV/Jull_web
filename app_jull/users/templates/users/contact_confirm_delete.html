@@ -1,28 +1,34 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<h2>Confirm Delete Contact</h2>
-<p>Are you sure you want to delete the following contact?</p>
-<p>Name: {{ contact.name }}</p>
-<p>Address: {{ contact.address }}</p>
-<p>Phone Number: {{ contact.phone_number }}</p>
-<p>Email: {{ contact.email }}</p>
-<p>Birthday: {{ contact.birthday }}</p>
-<form id="delete-contact-form" action="{% url 'users:contact_delete' contact.pk %}" method="POST">
-    {% csrf_token %}
-    <button id="delete-button" type="submit" class="btn btn-danger">Delete</button>
-</form>
-<a href="{% url 'users:contacts' %}" class="btn btn-primary">Back to Contacts</a>
-<!-- Сообщение об успешном удалении контакта -->
-<div id="success-message" style="display: none; color: green;">Contact successfully deleted.</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Confirm Delete Contact</h2>
+                    <p>Are you sure you want to delete the following contact?</p>
+                    <p>Name: {{ contact.name }}</p>
+                    <p>Address: {{ contact.address }}</p>
+                    <p>Phone Number: {{ contact.phone_number }}</p>
+                    <p>Email: {{ contact.email }}</p>
+                    <p>Birthday: {{ contact.birthday }}</p>
+                    <form id="delete-contact-form" action="{% url 'users:contact_delete' contact.pk %}" method="POST">
+                        {% csrf_token %}
+                        <button id="delete-button" type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a href="{% url 'users:contacts' %}" class="btn btn-back d-block w-100 mb-3"><i class="fas fa-arrow-left me-1"></i> Back to Contacts</a>
+                    <div id="success-message" style="display: none; color: green;">Contact successfully deleted.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Получаем форму удаления и кнопку удаления
         var deleteForm = document.getElementById('delete-contact-form');
         var deleteButton = document.getElementById('delete-button');
-        // Добавляем обработчик события для отправки формы
         deleteButton.addEventListener('click', function (event) {
-            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
-            // Отправляем форму через fetch
+            event.preventDefault(); 
             fetch(deleteForm.action, {
                 method: deleteForm.method,
                 body: new FormData(deleteForm),
@@ -31,16 +37,12 @@
                 }
             })
             .then(function (response) {
-                // Проверяем статус ответа
                 if (response.ok) {
-                    // Если запрос успешен, показываем сообщение об успешном удалении
                     document.getElementById('success-message').style.display = 'block';
-                    // Через 3 секунды перенаправляем на страницу контактов
                     setTimeout(function () {
                         window.location.href = '{% url "users:contacts" %}';
                     }, 3000);
                 } else {
-                    // Если произошла ошибка, показываем сообщение об ошибке
                     console.error('Error deleting contact:', response.statusText);
                 }
             })

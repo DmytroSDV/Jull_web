@@ -1,57 +1,167 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<title>Login</title>
+<title>Sign Up</title>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2 class="text-center mb-4">Sign Up</h2>
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-            <form method="post" id="signup-form" class="signup-form needs-validation" novalidate>
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="id_username">* Username:</label>
-                    <input type="text" class="form-control" id="id_username" name="username" required>
-                    <div class="invalid-feedback">Please provide a username.</div>
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h2 class="text-center">Sign Up</h2>
+                    <button type="button" class="close" aria-label="Close" onclick="redirectToHome()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label for="id_password1">* Password:</label>
-                    <input type="password" class="form-control" id="id_password1" name="password1" required>
-                    <div class="invalid-feedback">Please provide a password.</div>
+                <div class="card-body">
+                    <form method="post" id="signup-form" class="signup-form needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">* Username:</label>
+                            <input type="text" class="form-control" id="id_username" name="username" required>
+                            <div class="invalid-feedback">Please provide a username.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password1">* Password:</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="id_password1" name="password1" required>
+                                <div class="input-group-append">
+                                    <button class="btn btns-show-pass" type="button" data-target="#id_password1">
+                                        <i class="fa fa-eye-slash"></i> Show Password
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="password-strength-meter" class="progress" style="height: 20px;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div id="password-strength-text" class="form-text text-muted"></div>
+                            <div class="invalid-feedback">Please provide a password.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password2">* Confirm Password:</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="id_password2" name="password2" required>
+                                <div class="input-group-append">
+                                    <button class="btn btns-show-pass" type="button" data-target="#id_password2">
+                                        <i class="fa fa-eye-slash"></i> Show Password
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Остальные элементы для проверки подтверждения пароля -->
+                            <div class="invalid-feedback">Please confirm your password.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">* Email:</label>
+                            <input type="email" class="form-control" id="id_email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <div class="invalid-feedback">Please provide a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_date_of_birth">* Date of Birth:</label>
+                            <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
+                            <div class="invalid-feedback">You must be at least 14 years old.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_bio">Bio:</label>
+                            <textarea class="form-control" id="id_bio" name="bio" rows="4"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="signup-button" class="btn btn-signup">Sign Up</button>
+                        </div>
+                    </form>
+                    <div id="success-message" class="text-center text-success mt-3" style="display: none;">Success registration</div>
                 </div>
-                <div class="form-group">
-                    <label for="id_password2">* Confirm Password:</label>
-                    <input type="password" class="form-control" id="id_password2" name="password2" required>
-                    <div class="invalid-feedback">Please confirm your password.</div>
-                </div>
-                <div class="form-group">
-                    <label for="id_email">* Email:</label>
-                    <input type="email" class="form-control" id="id_email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                    <div class="invalid-feedback">Please provide a valid email address.</div>
-                </div>
-                <div class="form-group">
-                    <label for="id_date_of_birth">* Date of Birth:</label>
-                    <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
-                    <div class="invalid-feedback">You must be at least 14 years old.</div>
-                </div>
-                <div class="form-group">
-                    <label for="id_bio">Bio:</label>
-                    <textarea class="form-control" id="id_bio" name="bio" rows="4"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
-                </div>
-            </form>
-            <div id="success-message" class="text-center text-success mt-3" style="display: none;">Success registration</div>
+            </div>
         </div>
     </div>
 </div>
+<script>
 
+$(document).ready(function() {
+    $('.btns-show-pass').click(function() {
+        var passwordInput = $($(this).data('target'));
+        if (passwordInput.attr('type') === 'password') {
+            passwordInput.attr('type', 'text');
+            $(this).html('<i class="fa fa-eye"></i> Hide Password');
+        } else {
+            passwordInput.attr('type', 'password');
+            $(this).html('<i class="fa fa-eye-slash"></i> Show Password');
+        }
+    });
+    $('#id_password1').on('input', function() {
+        var password = $(this).val();
+        var result = zxcvbn(password);
+        var progressBar = $('#password-strength-meter .progress-bar');
+        var strengthText = $('#password-strength-text');
+        progressBar.css('width', result.score * 25 + '%');
+        progressBar.attr('aria-valuenow', result.score * 25);
+        if (result.score === 0) {
+            progressBar.removeClass('bg-success bg-info bg-warning bg-danger');
+            strengthText.text('The specified password is not reliable enough.');
+        } else if (result.score === 1) {
+            progressBar.removeClass('bg-info bg-warning bg-danger');
+            progressBar.addClass('bg-danger');
+            strengthText.text('The specified password is not a reliable enough.');
+        } else if (result.score === 2) {
+            progressBar.removeClass('bg-warning bg-danger');
+            progressBar.addClass('bg-warning');
+            strengthText.text('This is a fairly reliable password.');
+        } else if (result.score === 3) {
+            progressBar.removeClass('bg-danger');
+            progressBar.addClass('bg-info');
+            strengthText.text('This is a very reliable password.');
+        } else if (result.score === 4) {
+            progressBar.removeClass('bg-warning bg-danger');
+            progressBar.addClass('bg-success');
+            strengthText.text('This is a very reliable password.');
+        }
+    });
+    $('#signup-form').submit(function(e) {
+        var password1 = $('#id_password1').val();
+        var password2 = $('#id_password2').val();
+        if (password1 !== password2) {
+            e.preventDefault();
+            alert('Passwords do not match.');
+            return false;
+        }
+    $('.invalid-feedback').hide();
+        var errors = {{ form.errors.as_json }};
+        for (var field in errors) {
+            if (errors.hasOwnProperty(field)) {
+                var errorMessage = errors[field];
+                $('#id_' + field).next('.invalid-feedback').text(errorMessage).show();
+            }
+        }
+    });
+});
+</script>
+<script>
+document.querySelectorAll('.btns-show-pass').forEach(function(button) {
+    button.addEventListener('click', function() {
+        var targetId = this.getAttribute('data-target');
+        var passwordInput = document.getElementById(targetId);
+        if (passwordInput) {
+            var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        }
+    });
+});
+</script>
+<script>
+function redirectToHome() {
+    window.location.href = "{% url 'news:index' %}";
+}
+</script>
+<script>
+function clearForm() {
+    document.getElementById("id_username").value = '';
+    document.getElementById("id_password1").value = '';
+    document.getElementById("id_password2").value = '';
+    document.getElementById("id_email").value = '';
+    document.getElementById("id_date_of_birth").value = '';
+    document.getElementById("id_bio").value = '';
+}
+window.onload = clearForm;
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('signup-form');
@@ -60,23 +170,35 @@ document.addEventListener('DOMContentLoaded', function() {
     var password2Input = document.getElementById('id_password2');
     var emailInput = document.getElementById('id_email');
     var dateOfBirthInput = document.getElementById('id_date_of_birth');
+    function checkInput(input) {
+        if (input.value.trim() !== '') {
+            input.classList.add('is-valid');
+        } else {
+            input.classList.remove('is-valid');
+        }
+    }
+    [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
+        input.addEventListener('input', function() {
+            checkInput(input);
+        });
+    });
 
     form.addEventListener('submit', function(event) {
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
         }
-
         form.classList.add('was-validated');
+        [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
+            checkInput(input);
+        });
 
-        // Check if passwords match
         if (password1Input.value !== password2Input.value) {
             password2Input.setCustomValidity('Passwords do not match.');
         } else {
             password2Input.setCustomValidity('');
         }
 
-        // Check if user is at least 14 years old
         var today = new Date();
         var birthDate = new Date(dateOfBirthInput.value);
         var age = today.getFullYear() - birthDate.getFullYear();
@@ -90,7 +212,6 @@ document.addEventListener('DOMContentLoaded', function() {
             dateOfBirthInput.setCustomValidity('');
         }
 
-        // Check if email is valid
         if (!emailInput.checkValidity()) {
             emailInput.setCustomValidity('Please provide a valid email address.');
         } else {
