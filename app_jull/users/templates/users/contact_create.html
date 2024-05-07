@@ -1,13 +1,58 @@
 {% extends "users/base_form.html" %}
 {% block content %}
 <h2>Add contact</h2>
-<form id="add-contact-form" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
-<a href="{% url 'users:contacts' %}" class="btn btn-primary">Back to Contacts</a>
-<div id="success-message" style="display: none; color: green;">Contact is successfully created.</div>
+
+<style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .btn-back {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-back:hover {
+      background-color: #5a6268;
+      border-color: #5a6268;
+    }
+    #success-message {
+      color: green;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-container">
+        <h2>Add Contact</h2>
+        <form id="add-contact-form" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary d-block w-100 mb-3">Save</button>
+        </form>
+        <a href="{% url 'users:contacts' %}" class="btn btn-back d-block w-100 mb-3"><i class="fas fa-arrow-left me-1"></i> Back to Contacts</a>
+        <div id="success-message">Contact is successfully created.</div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var addContactForm = document.getElementById('add-contact-form');

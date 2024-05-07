@@ -1,56 +1,69 @@
 {% extends "users/base_form.html" %}
-
 {% block content %}
-<title>Login</title>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card mt-5">
-                <div class="card-header">
-                    <h2 class="text-center">Login</h2>
-                </div>
-                <div class="card-body">
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-danger">{{ message }}</div>
-                        {% endfor %}
-                    {% endif %}
-                    <form method="post" id="login-form">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="id_username">Username or email:</label>
-                            <input type="text" class="form-control" id="id_username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="id_password">Password:</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="id_password" name="password" required>
-                                <div class="input-group-append">
-                                    <button class="btn btns-show-pass" type="button" id="show-password-button">
-                                        <i class="fa fa-eye-slash"></i> Show Password
-                                    </button>
-                                </div>
+    <title>Login</title>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2 class="text-center">Login</h2>
+                        <button type="button" class="close" aria-label="Close" onclick="redirectToHome()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-danger">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        <form method="post" id="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_username">Username or email:</label>
+                                <input type="text" class="form-control" id="id_username" name="username" required>
                             </div>
-                        </div>                          
-                        <div class="forgot-password">
-                            <a href="{% url 'users:password_reset' %}" class="forgot-password-link">Forgot password?</a>
-                        </div>           
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="remember-me">
-                            <label class="form-check-label" for="remember-me">Remember Me</label>
-                        </div>
-                        <button type="submit" class="btn btn-login-h">Login</button>
-                        <div class="mt-3 text-center">
-                            <p><strong>Don't have an account yet?</strong></p>
-                            <a class="signup-login" href="{% url 'users:signup' %}">Sign Up</a>
-                        </div>                        
-                    </form>
-                    
+                            <div class="form-group">
+                                <label for="id_password">Password:</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="id_password" name="password" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btns-show-pass" type="button" id="show-password-button">
+                                            <i class="fa fa-eye-slash"></i> Show Password
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>                          
+                            <div class="forgot-password">
+                                <a href="{% url 'users:password_reset' %}" class="forgot-password-link">Forgot password?</a>
+                            </div>           
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="remember-me">
+                                <label class="form-check-label" for="remember-me">Remember Me</label>
+                            </div>
+                            <button type="submit" class="btn btn-login-h">Login</button>
+                            <div class="mt-3 text-center">
+                                <p><strong>Don't have an account yet?</strong></p>
+                                <a class="signup-login" href="{% url 'users:signup' %}">Sign Up</a>
+                            </div>                        
+                        </form>                      
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<script>
+function redirectToHome() {
+    window.location.href = "{% url 'news:index' %}";
+}
+</script>
+<script>
+function clearForm() {
+    document.getElementById("id_username").value = '';
+    document.getElementById("id_password").value = '';
+}
+window.onload = clearForm;
+</script>
 <script>
 document.getElementById('show-password-button').addEventListener('click', function() {
     var passwordInput = document.getElementById('id_password');
@@ -61,119 +74,112 @@ document.getElementById('show-password-button').addEventListener('click', functi
 });
 </script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('signup-form');
+        var usernameInput = document.getElementById('id_username');
+        var password1Input = document.getElementById('id_password1');
+        var password2Input = document.getElementById('id_password2');
+        var emailInput = document.getElementById('id_email');
+        var dateOfBirthInput = document.getElementById('id_date_of_birth');
+        function checkInput(input) {
+            if (input.value.trim() !== '') {
+                input.classList.add('is-valid');
+            } else {
+                input.classList.remove('is-valid');
+            }
+        }
+        [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
+            input.addEventListener('input', function() {
+                checkInput(input);
+            });
+        });
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+            [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
+                checkInput(input);
+            });
+    
+            if (password1Input.value !== password2Input.value) {
+                password2Input.setCustomValidity('Passwords do not match.');
+            } else {
+                password2Input.setCustomValidity('');
+            }
+    
+            var today = new Date();
+            var birthDate = new Date(dateOfBirthInput.value);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            if (age < 14) {
+                dateOfBirthInput.setCustomValidity('You must be at least 14 years old.');
+            } else {
+                dateOfBirthInput.setCustomValidity('');
+            }
+            if (!emailInput.checkValidity()) {
+                emailInput.setCustomValidity('Please provide a valid email address.');
+            } else {
+                emailInput.setCustomValidity('');
+            }
+        });
+    });
+    </script> 
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('login-form');
+    var rememberMeCheckbox = document.getElementById('remember-me');
     var usernameInput = document.getElementById('id_username');
     var passwordInput = document.getElementById('id_password');
+    window.onload = function() {
+        var savedUsername = getCookie('savedUsername');
+        var savedPassword = getCookie('savedPassword');
 
-    // Function to add or remove classes based on field validity
-    function updateFieldStatus(inputField, isValid) {
-        var fieldIcon = inputField.nextElementSibling;
-        if (isValid) {
-            inputField.classList.remove('is-invalid');
-            inputField.classList.add('is-valid');
-            fieldIcon.classList.remove('fa-times');
-            fieldIcon.classList.add('fa-check');
-        } else {
-            inputField.classList.remove('is-valid');
-            inputField.classList.add('is-invalid');
-            fieldIcon.classList.remove('fa-check');
-            fieldIcon.classList.add('fa-times');
+        if (savedUsername && savedPassword) {
+            usernameInput.value = savedUsername;
+            passwordInput.value = savedPassword;
         }
     }
-
-    // Event listener for input fields to update status on change
-    [usernameInput, passwordInput].forEach(function(inputField) {
-        inputField.addEventListener('input', function() {
-            var isValid = this.value.trim() !== '';
-            updateFieldStatus(this, isValid);
-        });
-    });
-
-    // Event listener for form submission
-    form.addEventListener('submit', function(event) {
-        // Check if both fields are filled
-        var isUsernameValid = usernameInput.value.trim() !== '';
-        var isPasswordValid = passwordInput.value.trim() !== '';
-
-        // Update status for both fields
-        updateFieldStatus(usernameInput, isUsernameValid);
-        updateFieldStatus(passwordInput, isPasswordValid);
-
-        // If either field is empty, prevent form submission
-        if (!isUsernameValid || !isPasswordValid) {
-            event.preventDefault();
-            event.stopPropagation();
+    rememberMeCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            var username = usernameInput.value;
+            var password = passwordInput.value;
+            setCookie('savedUsername', username, 30); 
+            setCookie('savedPassword', password, 30);
+        } else {
+            deleteCookie('savedUsername');
+            deleteCookie('savedPassword');
         }
-
-        form.classList.add('was-validated');
-    }, false);
+    });
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1, cookie.length);
+            }
+            if (cookie.indexOf(nameEQ) === 0) {
+                return cookie.substring(nameEQ.length, cookie.length);
+            }
+        }
+        return null;
+    }
+    function deleteCookie(name) {
+        document.cookie = name + '=; Max-Age=-99999999;';
+    }
 });
-</script>   
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var rememberMeCheckbox = document.getElementById('remember-me');
-        var usernameInput = document.getElementById('id_username');
-        var passwordInput = document.getElementById('id_password');
-
-        // Проверка наличия сохраненных данных при загрузке страницы
-        window.onload = function() {
-            var savedUsername = getCookie('savedUsername');
-            var savedPassword = getCookie('savedPassword');
-
-            if (savedUsername && savedPassword) {
-                usernameInput.value = savedUsername;
-                passwordInput.value = savedPassword;
-            }
-        }
-
-        // Обработчик события изменения состояния чекбокса
-        rememberMeCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                // Если чекбокс отмечен, сохраните данные в куки
-                var username = usernameInput.value;
-                var password = passwordInput.value;
-                setCookie('savedUsername', username, 30); // сохранение на 30 дней (в примере)
-                setCookie('savedPassword', password, 30);
-            } else {
-                // Если чекбокс не отмечен, удалите куки
-                deleteCookie('savedUsername');
-                deleteCookie('savedPassword');
-            }
-        });
-
-        // Функция для установки куки
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        // Функция для получения значения куки по имени
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i];
-                while (cookie.charAt(0) === ' ') {
-                    cookie = cookie.substring(1, cookie.length);
-                }
-                if (cookie.indexOf(nameEQ) === 0) {
-                    return cookie.substring(nameEQ.length, cookie.length);
-                }
-            }
-            return null;
-        }
-
-        // Функция для удаления куки
-        function deleteCookie(name) {
-            document.cookie = name + '=; Max-Age=-99999999;';
-        }
-    });
 </script>
-
 {% endblock %}

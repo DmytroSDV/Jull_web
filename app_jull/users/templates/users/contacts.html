@@ -1,46 +1,56 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<h2>Contact List</h2>
-<form method="GET" class="search-form" action="{% url 'users:contact_search' %}">
-    <div class="search-input-container">
-        <input type="text" name="query" placeholder="Search by name, address, phone, email, or birthday">
-        <button type="submit"></button>
+<div class="container contact-list-container">
+    <h2 class="contact-list-header text-center mb-4">Contact List</h2>
+    <form method="GET" class="search-form mb-4" action="{% url 'users:contact_search' %}">
+        <div class="input-group">
+            <input type="text" name="query" class="form-control" placeholder="Search by name, address, phone, email, or birthday">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+            </div>
+        </div>
+    </form>
+    <div class="row mb-3">
+        <div class="col text-center">
+            <a href="{% url 'users:contact_create' %}" class="btn btn-primary mr-2">Add Contact</a>
+            <a href="{% url 'users:upcoming_birthdays' %}" class="btn btn-info mr-2">Upcoming Birthdays</a>
+            <a href="{% url 'users:profile' %}" class="btn btn-primary">Back to Profile</a>
+        </div>
     </div>
-</form>
-<a href="{% url 'users:contact_create' %}" class="btn btn-primary">Add contact</a>
-<a href="{% url 'users:upcoming_birthdays' %}" class="btn btn-info">Upcoming Birthdays</a>
-<a href="{% url 'users:profile' %}" class="btn btn-primary">Back to Profile</a>
-{% if contacts %}
-<ul>
-    {% for contact in contacts %}
-    <li>
-        <strong>Name:</strong> {{ contact.name }}<br>
-        <strong>Address:</strong> {{ contact.address }}<br>
-        <strong>Phone Number:</strong> {{ contact.phone_number }}<br>
-        <strong>Email:</strong> {{ contact.email }}<br>
-        <strong>Birthday:</strong> {{ contact.birthday }}<br>
-        <a href="{% url 'users:contact_edit' contact.pk %}" class="btn btn-info">Edit</a>
-        <a href="{% url 'users:contact_confirm_delete' contact.pk %}" class="btn btn-danger">Delete</a>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>You have no contacts yet.</p>
-{% endif %}
-<nav>
-    <ul class="pager">
-
-        <li class="previous">
-            <a class="{% if not contacts.has_previous %} disabled {% endif %}"
-               href="{% if contacts.has_previous %} {% url 'users:paginator_contacts' contacts.previous_page_number %} {% else %} # {% endif %}">Previous<span
-                    aria-hidden="true">→</span></a>
-        </li>
-        <li class="next">
-            <a class="{% if not contacts.has_next %} disabled {% endif %}"
-               href="{% if contacts.has_next %} {% url 'users:paginator_contacts' contacts.next_page_number %} {% else %} # {% endif %}">Next
-                <span aria-hidden="true">→</span></a>
-        </li>
-
-    </ul>
-</nav>
+    {% if contacts %}
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                {% for contact in contacts %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="contact-info">
+                        <strong>Name:</strong> {{ contact.name }}<br>
+                        <strong>Address:</strong> {{ contact.address }}<br>
+                        <strong>Phone Number:</strong> {{ contact.phone_number }}<br>
+                        <strong>Email:</strong> {{ contact.email }}<br>
+                        <strong>Birthday:</strong> {{ contact.birthday }}<br>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="{% url 'users:contact_edit' contact.pk %}" class="btn btn-sm btn-info mr-2">Edit</a>
+                        <a href="{% url 'users:contact_confirm_delete' contact.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <nav aria-label="Contacts navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {% if not contacts.has_previous %}disabled{% endif %}">
+                <a class="page-link" href="{% if contacts.has_previous %}{% url 'users:paginator_contacts' contacts.previous_page_number %}{% else %}#{% endif %}">Previous</a>
+            </li>
+            <li class="page-item {% if not contacts.has_next %}disabled{% endif %}">
+                <a class="page-link" href="{% if contacts.has_next %}{% url 'users:paginator_contacts' contacts.next_page_number %}{% else %}#{% endif %}">Next</a>
+            </li>
+        </ul>
+    </nav>
+    {% else %}
+    <p class="no-contacts text-center">You have no contacts yet.</p>
+    {% endif %}
+</div>
 {% endblock %}
