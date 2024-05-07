@@ -37,7 +37,7 @@
     justify-content: space-between;
     gap: 5px;
     width: 100%;
-    max-width: 1860px;
+    max-width: 1900px;
     height: 150px;
     margin-top: 5px;
     padding: 5px;
@@ -198,7 +198,7 @@
     margin-top: -45px;
 }
 
- .button_main .profile-button {
+.button_main .profile-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -232,7 +232,7 @@
 /* Стили body */
 html,
 body {
-    
+
     height: 100%;
     margin: 1px;
     display: flex;

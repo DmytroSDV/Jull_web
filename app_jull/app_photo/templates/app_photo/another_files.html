@@ -1,8 +1,7 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<div class="container mt-3">
+<div class="container">
     <h1>Інші файли:</h1>
-
     <div class="row">
         {% for data in image_data %}
         <div class="col-md-6">
@@ -11,8 +10,6 @@
                  <span style="font-size: 5rem;">📄</span> <!-- Используем символ для текстового файла -->
 
                 <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}">
-
-
                 <div class="card-body">
                     <p class="card-text">{{ data.description }}</p>
                     <a href="{% url 'app_photo:edit_image' data.id %}" class="btn btn-primary">Edit</a>
@@ -23,7 +20,9 @@
         </div>
         {% endif %}
         {% endfor %}
-        <nav>
+    </div>
+</div>
+<nav class="pagination-nav">
             <ul class="pager">
 
                 <li class="previous">
@@ -38,6 +37,4 @@
 
             </ul>
         </nav>
-    </div>
-</div>
 {% endblock %}
