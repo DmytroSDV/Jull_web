@@ -1,6 +1,7 @@
 .pager {
-    font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .pager {
     padding-left: 0;
     margin: 22px 0;
@@ -11,18 +12,25 @@
 .pager li {
     display: inline;
 }
-.pager .next>a, .pager .next>span {
+
+.pager .next>a,
+.pager .next>span {
     float: right;
 }
-.pager li>a, .pager li>span {
+
+.pager li>a,
+.pager li>span {
     display: inline-block;
     padding: 5px 14px;
     background-color: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 15px;
 }
-.disabled { color: #333333
+
+.disabled {
+    color: #333333
 }
+
 .pagination-nav {
     text-align: left;
 }
@@ -36,24 +44,32 @@
 
 .pager li {
     display: inline;
-    margin-right: 300px; /* Добавьте отступ между элементами списка */
+    margin-right: 300px;
+    /* Добавьте отступ между элементами списка */
 }
 
 .pager .previous {
-    float: left; /* Выравниваем "Previous" слева */
+    float: left;
+    /* Выравниваем "Previous" слева */
 }
 
 .pager .next {
-    float: right; /* Выравниваем "Next" справа */
+    float: right;
+    /* Выравниваем "Next" справа */
 }
+
 .pager .previous a,
 .pager .next a {
-    padding: 5px 35px; /* Уменьшаем отступы кнопок */
+    padding: 5px 35px;
+    /* Уменьшаем отступы кнопок */
 }
+
 .pager .previous {
-    margin-left: 300px; /* Добавляем отступ слева для кнопки "Previous" */
+    margin-left: 300px;
+    /* Добавляем отступ слева для кнопки "Previous" */
 }
 
 .pager .next {
-    margin-right: 300px; /* Добавляем отступ справа для кнопки "Next" */
+    margin-right: 300px;
+    /* Добавляем отступ справа для кнопки "Next" */
 }

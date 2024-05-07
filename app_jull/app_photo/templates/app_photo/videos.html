@@ -1,9 +1,7 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<div class="container mt-3">
+<div class="container">
     <h1>Відео галерея:</h1>
-    </div>
-
 
     <div class="row">
         {% for data in image_data %}
@@ -21,10 +19,12 @@
                     <a href="{% url 'app_photo:download_image' data.id %}" class="btn btn-primary">Download</a>
                 </div>
             </div>
-        </div>
-        {% endif %}
+                {% endif %}
         {% endfor %}
-        <nav>
+        </div>
+    </div>
+</div>
+    <nav class="pagination-nav ">
             <ul class="pager">
 
                 <li class="previous">
@@ -39,6 +39,4 @@
 
             </ul>
         </nav>
-    </div>
-</div>
 {% endblock %}

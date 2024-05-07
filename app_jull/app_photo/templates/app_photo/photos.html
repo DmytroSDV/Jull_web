@@ -1,11 +1,11 @@
 {% extends "users/base_form.html" %}
 {% block content %}
-<div class="container mt-3">
+<div class="container">
     <h1>Фото галерея:</h1>
 
     <div class="row">
         {% for data in image_data %}
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-top: 20px;">
             <div class="card" style="width: 18rem;">
                 {% if data.file_type == 'image' %}
                      <img src="{{ data.url }}" class="card-img-top" alt="{{ data.description }}">
@@ -19,7 +19,9 @@
         </div>
         {% endif %}
         {% endfor %}
-        <nav>
+    </div>
+</div>
+<nav class="pagination-nav ">
             <ul class="pager">
 
                 <li class="previous">
@@ -33,7 +35,5 @@
                 </li>
 
             </ul>
-        </nav>
-    </div>
-</div>
+</nav>
 {% endblock %}
