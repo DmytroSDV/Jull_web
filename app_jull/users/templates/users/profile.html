@@ -70,20 +70,21 @@
             <div class="memberHeader-content">
                 <div class="memberHeader-stats">
                     <div class="pairJustifier">
-<dl class="pairs pairs--rows pairs--rows--centered fauxBlockLink">
-    <dt>Photos</dt>
-    <dd>
-        <a href="/search/member?user_id=403" class="fauxBlockLink-linkRow u-concealed">
-            0
-        </a>
-    </dd>
-</dl>
-<dl class="pairs pairs--rows pairs--rows--centered">
-    <dt>Contacts</dt>
-    <dd>
-        0
-    </dd>
-</dl>
+                        <dl class="pairs pairs--rows pairs--rows--centered fauxBlockLink">
+                            <dt>Photos</dt>
+                            <dd>
+                                <a href="" class="fauxBlockLink-linkRow u-concealed">
+                                    {{ photos_count }}
+                                </a>
+                            </dd>
+                        </dl>
+                        <dl class="pairs pairs--rows pairs--rows--centered">
+                            <dt>Contacts</dt>
+                            <dd>
+                                {{ contacts_count }}
+                            </dd>
+                        </dl>
+                        
                     </div>
                 </div>             
                     <hr class="memberHeader-separator">                
@@ -102,15 +103,17 @@
                             <dl class="pairs pairs--inline">
                                 <dt>Activity</dt>
                                 <dd dir="auto">
-                                    <time class="u-dt" dir="auto" datetime="{{ user.last_login|date:"Y-m-d\TH:i:sP" }}" data-time="{{ user.last_login|date:"U" }}" data-date-string="{{ user.last_login|date:"j M Y" }}" data-time-string="{{ user.last_login|date:"H:i" }}" title="{{ user.last_login|date:"j M Y в H:i" }}">
-                                        {% if user.last_login|date:"Y-m-d" == today %}
-                                            Сегодня в {{ user.last_login|date:"H:i" }}
-                                        {% elif user.last_login|date:"Y-m-d" == yesterday %}
-                                            Вчера в {{ user.last_login|date:"H:i" }}
+                                    <time class="u-dt" dir="auto" datetime="{{ current_time|date:"Y-m-d\TH:i:sP" }}" data-time="{{ current_time|date:"U" }}" data-date-string="{{ current_time|date:"j M Y" }}" data-time-string="{{ current_time|date:"H:i" }}" title="{{ current_time|date:"j M Y в H:i" }}">
+                                        {% if current_time.date == today %}
+                                            Today in {{ current_time|date:"H:i" }}
+                                        {% elif current_time.date == yesterday %}
+                                            Yesterday in  {{ current_time|date:"H:i" }}
                                         {% else %}
-                                            {{ user.last_login|date:"j M Y в H:i" }}
+                                            {{ current_time|date:"j M Y в H:i" }}
                                         {% endif %}
                                     </time>
+                                    
+                                    
                                     <span role="presentation" aria-hidden="true">·</span> 
                                     Views the user profile 
                                     <em>
