@@ -39,7 +39,7 @@ def get_file_type(url):
 
 
 def upload(request):
-
+    user = request.user
     if request.method == 'POST':
         form = FormPicture(request.POST, request.FILES)
         if form.is_valid():
@@ -53,6 +53,7 @@ def upload(request):
                 picture = form.save(commit=False)
                 picture.description = form.cleaned_data['description']
                 picture.image = uploaded_file['secure_url']  # URL загруженного файла
+                picture.user=user
                 picture.save()
                 form.add_error('image','File was successfully uploaded')
 
@@ -105,7 +106,8 @@ def download_image(request, image_id):
         return HttpResponse("Error: " + str(e))
 
 def show_all_photo(request,page=1):
-    images = Picture.objects.all()
+    user=request.user
+    images = Picture.objects.filter(user=user)
 
     image_data = [
         {
@@ -128,8 +130,8 @@ def show_all_photo(request,page=1):
 
 
 def show_all_video(request, page=1):
-    # Получаем все изображения из базы данных
-    images = Picture.objects.all()
+    user=request.user
+    images = Picture.objects.filter(user=user)
 
     # Фильтруем изображения, оставляя только видеофайлы
     video_images = [
@@ -156,7 +158,8 @@ def show_all_video(request, page=1):
     return render(request, 'app_photo/videos.html', {'image_data': video_images_page})
 
 def show_all_another(request,page=1):
-    images = Picture.objects.all()
+    user = request.user
+    images = Picture.objects.filter(user=user)
 
     image_data = [
         {
@@ -179,7 +182,8 @@ def show_all_another(request,page=1):
 
 
 def show_images(request,page=1):
-    images = Picture.objects.all()
+    user = request.user
+    images = Picture.objects.filter(user=user)
 
     image_data = [
         {
