@@ -47,12 +47,13 @@ def upload(request):
             file = request.FILES.get('image')
             if file:
                 # Загружаем файл на Cloudinary
-                uploaded_file = cloudinary.uploader.upload(file, resource_type="raw")  # Указываем тип файла как "raw"
+                uploaded_file = cloudinary.uploader.upload(file, resource_type="raw")
 
                 # Сохраняем описание и URL загруженного файла в модели Picture
                 picture = form.save(commit=False)
                 picture.description = form.cleaned_data['description']
                 picture.image = uploaded_file['secure_url']  # URL загруженного файла
+                picture.user=request.user
                 picture.save()
                 form.add_error('image','File was successfully uploaded')
 
@@ -105,7 +106,8 @@ def download_image(request, image_id):
         return HttpResponse("Error: " + str(e))
 
 def show_all_photo(request,page=1):
-    images = Picture.objects.all()
+    user=request.user
+    images = Picture.objects.filter(user=user)
 
     image_data = [
         {
@@ -128,8 +130,9 @@ def show_all_photo(request,page=1):
 
 
 def show_all_video(request, page=1):
+    user=request.user
     # Получаем все изображения из базы данных
-    images = Picture.objects.all()
+    images = Picture.objects.filter(user=user)
 
     # Фильтруем изображения, оставляя только видеофайлы
     video_images = [
@@ -156,7 +159,8 @@ def show_all_video(request, page=1):
     return render(request, 'app_photo/videos.html', {'image_data': video_images_page})
 
 def show_all_another(request,page=1):
-    images = Picture.objects.all()
+    user = request.user
+    images = Picture.objects.filter(user=user)
 
     image_data = [
         {
@@ -179,7 +183,8 @@ def show_all_another(request,page=1):
 
 
 def show_images(request,page=1):
-    images = Picture.objects.all()
+    user = request.user
+    images = Picture.objects.filter(user=user)
 
     image_data = [
         {
