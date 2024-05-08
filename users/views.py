@@ -10,14 +10,13 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db.models import Q
-from threading import Timer
 from datetime import datetime, timedelta
 
 
 from .forms import SignUpForm, LoginForm, ProfileForm, ContactForm
 from .models import Profile, Contact
 from django.utils import timezone
-
+from app_photo.models import Picture
 today = timezone.now().date()
 yesterday = today - timezone.timedelta(days=1)
 
@@ -66,12 +65,22 @@ def logoutuser(request):
     return redirect(to="news:index")
 
 
+today = timezone.now().date()
+yesterday = today - timezone.timedelta(days=1)
+
 @login_required
 def profile(request):
+    user = request.user
+    contacts_count = Contact.objects.filter(user=user).count()
+    current_time = datetime.now()
     try:
         profile = request.user.profile
     except Profile.DoesNotExist:
         profile = Profile.objects.create(user=request.user)
+
+
+    user.last_profile_visit = timezone.now()
+    user.save()
 
     if request.method == "POST":
         profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
@@ -81,8 +90,15 @@ def profile(request):
             return redirect("users:profile")
     else:
         profile_form = ProfileForm(instance=profile)
-
-    return render(request, "users/profile.html", context={"profile": profile, "profile_form": profile_form})
+    last_login_time = user.last_login
+    context = {
+        "profile": profile,
+        "profile_form": profile_form,
+        "contacts_count": contacts_count,
+        "last_login_time": last_login_time,
+        "current_time": current_time,
+    }
+    return render(request, "users/profile.html", context=context)
 
 
 @login_required
