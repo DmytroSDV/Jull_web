@@ -41,7 +41,7 @@
                     document.getElementById('success-message').style.display = 'block';
                     setTimeout(function () {
                         window.location.href = '{% url "users:contacts" %}';
-                    }, 3000);
+                    }, 1000);
                 } else {
                     console.error('Error deleting contact:', response.statusText);
                 }

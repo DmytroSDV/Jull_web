@@ -1,0 +1,153 @@
+{% extends "users/base_form.html" %}
+{% block content %}
+{%load static%}
+<style>
+.choose-new-avatar {
+    margin-top: 10px;
+    margin-right: 5px;
+    color: #ffffff;
+    background-color: #1b2025;
+    border: none; 
+    border-radius: 20px; 
+    padding: 10px 20px;
+    display: inline-block; 
+    text-decoration: none; 
+    width: 150px;
+}
+
+.choose-new-avatar:hover {
+    background-color: #aa7606;
+}
+
+
+
+.nick-name {
+    color: #ecebea;
+    text-decoration: underline;
+}
+
+.nick-name:hover {
+    text-decoration: underline;
+    color: #dba81c;
+}
+
+</style>
+<div class="block-container ">
+    <div class="block-body ">
+        <div class="row justify-content-center"></div>
+        <div class="memberHeader ">          
+        <div class="memberProfileBanner memberHeader-main memberProfileBanner-u403-l" data-toggle-class="memberHeader--withBanner">
+                <div class="memberHeader-mainContent">
+                    <span class="memberHeader-avatar">
+                        <span class="avatarWrapper">
+                            <div class="avatar-container">
+                                {% if profile.avatar %}
+                                <img src="{{ profile.avatar }}" alt="Avatar of user" class="avatar-img img-fluid rounded-circle">
+                                {% else %}
+                                <img src="{% static 'avatar.ico' %}" alt="Avatar of user" class="avatar-img img-fluid rounded-circle">
+                                {% endif %}
+                            </div>
+                            <div>
+                                <a class="choose-new-avatar" href="{% url 'users:change_avatar_profile' %}">Change the avatar</a>                        
+                            </div>    
+                        </span>
+                    </span>
+                    <div class="memberHeader-content memberHeader-content--info">
+                        <div class="memberHeader-actionTop"> 
+                                                                             
+                        </div>
+                    <h1 class="memberHeader-name">
+                        <span class="memberHeader-nameWrapper">
+                            <span class="username " dir="auto" itemprop="name" data-user-id="403"><span class=" is-stroked" data-stroke="333Phantom333"><span>{{user.username}}</span></span></span>
+                        </span>      
+                    </h1>    
+                    <div class="memberHeader-blurbContainer">
+                        <div class="memberHeader-blurb" dir="auto">{{user.date_of_birth}}</div>                   
+                    </div>                  
+                </div>
+                </div>
+            </div>    
+            <div class="memberHeader-content">
+                <div class="memberHeader-stats">
+                    <div class="pairJustifier">
+                        <dl class="pairs pairs--rows pairs--rows--centered fauxBlockLink">
+                            <dt>Photos</dt>
+                            <dd>
+                                <a href="" class="fauxBlockLink-linkRow u-concealed">
+                                    {{ photos_count }}
+                                </a>
+                            </dd>
+                        </dl>
+                        <dl class="pairs pairs--rows pairs--rows--centered">
+                            <dt>Contacts</dt>
+                            <dd>
+                                {{ contacts_count }}
+                            </dd>
+                        </dl>
+                        
+                    </div>
+                </div>             
+                    <hr class="memberHeader-separator">                
+                    <div class="uix_memberHeader__extra">
+                        <div class="memberHeader-blurb">
+                            <dl class="pairs pairs--inline">
+                                <dt>Registration</dt>
+                                <dd>
+                                    <time class="u-dt" dir="auto" datetime="{{ user.date_joined|date:"Y-m-d\TH:i:sP" }}" data-time="{{ user.date_joined|date:"U" }}" data-date-string="{{ user.date_joined|date:"j M Y" }}" data-time-string="{{ user.date_joined|date:"H:i" }}" title="{{ user.date_joined|date:"j M Y в H:i" }}">
+                                        {{ user.date_joined|date:"j M Y в H:i" }}
+                                    </time>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="memberHeader-blurb">
+                            <dl class="pairs pairs--inline">
+                                <dt>Activity</dt>
+                                <dd dir="auto">
+                                    <time class="u-dt" dir="auto" datetime="{{ current_time|date:"Y-m-d\TH:i:sP" }}" data-time="{{ current_time|date:"U" }}" data-date-string="{{ current_time|date:"j M Y" }}" data-time-string="{{ current_time|date:"H:i" }}" title="{{ current_time|date:"j M Y в H:i" }}">
+                                        {% if current_time.date == today %}
+                                            Today in {{ current_time|date:"H:i" }}
+                                        {% elif current_time.date == yesterday %}
+                                            Yesterday in  {{ current_time|date:"H:i" }}
+                                        {% else %}
+                                            {{ current_time|date:"j M Y в H:i" }}
+                                        {% endif %}
+                                    </time>
+                                    
+                                    
+                                    <span role="presentation" aria-hidden="true">·</span> 
+                                    Views the user profile 
+                                    <em>
+                                        <a href="{% url 'users:profile' %}" dir="auto" class="nick-name">
+                                            {{ user.username }}
+                                        </a>
+                                    </em>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    
+                                 
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.getElementById('file-button').addEventListener('click', function() {
+    document.getElementById('id_avatar').click();
+});
+</script>   
+<script>
+    document.querySelector('.menuTrigger').addEventListener('click', function() {
+        var menu = this.nextElementSibling;
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function(event) {
+        var menu = document.querySelector('.menu');
+        if (!menu.contains(event.target)) {
+            menu.style.display = 'none';
+        }
+    });
+</script>
+{% endblock %}
+

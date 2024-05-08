@@ -8,8 +8,8 @@
                 <div class="card-header">
                     <h2 class="text-center">Sign Up</h2>
                     <button type="button" class="close" aria-label="Close" onclick="redirectToHome()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        <span aria-hidden="true" style="font-weight: bold;">&times;</span>
+                    </button>  
                 </div>
                 <div class="card-body">
                     <form method="post" id="signup-form" class="signup-form needs-validation" novalidate>
@@ -72,66 +72,6 @@
         </div>
     </div>
 </div>
-<script>
-
-$(document).ready(function() {
-    $('.btns-show-pass').click(function() {
-        var passwordInput = $($(this).data('target'));
-        if (passwordInput.attr('type') === 'password') {
-            passwordInput.attr('type', 'text');
-            $(this).html('<i class="fa fa-eye"></i> Hide Password');
-        } else {
-            passwordInput.attr('type', 'password');
-            $(this).html('<i class="fa fa-eye-slash"></i> Show Password');
-        }
-    });
-    $('#id_password1').on('input', function() {
-        var password = $(this).val();
-        var result = zxcvbn(password);
-        var progressBar = $('#password-strength-meter .progress-bar');
-        var strengthText = $('#password-strength-text');
-        progressBar.css('width', result.score * 25 + '%');
-        progressBar.attr('aria-valuenow', result.score * 25);
-        if (result.score === 0) {
-            progressBar.removeClass('bg-success bg-info bg-warning bg-danger');
-            strengthText.text('The specified password is not reliable enough.');
-        } else if (result.score === 1) {
-            progressBar.removeClass('bg-info bg-warning bg-danger');
-            progressBar.addClass('bg-danger');
-            strengthText.text('The specified password is not a reliable enough.');
-        } else if (result.score === 2) {
-            progressBar.removeClass('bg-warning bg-danger');
-            progressBar.addClass('bg-warning');
-            strengthText.text('This is a fairly reliable password.');
-        } else if (result.score === 3) {
-            progressBar.removeClass('bg-danger');
-            progressBar.addClass('bg-info');
-            strengthText.text('This is a very reliable password.');
-        } else if (result.score === 4) {
-            progressBar.removeClass('bg-warning bg-danger');
-            progressBar.addClass('bg-success');
-            strengthText.text('This is a very reliable password.');
-        }
-    });
-    $('#signup-form').submit(function(e) {
-        var password1 = $('#id_password1').val();
-        var password2 = $('#id_password2').val();
-        if (password1 !== password2) {
-            e.preventDefault();
-            alert('Passwords do not match.');
-            return false;
-        }
-    $('.invalid-feedback').hide();
-        var errors = {{ form.errors.as_json }};
-        for (var field in errors) {
-            if (errors.hasOwnProperty(field)) {
-                var errorMessage = errors[field];
-                $('#id_' + field).next('.invalid-feedback').text(errorMessage).show();
-            }
-        }
-    });
-});
-</script>
 <script>
 document.querySelectorAll('.btns-show-pass').forEach(function(button) {
     button.addEventListener('click', function() {
@@ -255,6 +195,57 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         } else {
             signuptForm.classList.add('was-validated');
+        }
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+    $('.btns-show-pass').click(function() {
+        var passwordInput = $($(this).data('target'));
+        if (passwordInput.attr('type') === 'password') {
+            passwordInput.attr('type', 'text');
+            $(this).html('<i class="fa fa-eye"></i> Hide Password');
+        } else {
+            passwordInput.attr('type', 'password');
+            $(this).html('<i class="fa fa-eye-slash"></i> Show Password');
+        }
+    });
+    $('#id_password1').on('input', function() {
+        var password = $(this).val();
+        var result = zxcvbn(password);
+        var progressBar = $('#password-strength-meter .progress-bar');
+        var strengthText = $('#password-strength-text');
+        progressBar.css('width', result.score * 25 + '%');
+        progressBar.attr('aria-valuenow', result.score * 25);
+        if (result.score === 0) {
+            progressBar.removeClass('bg-success bg-info bg-warning bg-danger');
+            strengthText.text('The specified password is not reliable enough.');
+        } else if (result.score === 1) {
+            progressBar.removeClass('bg-info bg-warning bg-danger');
+            progressBar.addClass('bg-danger');
+            strengthText.text('The specified password is not a reliable enough.');
+        } else if (result.score === 2) {
+            progressBar.removeClass('bg-warning bg-danger');
+            progressBar.addClass('bg-warning');
+            strengthText.text('This is a fairly reliable password.');
+        } else if (result.score === 3) {
+            progressBar.removeClass('bg-danger');
+            progressBar.addClass('bg-info');
+            strengthText.text('This is a very reliable password.');
+        } else if (result.score === 4) {
+            progressBar.removeClass('bg-warning bg-danger');
+            progressBar.addClass('bg-success');
+            strengthText.text('This is a very reliable password.');
+        }
+    });
+    $('#signup-form').submit(function(e) {
+        var password1 = $('#id_password1').val();
+        var password2 = $('#id_password2').val();
+        if (password1 !== password2) {
+            e.preventDefault();
+            alert('Passwords do not match.');
+            return false;
         }
     });
 });

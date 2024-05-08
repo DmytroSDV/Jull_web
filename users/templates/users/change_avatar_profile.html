@@ -1,0 +1,70 @@
+{% extends "users/base_form.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Change Avatar</h2>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'success' %}
+                                <div class="alert alert-success">{{ message }}</div>
+                            {% else %}
+                                <div class="alert alert-danger">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <button type="button" class="close" aria-label="Close" onclick="redirectToHome()">
+                        <span aria-hidden="true" style="font-weight: bold;">&times;</span>
+                    </button>         
+                </div>               
+                <div class="card-body">
+                    <form id="avatar-form" action="{% url 'users:add_avatar_url' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="file" id="id_avatar" name="avatar" class="form-control-file" onchange="previewImage(event)">
+                            <span class="text-danger">{{ profile_form.avatar.errors }}</span>
+                        </div>
+                        <div class="form-group" id="avatar-preview-container" style="display: none;">
+                            <img id="avatar-preview" src="#" alt="Preview"  class="avatar-img img-fluid rounded-circle" style="width: 150px; height: 150px;">
+                        </div>
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <button type="button" class="btn btn-danger ml-2" onclick="resetForm()">Reset</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function redirectToHome() {
+    window.location.href = "{% url 'users:profile' %}";
+}
+</script>
+<script>
+function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+        var output = document.getElementById('avatar-preview');
+        output.src = reader.result;
+        document.getElementById('avatar-preview-container').style.display = 'block';
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+function resetForm() {
+    document.getElementById('avatar-form').reset();
+    document.getElementById('avatar-preview-container').style.display = 'none';
+}
+
+function validateForm() {
+    var fileInput = document.getElementById('id_avatar');
+    if (fileInput.files.length === 0) {
+        alert('Выберите файл, пожалуйста.');
+        return false; // Отменить отправку формы
+    }
+    return true; // Продолжить отправку формы
+}
+</script>
+{% endblock %}
