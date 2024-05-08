@@ -1,15 +1,15 @@
 {% extends "users/base_form.html" %}
 {% block content %}
     <title>Login</title>
-    <div class="container">
+    <div class="container ">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-header">
                         <h2 class="text-center">Login</h2>
                         <button type="button" class="close" aria-label="Close" onclick="redirectToHome()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                            <span aria-hidden="true" style="font-weight: bold;">&times;</span>
+                        </button>  
                     </div>
                     <div class="card-body">
                         {% if messages %}
@@ -74,61 +74,61 @@ document.getElementById('show-password-button').addEventListener('click', functi
 });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var form = document.getElementById('signup-form');
-        var usernameInput = document.getElementById('id_username');
-        var password1Input = document.getElementById('id_password1');
-        var password2Input = document.getElementById('id_password2');
-        var emailInput = document.getElementById('id_email');
-        var dateOfBirthInput = document.getElementById('id_date_of_birth');
-        function checkInput(input) {
-            if (input.value.trim() !== '') {
-                input.classList.add('is-valid');
-            } else {
-                input.classList.remove('is-valid');
-            }
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('signup-form');
+    var usernameInput = document.getElementById('id_username');
+    var password1Input = document.getElementById('id_password1');
+    var password2Input = document.getElementById('id_password2');
+    var emailInput = document.getElementById('id_email');
+    var dateOfBirthInput = document.getElementById('id_date_of_birth');
+    function checkInput(input) {
+        if (input.value.trim() !== '') {
+            input.classList.add('is-valid');
+        } else {
+            input.classList.remove('is-valid');
         }
-        [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
-            input.addEventListener('input', function() {
-                checkInput(input);
-            });
-        });
-        form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-            [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
-                checkInput(input);
-            });
-    
-            if (password1Input.value !== password2Input.value) {
-                password2Input.setCustomValidity('Passwords do not match.');
-            } else {
-                password2Input.setCustomValidity('');
-            }
-    
-            var today = new Date();
-            var birthDate = new Date(dateOfBirthInput.value);
-            var age = today.getFullYear() - birthDate.getFullYear();
-            var m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            if (age < 14) {
-                dateOfBirthInput.setCustomValidity('You must be at least 14 years old.');
-            } else {
-                dateOfBirthInput.setCustomValidity('');
-            }
-            if (!emailInput.checkValidity()) {
-                emailInput.setCustomValidity('Please provide a valid email address.');
-            } else {
-                emailInput.setCustomValidity('');
-            }
+    }
+    [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
+        input.addEventListener('input', function() {
+            checkInput(input);
         });
     });
-    </script> 
+    form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+        [usernameInput, password1Input, password2Input, emailInput, dateOfBirthInput].forEach(function(input) {
+            checkInput(input);
+        });
+
+        if (password1Input.value !== password2Input.value) {
+            password2Input.setCustomValidity('Passwords do not match.');
+        } else {
+            password2Input.setCustomValidity('');
+        }
+
+        var today = new Date();
+        var birthDate = new Date(dateOfBirthInput.value);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        if (age < 14) {
+            dateOfBirthInput.setCustomValidity('You must be at least 14 years old.');
+        } else {
+            dateOfBirthInput.setCustomValidity('');
+        }
+        if (!emailInput.checkValidity()) {
+            emailInput.setCustomValidity('Please provide a valid email address.');
+        } else {
+            emailInput.setCustomValidity('');
+        }
+    });
+});
+</script> 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var rememberMeCheckbox = document.getElementById('remember-me');

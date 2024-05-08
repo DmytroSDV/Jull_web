@@ -10,13 +10,16 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db.models import Q
-
+from threading import Timer
 from datetime import datetime, timedelta
 
 
 from .forms import SignUpForm, LoginForm, ProfileForm, ContactForm
 from .models import Profile, Contact
+from django.utils import timezone
 
+today = timezone.now().date()
+yesterday = today - timezone.timedelta(days=1)
 
 def signup(request):
     if request.method == "POST":
@@ -132,7 +135,7 @@ def contact_delete(request, pk):
 
         contact.delete()
 
-        messages.success(request, 'Contact successfully deleted.')
+        # messages.success(request, 'Contact successfully deleted.')
         
         return redirect("users:contacts")
     
@@ -194,13 +197,15 @@ def add_avatar(request):
             profile = Profile.objects.get_or_create(user=user)[0]
             profile.avatar = uploaded_file['url']
             profile.save()
+            messages.success(request, "Avatar successfully changed", extra_tags='success')
             return redirect('users:profile')
         else:
-            print(form.errors)
-    return HttpResponse("Method not allowed", status=405)
+            messages.error(request, "You didn't choose the file")
+    return render(request, "users/change_avatar_profile.html")
 
 
-
+def choose_new_avatar(request):
+    return render(request, "users/change_avatar_profile.html")
 
 
 def some_view(request):
