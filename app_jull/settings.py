@@ -51,11 +51,9 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DEBUG = False
 
 
-ALLOWED_HOSTS = ["*"]
-# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(
-#     ","
-# )
-# CSRF_TRUSTED_ORIGINS = ["https://*.mydomain.com"]
+# ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["jull-assistant-webworld-03976c86.koyeb.app"]
+CSRF_TRUSTED_ORIGINS = ["https://jull-assistant-webworld-03976c86.koyeb.app/"]
 
 
 # Application definition
