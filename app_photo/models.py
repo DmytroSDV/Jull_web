@@ -3,7 +3,7 @@ from cloudinary.models import CloudinaryField
 
 
 
-
+# Create your models here.
 
 
 class Picture(models.Model):
