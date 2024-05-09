@@ -52,7 +52,7 @@ DEBUG = False
 
 
 # ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ["jull-assistant-webworld-03976c86.koyeb.app"]
+ALLOWED_HOSTS = ["jull-assistant-webworld-03976c86.koyeb.app", "localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = ["https://jull-assistant-webworld-03976c86.koyeb.app/"]
 
 
