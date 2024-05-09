@@ -1,4 +1,4 @@
-## Python web team project 'Jull assistant' <a><img src="https://github.com/DmytroSDV/Jull_web/blob/main/app_jull/static/web_world.ico"></a>:
+## Python web team project 'Jull assistant' <a><img src="https://github.com/DmytroSDV/Jull_web/blob/main/static/web_world.ico"></a>:
 ### Usage:
   - From the root folder where pyproject.toml exist run command:
     
