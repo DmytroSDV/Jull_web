@@ -9,7 +9,8 @@ from django.contrib import messages
 
 
 def show_notes(request,page=1):
-    notes = Note.objects.all()
+    user=request.user
+    notes = Note.objects.filter(user=user)
     paginator = Paginator(notes, 5)
     try:
         notes = paginator.page(page)
@@ -60,11 +61,10 @@ def add_notes(request):
         form = NoteForm(request.POST)
         if form.is_valid():
             note = form.save(commit=False)
-            print('Note', note)
+            note.user = request.user
             note.save()
             tag_data = form.cleaned_data['tags']
             tag_names = tag_data.split()  # Перетворити рядок тегів на список
-            print("Tags:", tag_names)
             for tag_name in tag_names:
                 tag, created = Tag.objects.get_or_create(tag=tag_name.strip())
                 note.tags.add(tag)  # Додати тег до запису
@@ -92,7 +92,8 @@ def search_notes(request):
 
 
 def notes_by_tag(request, tag):
-    notes = Note.objects.filter(tags__tag__iexact=tag)
+    user = request.user
+    notes = Note.objects.filter(tags__tag__iexact=tag, user=user)
     if not notes.exists():
         messages.info(request, f'Заметок с тегом "{tag}" не найдено.')
     return render(request, 'notes/notes_by_tag.html', {'notes': notes, 'tag': tag})
