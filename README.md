@@ -3,7 +3,7 @@
   - From the root folder where pyproject.toml exist run command:
     
         poetry install --no-root 
-  - Run postgres and redіs docker containers with command:
+  - Run postgres and rediss docker containers with command:
 
         docker compose up -d
   - Make migrations by executing two commands from \app_jull\manage.py
