@@ -1,9 +1,9 @@
-## Python web team project 'Jull assistant' <a><img src="https://github.com/DmytroSDV/Jull_web/blob/main/app_jull/static/web_world.ico"></a>:
+## Python web team project 'Jull assistant' <a><img src="https://github.com/DmytroSDV/Jull_web/blob/main/static/web_world.ico"></a>:
 ### Usage:
   - From the root folder where pyproject.toml exist run command:
     
         poetry install --no-root 
-  - Run postgres and reds docker containers with command:
+  - Run postgres and redіs docker containers with command:
 
         docker compose up -d
   - Make migrations by executing two commands from \app_jull\manage.py
